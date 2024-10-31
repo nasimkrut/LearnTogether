@@ -24,7 +24,7 @@ public class UsersRepository(UserDbContext context) : IUsersRepository
 
     public async Task<Guid> Create(User user)
     {
-        var UserEntity = new UserEntity
+        var userEntity = new UserEntity
         {
             Id = user.Id,
             Name = user.Name,
@@ -35,7 +35,7 @@ public class UsersRepository(UserDbContext context) : IUsersRepository
             Role = user.Role,
         };
 
-        await _context.Users.AddAsync(UserEntity);
+        await _context.Users.AddAsync(userEntity);
         await _context.SaveChangesAsync();
 
         return user.Id;
@@ -44,7 +44,7 @@ public class UsersRepository(UserDbContext context) : IUsersRepository
     public async Task<Guid> Update(Guid id, string name, string email, string password, string avatarUrl, double rating,
         string role)
     {
-        _context.Users
+        await _context.Users
             .Where(b => b.Id == id)
             .ExecuteUpdateAsync(s => s
                 .SetProperty(b => b.Name, b => name)

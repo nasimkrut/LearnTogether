@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BDrHlO2AtpGoDf4A+3VEd4Roq2NDbenGcOwG6Nq1lRqq62hJ2uUm+UcH0pWA1eRxA7otD2eo+H3m0eFibT0PWQ==",
+  "dgSpecHash": "vmPEUldg9GmeEDYv43GY66t1IPfssRPm9WK/Ic+wfF0tvWoRksBiDndh7xtvHpnXlSN0jEb3Nrahxoi1S6kqLg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nasim\\LeatnTogether\\UserCabinetBackend\\UserCabinet.Core\\UserCabinet.Core.csproj",
+  "projectFilePath": "C:\\Users\\Nasim\\LeatnTogether\\LearnTogether\\UserCabinetBackend\\UserCabinet.Core\\UserCabinet.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nasim\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Nasim\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",

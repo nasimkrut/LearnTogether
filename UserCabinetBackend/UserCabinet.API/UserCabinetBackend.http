@@ -1,4 +1,4 @@
-@UserCabinetBackend_HostAddress = http://localhost:5267
+@UserCabinetBackend_HostAddress = http://localhost:5432
 
 GET {{UserCabinetBackend_HostAddress}}/weatherforecast/
 Accept: application/json

@@ -2752,11 +2752,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nasim\\LeatnTogether\\UserCabinetBackend\\UserCabinet.Core\\UserCabinet.Core.csproj",
+      "projectUniqueName": "C:\\Users\\Nasim\\LeatnTogether\\LearnTogether\\UserCabinetBackend\\UserCabinet.Core\\UserCabinet.Core.csproj",
       "projectName": "UserCabinet.Core",
-      "projectPath": "C:\\Users\\Nasim\\LeatnTogether\\UserCabinetBackend\\UserCabinet.Core\\UserCabinet.Core.csproj",
+      "projectPath": "C:\\Users\\Nasim\\LeatnTogether\\LearnTogether\\UserCabinetBackend\\UserCabinet.Core\\UserCabinet.Core.csproj",
       "packagesPath": "C:\\Users\\Nasim\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nasim\\LeatnTogether\\UserCabinetBackend\\UserCabinet.Core\\obj\\",
+      "outputPath": "C:\\Users\\Nasim\\LeatnTogether\\LearnTogether\\UserCabinetBackend\\UserCabinet.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

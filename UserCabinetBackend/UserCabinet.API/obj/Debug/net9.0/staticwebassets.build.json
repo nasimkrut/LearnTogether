@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "lJsWbdzba0Mq2HvqFFT8JvRTbtbWuh/W9Oyrzf0lRJc=",
-  "Source": "UserCabinetBackend",
-  "BasePath": "_content/UserCabinetBackend",
+  "Hash": "q3VwuYXQ3pkFCnnClbBgBQVIcHDcN6AI+B+8/R8m4lo=",
+  "Source": "UserCabinet.API",
+  "BasePath": "_content/UserCabinet.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

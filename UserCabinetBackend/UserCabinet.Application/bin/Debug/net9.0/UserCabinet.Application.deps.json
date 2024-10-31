@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "UserCabinet.Application/1.0.0": {
+        "dependencies": {
+          "UserCabinet.Core": "1.0.0"
+        },
+        "runtime": {
+          "UserCabinet.Application.dll": {}
+        }
+      },
+      "UserCabinet.Core/1.0.0": {
+        "runtime": {
+          "UserCabinet.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "UserCabinet.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UserCabinet.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

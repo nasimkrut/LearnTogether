@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nasim\\LeatnTogether\\UserCabinetBackend\\UserCabinet.DataAccess\\UserCabinet.DataAccess.csproj": {}
+    "C:\\Users\\Nasim\\LeatnTogether\\LearnTogether\\UserCabinetBackend\\UserCabinet.DataAccess\\UserCabinet.DataAccess.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nasim\\LeatnTogether\\UserCabinetBackend\\UserCabinet.Core\\UserCabinet.Core.csproj": {
+    "C:\\Users\\Nasim\\LeatnTogether\\LearnTogether\\UserCabinetBackend\\UserCabinet.Core\\UserCabinet.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nasim\\LeatnTogether\\UserCabinetBackend\\UserCabinet.Core\\UserCabinet.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Nasim\\LeatnTogether\\LearnTogether\\UserCabinetBackend\\UserCabinet.Core\\UserCabinet.Core.csproj",
         "projectName": "UserCabinet.Core",
-        "projectPath": "C:\\Users\\Nasim\\LeatnTogether\\UserCabinetBackend\\UserCabinet.Core\\UserCabinet.Core.csproj",
+        "projectPath": "C:\\Users\\Nasim\\LeatnTogether\\LearnTogether\\UserCabinetBackend\\UserCabinet.Core\\UserCabinet.Core.csproj",
         "packagesPath": "C:\\Users\\Nasim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nasim\\LeatnTogether\\UserCabinetBackend\\UserCabinet.Core\\obj\\",
+        "outputPath": "C:\\Users\\Nasim\\LeatnTogether\\LearnTogether\\UserCabinetBackend\\UserCabinet.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -77,14 +77,14 @@
         }
       }
     },
-    "C:\\Users\\Nasim\\LeatnTogether\\UserCabinetBackend\\UserCabinet.DataAccess\\UserCabinet.DataAccess.csproj": {
+    "C:\\Users\\Nasim\\LeatnTogether\\LearnTogether\\UserCabinetBackend\\UserCabinet.DataAccess\\UserCabinet.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nasim\\LeatnTogether\\UserCabinetBackend\\UserCabinet.DataAccess\\UserCabinet.DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\Nasim\\LeatnTogether\\LearnTogether\\UserCabinetBackend\\UserCabinet.DataAccess\\UserCabinet.DataAccess.csproj",
         "projectName": "UserCabinet.DataAccess",
-        "projectPath": "C:\\Users\\Nasim\\LeatnTogether\\UserCabinetBackend\\UserCabinet.DataAccess\\UserCabinet.DataAccess.csproj",
+        "projectPath": "C:\\Users\\Nasim\\LeatnTogether\\LearnTogether\\UserCabinetBackend\\UserCabinet.DataAccess\\UserCabinet.DataAccess.csproj",
         "packagesPath": "C:\\Users\\Nasim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nasim\\LeatnTogether\\UserCabinetBackend\\UserCabinet.DataAccess\\obj\\",
+        "outputPath": "C:\\Users\\Nasim\\LeatnTogether\\LearnTogether\\UserCabinetBackend\\UserCabinet.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -106,8 +106,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\Nasim\\LeatnTogether\\UserCabinetBackend\\UserCabinet.Core\\UserCabinet.Core.csproj": {
-                "projectPath": "C:\\Users\\Nasim\\LeatnTogether\\UserCabinetBackend\\UserCabinet.Core\\UserCabinet.Core.csproj"
+              "C:\\Users\\Nasim\\LeatnTogether\\LearnTogether\\UserCabinetBackend\\UserCabinet.Core\\UserCabinet.Core.csproj": {
+                "projectPath": "C:\\Users\\Nasim\\LeatnTogether\\LearnTogether\\UserCabinetBackend\\UserCabinet.Core\\UserCabinet.Core.csproj"
               }
             }
           }
