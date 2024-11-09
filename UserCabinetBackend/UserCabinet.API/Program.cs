@@ -9,14 +9,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<UserDbContext>(
+builder.Services.AddDbContext<ApplicationDbContext>(
     options =>
     {
-        options.UseNpgsql(builder.Configuration.GetConnectionString(nameof(UserDbContext)));
+        options.UseNpgsql(builder.Configuration.GetConnectionString(nameof(ApplicationDbContext)));
     });
 
-builder.Services.AddScoped<IUserServices, UserServices>();
-builder.Services.AddScoped<IUsersRepository, UsersRepository>();
+// builder.Services.AddScoped<IUserServices, UserServices>();
+// builder.Services.AddScoped<IUsersRepository, UsersRepository>();
 
 var app = builder.Build();
 

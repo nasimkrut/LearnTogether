@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UserCabinet.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5e38fa9db202b739dd02d40250469c56f4326b63")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd821bbc71dc5ed55f3e322bc920e35065ff1e07")]
 [assembly: System.Reflection.AssemblyProductAttribute("UserCabinet.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UserCabinet.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

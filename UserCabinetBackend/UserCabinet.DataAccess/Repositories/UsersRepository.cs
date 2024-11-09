@@ -5,9 +5,9 @@ using UserCabinet.DataAccess.Entites;
 
 namespace UserCabinet.DataAccess.Repositories;
 
-public class UsersRepository(UserDbContext context) : IUsersRepository
+public class UsersRepository(ApplicationDbContext context) : IUsersRepository
 {
-    private readonly UserDbContext _context = context;
+    private readonly ApplicationDbContext _context = context;
 
     public async Task<List<User>> Get()
     {

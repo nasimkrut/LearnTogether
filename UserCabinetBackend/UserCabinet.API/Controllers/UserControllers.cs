@@ -1,29 +1,22 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using UserCabinetBackend.Contracts;
-using UserCabinet.Application.Services;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace UserCabinetBackend.Controllers;
 
 [ApiController]
-[Route("[controller]")]
-public class UsersController
+[Route("api/[controller]")]
+public class UserController : ControllerBase
 {
-    private readonly IUserServices _userServices;
+    private readonly IUserService _userService;
 
-    public UsersController(IUserServices userServices)
+    public UserController(IUserService userService)
     {
-        _userServices = userServices;
+        _userService = userService;
     }
 
-    [HttpGet]
-    public async Task<ActionResult<List<UserResponse>>> GetUsers()
+    [HttpPost("register")]
+    public async Task<IActionResult> Register(UserDto userDto)
     {
-        var users = await _userServices.GetAllUsers();
-
-        var response = users.Select(user =>
-            new UserResponse(user.Id, user.Name, user.Email, user.Password, user.AvatarUrl, user.Rating, user.Role));
-        
-        return new OkObjectResult(response);
+        var result = await _userService.RegisterUserAsync(userDto);
+        return result ? Ok("User registered successfully") : BadRequest("User already exists");
     }
 }

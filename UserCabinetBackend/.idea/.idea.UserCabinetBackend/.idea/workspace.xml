@@ -13,68 +13,93 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87a6f4f3-7ebc-4e88-849f-92b3531ec467" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserCabinet.API/Contracts/UserResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserCabinet.API/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserCabinet.API/obj/UserCabinet.API.csproj.EntityFrameworkCore.targets" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserCabinet.Application/Services/UserServices.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserCabinet.Core/Abstractions/IUserServices.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.Infrastructure/PasswordHash.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.Infrastructure/User.Infrastructure.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.Infrastructure/obj/Debug/net9.0/.NETCoreApp,Version=v9.0.AssemblyAttributes.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.Infrastructure/obj/Debug/net9.0/User.Infrastructure.AssemblyInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.Infrastructure/obj/Debug/net9.0/User.Infrastructure.AssemblyInfoInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.Infrastructure/obj/Debug/net9.0/User.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.Infrastructure/obj/Debug/net9.0/User.Infrastructure.GlobalUsings.g.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.Infrastructure/obj/Debug/net9.0/User.Infrastructure.assets.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.Infrastructure/obj/Debug/net9.0/User.Infrastructure.csproj.AssemblyReference.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.Infrastructure/obj/Debug/net9.0/UserInfrastructure.AssemblyInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.Infrastructure/obj/Debug/net9.0/UserInfrastructure.AssemblyInfoInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.Infrastructure/obj/Debug/net9.0/UserInfrastructure.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.Infrastructure/obj/Debug/net9.0/UserInfrastructure.GlobalUsings.g.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.Infrastructure/obj/Debug/net9.0/UserInfrastructure.assets.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.Infrastructure/obj/User.Infrastructure.csproj.nuget.dgspec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.Infrastructure/obj/User.Infrastructure.csproj.nuget.g.props" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.Infrastructure/obj/User.Infrastructure.csproj.nuget.g.targets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.Infrastructure/obj/UserInfrastructure.csproj.nuget.dgspec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.Infrastructure/obj/UserInfrastructure.csproj.nuget.g.props" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.Infrastructure/obj/UserInfrastructure.csproj.nuget.g.targets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.Infrastructure/obj/project.assets.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.Infrastructure/obj/project.nuget.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.Infrastructure/obj/project.packagespec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.Infrastructure/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.Infrastructure/obj/rider.project.restore.info" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserCabinet.API/Contracts/UserRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserCabinet.API/Endpoints/UsersEndpoints.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserCabinet.Core/Abstractions/Auth/IPasswordHash.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UserCabinetBackend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UserCabinetBackend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.API/Controllers/controllers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/Controllers/UserControllers.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.API/Contracts/UserResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/Contracts/UserResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.API/Controllers/UserControllers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/Controllers/UserControllers.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserCabinet.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.API/UserCabinet.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/UserCabinet.API.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.API/UserCabinetBackend.http" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/UserCabinetBackend.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.API/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Abstractions.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Abstractions.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Relational.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Relational.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/Microsoft.OpenApi.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/Microsoft.OpenApi.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/Swashbuckle.AspNetCore.Swagger.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/Swashbuckle.AspNetCore.Swagger.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/UserCabinet.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/UserCabinet.API.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/UserCabinet.API.exe" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/UserCabinet.API.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/UserCabinet.API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/UserCabinet.API.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/UserCabinet.DataAccess.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/UserCabinet.DataAccess.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/UserCabinet.DataAccess.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/bin/Debug/net9.0/UserCabinet.DataAccess.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserCabinet.API/obj/Debug/net9.0/UserCabinet.API.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/obj/Debug/net9.0/UserCabinet.API.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserCabinet.API/obj/Debug/net9.0/UserCabinet.API.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/obj/Debug/net9.0/UserCabinet.API.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.API/obj/Debug/net9.0/UserCabinet.API.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/obj/Debug/net9.0/UserCabinet.API.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.API/obj/Debug/net9.0/UserCabinet.API.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/obj/Debug/net9.0/UserCabinet.API.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserCabinet.API/obj/Debug/net9.0/UserCabinet.API.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/obj/Debug/net9.0/UserCabinet.API.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.API/obj/Debug/net9.0/UserCabinet.API.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/obj/Debug/net9.0/UserCabinet.API.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.API/obj/Debug/net9.0/UserCabinet.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/obj/Debug/net9.0/UserCabinet.API.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.API/obj/Debug/net9.0/UserCabinet.API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/obj/Debug/net9.0/UserCabinet.API.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.API/obj/Debug/net9.0/UserCabinet.API.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/obj/Debug/net9.0/UserCabinet.API.sourcelink.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserCabinet.API/obj/Debug/net9.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/obj/Debug/net9.0/apphost.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.API/obj/Debug/net9.0/staticwebassets.build.json" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/obj/Debug/net9.0/staticwebassets.build.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.API/obj/UserCabinet.API.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/obj/UserCabinet.API.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.API/obj/UserCabinet.API.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/obj/UserCabinet.API.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.API/obj/UserCabinet.API.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/obj/UserCabinet.API.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.API/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.API/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.API/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.API/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.API/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.API/obj/Debug/net9.0/ref/UserCabinet.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/obj/Debug/net9.0/ref/UserCabinet.API.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.API/obj/Debug/net9.0/refint/UserCabinet.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.API/obj/Debug/net9.0/refint/UserCabinet.API.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.Application/Services/UserServices.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Application/Services/UserServices.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.Application/bin/Debug/net9.0/UserCabinet.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Application/bin/Debug/net9.0/UserCabinet.Application.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.Application/bin/Debug/net9.0/UserCabinet.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Application/bin/Debug/net9.0/UserCabinet.Application.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.Application/bin/Debug/net9.0/UserCabinet.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Application/bin/Debug/net9.0/UserCabinet.Core.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.Application/bin/Debug/net9.0/UserCabinet.Core.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Application/bin/Debug/net9.0/UserCabinet.Core.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.Application/obj/Debug/net9.0/UserCabinet.Application.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Application/obj/Debug/net9.0/UserCabinet.Application.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.Application/obj/Debug/net9.0/UserCabinet.Application.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Application/obj/Debug/net9.0/UserCabinet.Application.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.Application/obj/Debug/net9.0/UserCabinet.Application.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Application/obj/Debug/net9.0/UserCabinet.Application.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.Application/obj/Debug/net9.0/UserCabinet.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Application/obj/Debug/net9.0/UserCabinet.Application.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.Application/obj/Debug/net9.0/UserCabinet.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Application/obj/Debug/net9.0/UserCabinet.Application.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.Application/obj/Debug/net9.0/UserCabinet.Application.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Application/obj/Debug/net9.0/UserCabinet.Application.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.Application/obj/Debug/net9.0/ref/UserCabinet.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Application/obj/Debug/net9.0/ref/UserCabinet.Application.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.Application/obj/Debug/net9.0/refint/UserCabinet.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Application/obj/Debug/net9.0/refint/UserCabinet.Application.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.Core/Abstractions/IUserServices.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Core/Abstractions/IUserServices.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.Core/Abstractions/IUsersRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Core/Abstractions/IUsersRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.Core/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Core/Models/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.Core/bin/Debug/net9.0/UserCabinet.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Core/bin/Debug/net9.0/UserCabinet.Core.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.Core/bin/Debug/net9.0/UserCabinet.Core.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Core/bin/Debug/net9.0/UserCabinet.Core.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserCabinet.Core/obj/Debug/net9.0/UserCabinet.Core.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Core/obj/Debug/net9.0/UserCabinet.Core.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserCabinet.Core/obj/Debug/net9.0/UserCabinet.Core.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Core/obj/Debug/net9.0/UserCabinet.Core.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.Core/obj/Debug/net9.0/UserCabinet.Core.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Core/obj/Debug/net9.0/UserCabinet.Core.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.Core/obj/Debug/net9.0/UserCabinet.Core.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Core/obj/Debug/net9.0/UserCabinet.Core.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.Core/obj/UserCabinet.Core.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Core/obj/UserCabinet.Core.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.Core/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Core/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.Core/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Core/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.Core/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Core/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.Core/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Core/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.Core/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Core/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.Core/obj/Debug/net9.0/UserCabinet.Core.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Core/obj/Debug/net9.0/UserCabinet.Core.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.Core/obj/Debug/net9.0/UserCabinet.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Core/obj/Debug/net9.0/UserCabinet.Core.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.Core/obj/Debug/net9.0/UserCabinet.Core.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Core/obj/Debug/net9.0/UserCabinet.Core.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.Core/obj/Debug/net9.0/UserCabinet.Core.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Core/obj/Debug/net9.0/UserCabinet.Core.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.Core/obj/Debug/net9.0/ref/UserCabinet.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Core/obj/Debug/net9.0/ref/UserCabinet.Core.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.Core/obj/Debug/net9.0/refint/UserCabinet.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.Core/obj/Debug/net9.0/refint/UserCabinet.Core.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.DataAccess/Migrations/20241031164502_init.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.DataAccess/Migrations/20241031164502_init.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.DataAccess/Migrations/UserDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.DataAccess/Migrations/UserDbContextModelSnapshot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserCabinet.DataAccess/Repositories/UsersRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.DataAccess/Repositories/UsersRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.DataAccess/UserDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.DataAccess/ApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.DataAccess/bin/Debug/net9.0/UserCabinet.DataAccess.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.DataAccess/bin/Debug/net9.0/UserCabinet.DataAccess.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.DataAccess/bin/Debug/net9.0/UserCabinet.DataAccess.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.DataAccess/bin/Debug/net9.0/UserCabinet.DataAccess.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/Debug/net9.0/UserCabinet.DataAccess.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/Debug/net9.0/UserCabinet.DataAccess.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/Debug/net9.0/UserCabinet.DataAccess.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/Debug/net9.0/UserCabinet.DataAccess.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/Debug/net9.0/UserCabinet.DataAccess.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/Debug/net9.0/UserCabinet.DataAccess.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/Debug/net9.0/UserCabinet.DataAccess.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/Debug/net9.0/UserCabinet.DataAccess.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/Debug/net9.0/UserCabinet.DataAccess.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/Debug/net9.0/UserCabinet.DataAccess.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/UserCabinet.DataAccess.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/UserCabinet.DataAccess.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/Debug/net9.0/UserCabinet.DataAccess.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/Debug/net9.0/UserCabinet.DataAccess.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/Debug/net9.0/UserCabinet.DataAccess.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/Debug/net9.0/UserCabinet.DataAccess.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/Debug/net9.0/UserCabinet.DataAccess.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/Debug/net9.0/UserCabinet.DataAccess.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/Debug/net9.0/ref/UserCabinet.DataAccess.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/Debug/net9.0/ref/UserCabinet.DataAccess.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/Debug/net9.0/refint/UserCabinet.DataAccess.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinet.DataAccess/obj/Debug/net9.0/refint/UserCabinet.DataAccess.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserCabinetBackend.sln" beforeDir="false" afterPath="$PROJECT_DIR$/UserCabinetBackend.sln" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +115,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/efcore/60524c9b11cdadb0d4be96adbe8d0954f9c7ed0a/src/EFCore/DbContext.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/UserCabinet.API/Controllers/controllers.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/User.Infrastructure/PasswordHash.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/UserCabinet.API/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/UserCabinet.API/Properties/launchSettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/UserCabinet.API/appsettings.json" root0="FORCE_HIGHLIGHTING" />
@@ -99,7 +124,6 @@
     <setting file="file://$PROJECT_DIR$/UserCabinet.Core/Models/User.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/UserCabinet.DataAccess/Configurations/UserConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/UserCabinet.DataAccess/Entites/UserEntity.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/UserCabinet.DataAccess/Repositories/UserRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/UserCabinet.DataAccess/UserDbContext.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
@@ -117,36 +141,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.UserCabinet.API: http.executor": "Run",
-    ".NET Launch Settings Profile.UserCabinet.API: https.executor": "Run",
-    ".NET Launch Settings Profile.UserCabinetBackend: IIS Express.executor": "Run",
-    ".NET Launch Settings Profile.UserCabinetBackend: http.executor": "Run",
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Docker.UserCabinet.API/Dockerfile.executor": "Run",
-    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
-    "HTTP Request.UserCabinetBackend | #1.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Nasim/LeatnTogether/LearnTogether/UserCabinetBackend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.UserCabinet.API: http.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.UserCabinet.API: https.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.UserCabinetBackend: IIS Express.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.UserCabinetBackend: http.executor&quot;: &quot;Run&quot;,
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Docker.UserCabinet.API/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.UserCabinetBackend | #1.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Nasim/LeatnTogether/LearnTogether/UserCabinetBackend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\Nasim\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Nasim\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\Nasim\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\Nasim\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\Nasim\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\Nasim\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.UserCabinet.API: http">
     <configuration name="UserCabinetBackend | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/UserCabinet.API/UserCabinetBackend.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
@@ -311,7 +335,11 @@
       <workItem from="1730314420262" duration="1906000" />
       <workItem from="1730317388427" duration="366000" />
       <workItem from="1730318500951" duration="5200000" />
-      <workItem from="1730391601753" duration="1425000" />
+      <workItem from="1730391601753" duration="5197000" />
+      <workItem from="1730445342982" duration="742000" />
+      <workItem from="1730448164928" duration="499000" />
+      <workItem from="1731174022738" duration="1598000" />
+      <workItem from="1731176539067" duration="3808000" />
     </task>
     <servers />
   </component>

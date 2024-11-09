@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "0gsvU83oDphQx/WMBynJSop2KpIGsQGdifzAc87s9CRCUjNMrQnLcVs4fu7Gzgsvl9FqrhbeDXU8LDEhccUtpw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Nasim\\LeatnTogether\\LearnTogether\\UserCabinetBackend\\User.Infrastructure\\User.Infrastructure.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Nasim\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

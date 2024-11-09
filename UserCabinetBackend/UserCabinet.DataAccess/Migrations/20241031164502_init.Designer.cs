@@ -11,7 +11,7 @@ using UserCabinet.DataAccess;
 
 namespace UserCabinet.DataAccess.Migrations
 {
-    [DbContext(typeof(UserDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20241031164502_init")]
     partial class init
     {
