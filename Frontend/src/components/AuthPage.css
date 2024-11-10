@@ -1,0 +1,61 @@
+.fixed-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: rgb(220, 216, 214);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo-button {
+    all: unset;
+    font-weight: bold;
+    color: black;
+    padding-left: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+.logo {
+    max-width: 40px;
+    height: auto;
+}
+
+header a {
+    all: unset;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.auth-page h1 {
+    justify-self: center;
+    font-size: 2rem;
+    color: black;
+    margin-bottom: 1rem;
+}
+
+.auth-container {
+    background-color: rgba(249, 249, 249, 0.89);
+    padding: 30px;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    box-sizing: border-box;
+}
