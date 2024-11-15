@@ -4,7 +4,6 @@ using System.Text;
 using LearnTogether.Application.Services;
 using LearnTogether.Core.Interfaces;
 using LearnTogether.Infrastructure;
-using LearnTogether.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

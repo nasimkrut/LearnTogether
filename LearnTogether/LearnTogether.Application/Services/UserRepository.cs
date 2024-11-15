@@ -1,9 +1,9 @@
 ﻿using LearnTogether.Core.Entities;
 using LearnTogether.Core.Interfaces;
+using LearnTogether.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
-
-namespace LearnTogether.Infrastructure.Repositories;
+namespace LearnTogether.Application.Services;
 
 public class UserRepository : IUserRepository
 {
