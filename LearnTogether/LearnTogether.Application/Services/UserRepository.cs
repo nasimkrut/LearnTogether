@@ -25,14 +25,15 @@ public class UserRepository : IUserRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task<Guid> UpdateUser(Guid id, string username, string email, string password)
+    public async Task<Guid> UpdateUser(Guid id, string username, string email, string password, double rating)
     {
         await _context.Users.
             Where(b => b.Id == id).
             ExecuteUpdateAsync(s => s
                .SetProperty(b => b.Username, b => username)
                .SetProperty(b => b.Email, b => email)
-               .SetProperty(b => b.PasswordHash, b => password));
+               .SetProperty(b => b.PasswordHash, b => password)
+               .SetProperty(b => b.Rating, b => rating));
         
         return id;
     }

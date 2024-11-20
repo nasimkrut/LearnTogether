@@ -39,8 +39,8 @@ public class PostRepository : IPostRepository
 
         query = sortBy.ToLower() switch
         {
-            "новые" => query.OrderBy(p => p.Datecreated),
-            "старые" => query.OrderByDescending(p => p.Datecreated),
+            "новые" => query.OrderBy(p => p.DateCreated),
+            "старые" => query.OrderByDescending(p => p.DateCreated),
             "рейтинг выше" => query.OrderBy(p => p.Rating),
             "рейтинг ниже" => query.OrderByDescending(p => p.Rating),
             _ => query

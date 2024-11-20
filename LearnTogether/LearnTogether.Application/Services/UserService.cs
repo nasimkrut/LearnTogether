@@ -55,9 +55,9 @@ public class UserService : IUserService
         return tokenHandler.WriteToken(token);
     }
 
-    public async Task<Guid> UpdateUserAsync(Guid id, string username, string email, string password)
+    public async Task<Guid> UpdateUserAsync(Guid id, string username, string email, string password, double rating)
     {
-        return await _userRepository.UpdateUser(id, username, email, password);
+        return await _userRepository.UpdateUser(id, username, email, password, rating);
     }
 
 

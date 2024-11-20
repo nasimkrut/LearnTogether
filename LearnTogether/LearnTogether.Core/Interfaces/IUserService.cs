@@ -10,7 +10,7 @@ public interface IUserService
         
     string GenerateJwtToken(User user);
     
-    Task<Guid> UpdateUserAsync(Guid id, string username, string email, string password);
+    Task<Guid> UpdateUserAsync(Guid id, string username, string email, string password, double rating);
     
     Task<Guid> DeleteUserAsync(Guid id);
 }
