@@ -39,7 +39,7 @@
     padding: 0.75rem;
     font-size: 1rem;
     color: white;
-    background-color: rgb(30, 121, 118);
+    background-color: #55a48b;
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
@@ -47,7 +47,7 @@
 }
 
 .auth-form button:hover {
-    background-color: rgb(68, 150, 124);
+    background-color: #2d9479;
 }
 
 .toggle-form-text {
