@@ -1,4 +1,5 @@
 import './FilterPanel.css'
+import Button from "./Button.jsx";
 
 const subjectsList = ['math', 'programming', 'physics']
 const ratingOptions = [
@@ -51,9 +52,9 @@ export default function FilterPanel({ filters, onChange, onApply }) {
           ))}
         </div>
       </div>
-      <button className="apply-filters-button" onClick={onApply}>
+      <Button className="apply-filters-button" onClick={onApply}>
         Применить фильтры
-      </button>
+      </Button>
     </div>
   )
 }

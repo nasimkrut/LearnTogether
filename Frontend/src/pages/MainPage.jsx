@@ -2,10 +2,12 @@ import {useState} from 'react';
 import FilterPanel from '../components/FilterPanel';
 import UserCard from '../components/UserCard';
 import Loader from '../components/Loader';
+import Header from "../components/Header.jsx";
 import EmptyState from '../components/EmptyState';
 import {mockUsers} from "../utils/MockUsers.jsx";
 // import api from '../services/userApi';
 import './MainPage.css';
+import Button from "../components/Button.jsx";
 import {Link} from "react-router-dom";
 
 export default function MainPage() {
@@ -32,12 +34,11 @@ export default function MainPage() {
 
   return (
     <>
-      <header className="fixed-header">
-        <Link to="/">
-          <img src="src/assets/hug.png" alt="Logo" className="logo"/>
-          <button className="logo-button">LearnTogether</button>
+      <Header>
+        <Link to="/cabinet">
+          <Button className="cabinet-button">Личный кабинет</Button>
         </Link>
-      </header>
+      </Header>
       <div className="main-page">
         <h1>Найди людей, которые помогут тебе</h1>
         <FilterPanel filters={filters} onChange={setFilters} onApply={applyFilters}/>

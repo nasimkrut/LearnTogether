@@ -33,23 +33,6 @@
     -webkit-text-fill-color: black;
 }
 
-.auth-form button {
-    margin: 3px auto 0;
-    width: 70%;
-    padding: 0.75rem;
-    font-size: 1rem;
-    color: white;
-    background-color: #55a48b;
-    border: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.auth-form button:hover {
-    background-color: #2d9479;
-}
-
 .toggle-form-text {
     text-align: center;
     font-size: 0.9rem;
@@ -75,7 +58,7 @@
     opacity: 1;
 }
 
-.auth-form button.toggle-password {
+.auth-form .toggle-password {
     position: absolute;
     width: 20%;
     margin-left: -18%;

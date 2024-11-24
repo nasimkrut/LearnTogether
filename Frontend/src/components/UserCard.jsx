@@ -6,7 +6,7 @@ export default function UserCard({ user }) {
 
   const handleCardClick = () => {
     console.log('Click on user:', user);
-    // navigate(`/profile/${user.id}`);
+    navigate(`/profile/${user.id}`);
   }
 
   return (

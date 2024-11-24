@@ -1,7 +1,8 @@
-import {Link, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import './AuthPage.css';
 import AuthForm from './AuthForm.jsx';
 import PropTypes from "prop-types";
+import Header from "./Header.jsx";
 
 export default function AuthPage({isLogin}) {
   const navigate = useNavigate();
@@ -14,12 +15,7 @@ export default function AuthPage({isLogin}) {
 
   return (
     <>
-      <header className="fixed-header">
-        <Link to="/">
-          <img src="src/assets/hug.png" alt="Logo" className="logo" />
-          <button className="logo-button">LearnTogether</button>
-        </Link>
-      </header>
+      <Header/>
       <div className='auth-page' style={{backgroundImage}}>
         <div className='auth-container'>
           <h1>{isLogin ? 'Вход' : 'Регистрация'}</h1>
