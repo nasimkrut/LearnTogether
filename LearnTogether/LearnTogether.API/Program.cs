@@ -21,6 +21,8 @@ IHostBuilder CreateHostBuilder(string[] args) =>
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.WebHost.UseUrls("http://0.0.0.0:5218"); // Подставьте ваш порт вместо 5000
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -60,3 +62,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+//развернуть сваггер
