@@ -12,6 +12,7 @@ COPY . .
 # Собираем фронтенд
 RUN npm run build
 
+RUN ls -la /app/build
 # Этап с Nginx
 FROM nginx:1.25
 
