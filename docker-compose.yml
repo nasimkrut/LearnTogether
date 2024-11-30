@@ -1,7 +1,7 @@
 ﻿services:
   backend:
     build:
-      context: ./LearnTogether/LearnTogether.Infrastructure
+      context: ./LearnTogether/LearnTogether.API
       dockerfile: Dockerfile
     ports:
       - "5000:80"  
