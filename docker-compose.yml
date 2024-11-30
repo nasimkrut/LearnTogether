@@ -21,8 +21,8 @@
       - db_data:/var/lib/postgresql/data
   frontend:
     build:
-      context: .
-      dockerfile: Frontend/Dockerfile
+      context: ./Frontend
+      dockerfile: Dockerfile
     ports:
       - "3000:80"
     depends_on:
