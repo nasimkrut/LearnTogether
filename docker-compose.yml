@@ -22,7 +22,7 @@
   frontend:
     build:
       context: .
-      dockerfile: Frontend/my-app/Dockerfile
+      dockerfile: Frontend/Dockerfile
     ports:
       - "3000:80"
     depends_on:
