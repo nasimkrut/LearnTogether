@@ -3,9 +3,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LearnTogether.Infrastructure;
 
-public class ApplicationDbContext : DbContext
+public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options)
 {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
-
     public DbSet<User> Users { get; set; }
+    
+    public DbSet<Post> Posts { get; set; }
+    
+    public DbSet<Subscription> Subscriptions { get; set; }
+
+    //scaffold
+    //поддережка базы данных
+    //GET /api/post/filtered-and-sorted?requiredSubject=Math&helpSubjects=Math&minRating=4.0&sortBy=рейтинг выше
 }
