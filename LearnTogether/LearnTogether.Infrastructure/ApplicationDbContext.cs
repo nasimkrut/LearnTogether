@@ -8,6 +8,8 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     public DbSet<User> Users { get; set; }
     
     public DbSet<Post> Posts { get; set; }
+    
+    public DbSet<Subscription> Subscriptions { get; set; }
 
     //scaffold
     //поддережка базы данных

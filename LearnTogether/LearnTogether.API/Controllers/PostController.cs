@@ -45,9 +45,19 @@ public class PostController : ControllerBase
     }
     
     [HttpPost]
-    public async Task<ActionResult<Guid>> AddPostAsync([FromBody] Post post)
+    public async Task<ActionResult<Guid>> AddPostAsync([FromBody] PostDto postDt)
     {
+        var post = new Post
+        {
+            UserId = postDt.UserId,
+            RequiredSubject = postDt.RequiredSubject,
+            HelpSubjects = postDt.HelpSubjects,
+            Description = postDt.Description,
+            Tags = postDt.Tags,
+            DateCreated = DateTimeOffset.UtcNow
+        };
+
         await _postService.AddPostAsync(post);
-        return StatusCode(StatusCodes.Status201Created, post.Id); 
+        return StatusCode(StatusCodes.Status201Created, post.Id);
     }
 }

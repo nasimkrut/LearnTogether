@@ -1,0 +1,31 @@
+﻿services:
+  backend:
+    build:
+      context: ./LearnTogether.Infrastructure
+      dockerfile: Dockerfile
+    ports:
+      - "5000:80"  
+    environment:
+      ConnectionStrings__Default: "Host=postgres;Database=LearnTogetherDb;Username=postgres;Password=LearnTogetherPassword"
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:15  
+    environment:        
+      POSTGRES_USER: postgres     
+      POSTGRES_PASSWORD: geocodeFT 
+      POSTGRES_DB: LearnTogetherDb    
+    ports:
+      - "5432:5432" 
+    volumes:
+      - db_data:/var/lib/postgresql/data
+  frontend:
+    build:
+      context: ./Frontend/my-app
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+volumes:
+  db_data:  

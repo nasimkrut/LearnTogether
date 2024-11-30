@@ -24,7 +24,7 @@ public class UserController : ControllerBase
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] UserLoginDto loginDto)
+    public async Task<IActionResult> Login([FromBody] UserLoginDTO loginDto)
     {
         var user = await _userService.AuthenticateAsync(loginDto.Email, loginDto.Password);
         if (user == null)
@@ -34,7 +34,7 @@ public class UserController : ControllerBase
         return Ok(new { Token = token });
     }
 
-    public async Task<ActionResult<Guid>> UpdateUser(Guid id, [FromBody] UserLoginDto userUpdateDto)
+    public async Task<ActionResult<Guid>> UpdateUser(Guid id, [FromBody] UserLoginDTO userUpdateDto)
     {
         var user = await _userService.UpdateUserAsync(id, userUpdateDto.Username, userUpdateDto.Email, userUpdateDto.Password, userUpdateDto.Rating);
 

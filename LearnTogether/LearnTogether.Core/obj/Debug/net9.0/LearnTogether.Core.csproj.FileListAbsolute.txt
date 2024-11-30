@@ -12,6 +12,7 @@ C:\Users\Nasim\RiderProjects\LearnTogether\LearnTogether.Core\obj\Debug\net9.0\r
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.Core\bin\Debug\net9.0\LearnTogether.Core.deps.json
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.Core\bin\Debug\net9.0\LearnTogether.Core.dll
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.Core\bin\Debug\net9.0\LearnTogether.Core.pdb
+C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.Core\obj\Debug\net9.0\LearnTogether.Core.csproj.AssemblyReference.cache
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.Core\obj\Debug\net9.0\LearnTogether.Core.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.Core\obj\Debug\net9.0\LearnTogether.Core.AssemblyInfoInputs.cache
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.Core\obj\Debug\net9.0\LearnTogether.Core.AssemblyInfo.cs
@@ -21,4 +22,3 @@ C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.Core\obj\
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.Core\obj\Debug\net9.0\refint\LearnTogether.Core.dll
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.Core\obj\Debug\net9.0\LearnTogether.Core.pdb
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.Core\obj\Debug\net9.0\ref\LearnTogether.Core.dll
-C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.Core\obj\Debug\net9.0\LearnTogether.Core.csproj.AssemblyReference.cache

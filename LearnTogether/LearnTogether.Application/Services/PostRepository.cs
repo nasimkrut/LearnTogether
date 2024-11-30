@@ -52,7 +52,15 @@ public class PostRepository : IPostRepository
 
     public async Task AddAsync(Post post)
     {
-        await _context.Posts.AddAsync(post);
+        var user = await _context.Users.FindAsync(post.UserId);
+        if (user == null)
+        {
+            throw new InvalidOperationException("User not found.");
+        }
+    
+        post.User = user;
+    
+        _context.Posts.Add(post);
         await _context.SaveChangesAsync();
     }
 

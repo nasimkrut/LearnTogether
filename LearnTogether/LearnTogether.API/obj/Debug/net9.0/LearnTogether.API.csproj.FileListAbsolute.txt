@@ -68,6 +68,9 @@ C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\D
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.Design.Specification.Tests.dll
+C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.Specification.Tests.dll
+C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Specification.Tests.dll
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
@@ -89,6 +92,10 @@ C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\D
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\System.Composition.Runtime.dll
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\System.Composition.TypedParts.dll
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\xunit.abstractions.dll
+C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\xunit.assert.dll
+C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\xunit.core.dll
+C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\xunit.execution.dotnet.dll
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
@@ -169,10 +176,4 @@ C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\obj\D
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\obj\Debug\net9.0\LearnTogether.API.pdb
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\obj\Debug\net9.0\LearnTogether.API.genruntimeconfig.cache
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\obj\Debug\net9.0\ref\LearnTogether.API.dll
-C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.Design.Specification.Tests.dll
-C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.Specification.Tests.dll
-C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Specification.Tests.dll
-C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\xunit.abstractions.dll
-C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\xunit.assert.dll
-C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\xunit.core.dll
-C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\xunit.execution.dotnet.dll
+C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.API\bin\Debug\net9.0\Newtonsoft.Json.dll

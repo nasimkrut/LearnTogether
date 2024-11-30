@@ -6,31 +6,20 @@ using LearnTogether.Core.Interfaces;
 using LearnTogether.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
-IHostBuilder CreateHostBuilder(string[] args) =>
-    Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(webBuilder =>
-        {
-            webBuilder
-                .UseKestrel(options =>
-                {
-                    options.ListenAnyIP(5218);
-                })
-                .UseStartup<Program>();
-        });
-
-
 var builder = WebApplication.CreateBuilder(args);
-
-builder.WebHost.UseUrls("http://0.0.0.0:5218"); // Подставьте ваш порт вместо 5000
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddControllers();
+
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPostRepository, PostRepository>();
+builder.Services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
+
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPostService, PostService>();
+builder.Services.AddScoped<ISubscriptionService, SubscriptionService>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -62,5 +51,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
-//развернуть сваггер
