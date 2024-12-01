@@ -15,7 +15,7 @@
     image: postgres:15  
     environment:        
       POSTGRES_USER: postgres     
-      POSTGRES_PASSWORD: geocodeFT 
+      POSTGRES_PASSWORD: LearnTogetherPassword 
       POSTGRES_DB: LearnTogetherDb    
     ports:
       - "5432:5432" 
