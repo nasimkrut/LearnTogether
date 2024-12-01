@@ -11,9 +11,9 @@ var builder = WebApplication.CreateBuilder(args);
 // удалить, если вдруг что не так
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontend", policy =>
+    options.AddPolicy("AllowAll", policy =>
     {
-        policy.WithOrigins("http://84.201.167.107:3000") 
+        policy.AllowAnyOrigin()
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
@@ -58,7 +58,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseCors("AllowAllOrigins");
+app.UseCors("AllowAll");
 app.MapControllers();
 
 app.Run();

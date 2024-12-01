@@ -27,8 +27,17 @@
       context: ./Frontend
       dockerfile: Dockerfile
     ports:
-      - "3000:8081"
+      - "3000:80"
     depends_on:
       - backend
+  nginx:
+    image: nginx:1.25
+    ports:
+      - "80:80" # Главный порт, через который доступен весь сайт
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - frontend
+      - backend
 volumes:
-  db_data:  
+  db_data: 

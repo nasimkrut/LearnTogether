@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://backend:5000/",
+  baseURL: "http://84.201.167.107/api/",
   headers: {
     'Content-Type': 'application/json',
   }
@@ -9,7 +9,7 @@ const api = axios.create({
 
 export const registerUser = async (data) => {
   try {
-    const response = await api.post('/api/user/register', data)
+    const response = await api.post('/user/register', data)
     return response.data
   } catch (e) {
     console.error('Ошибка регистрации:', e.response?.data || e.message)
@@ -19,7 +19,7 @@ export const registerUser = async (data) => {
 
 export const loginUser = async (data) => {
   try {
-    const response = await api.post('/api/user/login', data)
+    const response = await api.post('/user/login', data)
     return response.data
   } catch (e) {
     console.error('Ошибка авторизации:', e.response?.data || e.message)
