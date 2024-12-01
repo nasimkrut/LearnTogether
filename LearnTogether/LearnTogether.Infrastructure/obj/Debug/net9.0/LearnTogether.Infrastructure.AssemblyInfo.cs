@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LearnTogether.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+37a8c605b41d906629723a78d93ea3883b29d8bb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f359e34d6620721f8f0f5bf83aeb8bbb1978d371")]
 [assembly: System.Reflection.AssemblyProductAttribute("LearnTogether.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LearnTogether.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

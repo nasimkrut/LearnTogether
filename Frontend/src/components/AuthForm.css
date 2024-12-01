@@ -1,0 +1,73 @@
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+}
+
+.auth-form div {
+    margin-bottom: 1rem;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 7px 0;
+    font-size: 1rem;
+    color: black;
+    background-color: white;
+    border: 1px solid rgb(30, 121, 118);
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+}
+
+.auth-form input::placeholder {
+    color: #868686;
+}
+
+.auth-form input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #d9d4cb inset;
+    box-shadow: 0 0 0 30px #d9d4cb inset;
+    -webkit-text-fill-color: black;
+}
+
+.toggle-form-text {
+    text-align: center;
+    font-size: 0.9rem;
+    color: black;
+    margin-top: 1rem;
+}
+
+.toggle-form-link {
+    color: rgb(30, 121, 118);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.toggle-form-link:hover {
+    text-decoration: underline;
+}
+
+.password-input-container {
+    position: relative;
+}
+
+.password-input-container:hover .toggle-password {
+    opacity: 1;
+}
+
+.auth-form .toggle-password {
+    position: absolute;
+    width: 20%;
+    margin-left: -18%;
+    top: 50%;
+    transform: translateY(-60%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+}

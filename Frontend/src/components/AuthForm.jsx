@@ -19,9 +19,12 @@ export default function AuthForm({ isLogin, onSubmit }) {
       onSubmit({ login, password });
     } else {
       try {
-        const newUser = { name, surname, login, password }
+        const rating = 0.0;
+        const fullName = name + ' ' + surname;
+        const newUser = { login, fullName, password, rating}
         const response = await registerUser(newUser);
-        navigate("/login")
+        console.log(response)
+        // navigate("/login")
       } catch (e) {
         alert(`Ошибка регистрации: ${e.response?.data?.message || 'ААА'}`)
       }
