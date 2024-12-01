@@ -27,23 +27,18 @@ export default function AuthForm({ isLogin, onSubmit }) {
       }
     } else {
       try {
-        const userName = login;
-        const passwordHash = password;
-        const rating = 0.0;
-        const fullName = name + ' ' + surname;
-        const newUser = {
-          userName: login,
-          fullName: `${name} ${surname}`,
-          passwordHash: password,
-          rating: 0
-        };
-        console.log(userName, passwordHash, rating, fullName)
+        const UserName = login;
+        const PasswordHash = password;
+        const Rating = 0.0;
+        const FullName = name + ' ' + surname;
+        const newUser = {UserName, FullName, PasswordHash, Rating};
+        console.log(UserName, PasswordHash, Rating, FullName)
         const response = await registerUser(newUser);
         console.log(response)
         onSubmit(response);
         // navigate("/login")
       } catch (e) {
-        alert(`Ошибка регистрации: ${e.response?.data?.message} || 'ААА'`)
+        alert(`Ошибка регистрации: ${e.response?.data?.message || 'ААА'}`)
       }
     }
   };

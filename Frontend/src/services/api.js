@@ -10,7 +10,12 @@ const api = axios.create({
 export const registerUser = async (data) => {
   try {
     console.log('Отправляемые данные:', data);
-    const response = await api.post('/user/register', data);
+    const response = await api.post('/user/register', {
+      UserName: data.UserName,
+      FullName: data.FullName,
+      PasswordHash: data.PasswordHash,
+      Rating: data.Rating,
+    });
     return response.data;
   } catch (e) {
     console.error('Ошибка регистрации:', e.response?.data || e.message);
