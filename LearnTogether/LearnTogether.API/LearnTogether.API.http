@@ -1,4 +1,4 @@
-@LearnTogether.API_HostAddress = http://localhost:5000
+@LearnTogether.API_HostAddress = http://84.201.167.107:5000
 
 ###
 //http listeners
