@@ -19,7 +19,7 @@ public class UserService : IUserService
 
     public async Task<bool> RegisterUserAsync(User user)
     {
-        var existingUser = await _userRepository.GetUserByEmailAsync(user.Email);
+        var existingUser = await _userRepository.GetUserByUserNameAsync(user.Username);
         if (existingUser != null)
             return false;
 
@@ -28,9 +28,9 @@ public class UserService : IUserService
         return true;
     }
 
-    public async Task<User> AuthenticateAsync(string email, string password)
+    public async Task<User> AuthenticateAsync(string userName, string password)
     {
-        var user = await _userRepository.GetUserByEmailAsync(email);
+        var user = await _userRepository.GetUserByUserNameAsync(userName);
         if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.PasswordHash))
             return null;
 
@@ -46,7 +46,6 @@ public class UserService : IUserService
             Subject = new ClaimsIdentity(new[]
             {
                 new Claim(ClaimTypes.Name, user.Username),
-                new Claim(ClaimTypes.Email, user.Email)
             }),
             Expires = DateTime.UtcNow.AddHours(2),
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
@@ -55,9 +54,9 @@ public class UserService : IUserService
         return tokenHandler.WriteToken(token);
     }
 
-    public async Task<Guid> UpdateUserAsync(Guid id, string username, string email, string password, double rating)
+    public async Task<Guid> UpdateUserAsync(Guid id, string username, string fullName, string password, double rating)
     {
-        return await _userRepository.UpdateUser(id, username, email, password, rating);
+        return await _userRepository.UpdateUser(id, username, fullName, password, rating);
     }
 
 
