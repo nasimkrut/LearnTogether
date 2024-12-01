@@ -11,10 +11,10 @@ export const registerUser = async (data) => {
   try {
     console.log('Отправляемые данные:', data);
     const response = await api.post('/user/register', {
-      Username: data[0],
-      FullName: data[1],
-      PasswordHash: data[2],
-      Rating: data[3],
+      Username: data.userName,
+      FullName: data.fullName,
+      PasswordHash: data.passwordHash,
+      Rating: data.rating,
     });
     return response.data;
   } catch (e) {
