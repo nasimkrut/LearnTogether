@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import './AuthForm.css';
 import Button from "./Button.jsx";
+import {registerUser} from "../services/api.js";
 
 export default function AuthForm({ isLogin, onSubmit }) {
+  const navigate = useNavigate();
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -11,12 +13,18 @@ export default function AuthForm({ isLogin, onSubmit }) {
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (isLogin) {
       onSubmit({ login, password });
     } else {
-      onSubmit({ name, surname, login, password });
+      try {
+        const newUser = { name, surname, login, password }
+        const response = await registerUser(newUser);
+        navigate("/login")
+      } catch (e) {
+        alert(`Ошибка регистрации: ${e.response?.data?.message || 'ААА'}`)
+      }
     }
   };
 

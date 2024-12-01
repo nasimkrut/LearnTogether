@@ -43,9 +43,33 @@
     margin-bottom: 20px;
 }
 
+.profile-image-container {
+    position: relative;
+}
+
+.profile-image-container input {
+    display: none;
+}
+
+.photo-upload-label {
+    display: inline-block;
+    position: absolute;
+    padding: 0.5rem;
+    font-size: 0.7rem;
+    background-color: #efe5d9;
+    color: #ce9382;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.photo-upload-label:hover {
+    background-color: #d9e7ce;
+}
+
 .contact-info {
     margin-top: 0.5rem;
     color: #55a38a;
+    text-decoration: none;
 }
 
 .user-profile .profile-content button {
@@ -66,3 +90,10 @@
     color: darkred;
 }
 
+.profile-info {
+    text-align: left;
+}
+
+.profile-info p {
+    margin: 0.5rem 0;
+}

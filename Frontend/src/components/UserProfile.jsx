@@ -10,7 +10,7 @@ const UserProfile = ({ user, onClose }) => {
       <button className="close-button" onClick={onClose} aria-label="Close profile">×</button>
 
       <div className="profile-content">
-        <img src={user.photo} alt={user.name} className="profile-image" />
+        <img src={user.photo} alt={user.name} className="user-photo" />
         <h2>{user.name}</h2>
         <p>Специальность: {user.speciality}</p>
         {user.group ? <p>Группа: {user.group}</p> : null}

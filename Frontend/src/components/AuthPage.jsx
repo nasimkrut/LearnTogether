@@ -3,10 +3,11 @@ import './AuthPage.css';
 import AuthForm from './AuthForm.jsx';
 import PropTypes from "prop-types";
 import Header from "./Header.jsx";
+import api from "../services/api.js";
 
 export default function AuthPage({isLogin}) {
   const navigate = useNavigate();
-  const handleSubmit = (data) => {
+  const handleSubmit = async (data) => {
     console.log(isLogin ? 'Login data submitted:' : 'Registration data submitted:', data);
     navigate("/main")
   };
