@@ -16,7 +16,7 @@ public class UserRepository : IUserRepository
 
     public async Task<User> GetUserByUserNameAsync(string userName)
     {
-        return await _context.Users.FirstOrDefaultAsync(u => u.UserName == userName);
+        return await _context.Users.FirstOrDefaultAsync(u => u.Username == userName);
     }
 
     public async Task AddUserAsync(User user)
@@ -30,7 +30,7 @@ public class UserRepository : IUserRepository
         await _context.Users.
             Where(b => b.Id == id).
             ExecuteUpdateAsync(s => s
-               .SetProperty(b => b.UserName, b => username)
+               .SetProperty(b => b.Username, b => username)
                .SetProperty(b => b.FullName, b => fullName)
                .SetProperty(b => b.PasswordHash, b => password)
                .SetProperty(b => b.Rating, b => rating));
