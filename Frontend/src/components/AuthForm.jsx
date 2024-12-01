@@ -31,13 +31,19 @@ export default function AuthForm({ isLogin, onSubmit }) {
         const passwordHash = password;
         const rating = 0.0;
         const fullName = name + ' ' + surname;
-        const newUser = { userName, fullName, passwordHash, rating }
+        const newUser = {
+          userName: login,
+          fullName: `${name} ${surname}`,
+          passwordHash: password,
+          rating: 0
+        };
+        console.log(userName, passwordHash, rating, fullName)
         const response = await registerUser(newUser);
         console.log(response)
         onSubmit(response);
         // navigate("/login")
       } catch (e) {
-        alert(`Ошибка регистрации: ${e.response?.data?.message || 'ААА'}`)
+        alert(`Ошибка регистрации: ${e.response?.data?.message} || 'ААА'`)
       }
     }
   };
