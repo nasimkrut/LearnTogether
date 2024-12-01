@@ -16,6 +16,8 @@ export const registerUser = async (data) => {
       PasswordHash: data.PasswordHash,
       Rating: data.Rating,
     });
+    console.log(response)
+    console.log(response.data);
     return response.data;
   } catch (e) {
     console.error('Ошибка регистрации:', e.response?.data || e.message);
