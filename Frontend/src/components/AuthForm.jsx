@@ -27,9 +27,11 @@ export default function AuthForm({ isLogin, onSubmit }) {
       }
     } else {
       try {
+        const userName = login;
+        const passwordHash = password;
         const rating = 0.0;
         const fullName = name + ' ' + surname;
-        const newUser = { login, fullName, password, rating }
+        const newUser = { userName, fullName, passwordHash, rating }
         const response = await registerUser(newUser);
         console.log(response)
         onSubmit(response);
