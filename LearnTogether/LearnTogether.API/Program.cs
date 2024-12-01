@@ -9,15 +9,15 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // удалить, если вдруг что не так
-// builder.Services.AddCors(options =>
-// {
-//     options.AddPolicy("AllowFrontend", policy =>
-//     {
-//         policy.WithOrigins("http://84.201.167.107:3000") 
-//             .AllowAnyHeader()
-//             .AllowAnyMethod();
-//     });
-// });
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.WithOrigins("http://84.201.167.107:3000") 
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -58,7 +58,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-// app.UseCors("AllowAllOrigins");
+app.UseCors("AllowAllOrigins");
 app.MapControllers();
 
 app.Run();
