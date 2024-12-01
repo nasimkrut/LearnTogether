@@ -3,7 +3,6 @@ import {mockUsers} from "../utils/MockUsers.jsx";
 import UserProfile from "../components/UserProfile.jsx";
 import {useEffect, useState} from "react";
 import "./UserProfilePage.css"
-import {axios} from "react-axios";
 import Header from "../components/Header.jsx";
 
 export default function UserProfilePage() {

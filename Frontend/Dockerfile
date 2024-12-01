@@ -4,8 +4,6 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install
 
-COPY ../../../../Users/Me/Downloads/Telegram%20Desktop .
-
 RUN npm run build
 
 FROM nginx:1.25

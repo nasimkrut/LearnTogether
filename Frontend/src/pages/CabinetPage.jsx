@@ -1,7 +1,6 @@
 import Header from "../components/Header.jsx";
 import'./CabinetPage.css'
 import {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
 
 export default function CabinetPage() {
   // const {userId} = useParams();
@@ -35,7 +34,7 @@ export default function CabinetPage() {
     speciality: "ФИИТ",
     group: "ФТ-203",
     skills: ["JavaScript", "React", "Node.js"],
-    telegram: "a",
+    login: "a",
   };
 
   return (
@@ -59,12 +58,12 @@ export default function CabinetPage() {
             {user.group && <p>Группа: {user.group}</p>}
             <p>Навыки: {user.skills.join(", ")}</p>
             <a
-              href={`https://t.me/${user.telegram}`}
+              href={`https://t.me/${user.login}`}
               target="_blank"
               rel="noopener noreferrer"
               className="contact-info"
             >
-              Контакт: @{user.telegram}
+              Контакт: @{user.login}
             </a>
           </div>
         </div>
