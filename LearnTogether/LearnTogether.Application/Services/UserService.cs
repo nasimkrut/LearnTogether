@@ -19,7 +19,7 @@ public class UserService : IUserService
 
     public async Task<bool> RegisterUserAsync(User user)
     {
-        var existingUser = await _userRepository.GetUserByUserNameAsync(user.Username);
+        var existingUser = await _userRepository.GetUserByUserNameAsync(user.UserName);
         if (existingUser != null)
             return false;
 
@@ -45,7 +45,7 @@ public class UserService : IUserService
         {
             Subject = new ClaimsIdentity(new[]
             {
-                new Claim(ClaimTypes.Name, user.Username),
+                new Claim(ClaimTypes.Name, user.UserName),
             }),
             Expires = DateTime.UtcNow.AddHours(2),
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
