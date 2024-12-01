@@ -17,9 +17,19 @@ export const registerUser = async (data) => {
   }
 }
 
-export const getUsers = async (filters) => {
+export const loginUser = async (data) => {
   try {
-    const response = await api.get(`/main}`, filters);
+    const response = await api.post('/api/user/login', data)
+    return response.data
+  } catch (e) {
+    console.error('Ошибка авторизации:', e.response?.data || e.message)
+    throw e;
+  }
+}
+
+export const getUsersByFilters = async (filters) => {
+  try {
+    const response = await api.get(`/main`, { params: filters });
     return response.data;
   } catch (error) {
     console.error('Ошибка:', error);
