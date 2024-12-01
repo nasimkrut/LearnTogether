@@ -1266,7 +1266,10 @@
           "Microsoft.EntityFrameworkCore.Relational.Design.Specification.Tests": "2.0.3"
         },
         "runtime": {
-          "LearnTogether.Core.dll": {}
+          "LearnTogether.Core.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

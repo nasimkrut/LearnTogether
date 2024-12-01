@@ -21,7 +21,6 @@ export default function AuthForm({ isLogin, onSubmit }) {
         const user = {login, password}
         const response = await loginUser(user);
         console.log(response)
-        localStorage.setItem('token', response.token);
         onSubmit(response);
       } catch (e) {
         alert(`Ошибка авторизации: ${e.response?.data?.message || 'ААА'}`)
@@ -30,7 +29,7 @@ export default function AuthForm({ isLogin, onSubmit }) {
       try {
         const rating = 0.0;
         const fullName = name + ' ' + surname;
-        const newUser = { login, fullName, password, rating}
+        const newUser = { login, fullName, password, rating }
         const response = await registerUser(newUser);
         console.log(response)
         onSubmit(response);

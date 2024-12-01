@@ -33,3 +33,21 @@ C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.Applicati
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.Application\obj\Debug\net9.0\refint\LearnTogether.Application.dll
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.Application\obj\Debug\net9.0\LearnTogether.Application.pdb
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.Application\obj\Debug\net9.0\ref\LearnTogether.Application.dll
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Application\bin\Debug\net9.0\LearnTogether.Application.deps.json
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Application\bin\Debug\net9.0\LearnTogether.Application.dll
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Application\bin\Debug\net9.0\LearnTogether.Application.pdb
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Application\bin\Debug\net9.0\LearnTogether.Core.dll
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Application\bin\Debug\net9.0\LearnTogether.Infrastructure.dll
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Application\bin\Debug\net9.0\LearnTogether.Core.pdb
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Application\bin\Debug\net9.0\LearnTogether.Infrastructure.pdb
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Application\obj\Debug\net9.0\LearnTogether.Application.csproj.AssemblyReference.cache
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Application\obj\Debug\net9.0\LearnTogether.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Application\obj\Debug\net9.0\LearnTogether.Application.AssemblyInfoInputs.cache
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Application\obj\Debug\net9.0\LearnTogether.Application.AssemblyInfo.cs
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Application\obj\Debug\net9.0\LearnTogether.Application.csproj.CoreCompileInputs.cache
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Application\obj\Debug\net9.0\LearnTogether.Application.sourcelink.json
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Application\obj\Debug\net9.0\LearnTog.8FEC4A3D.Up2Date
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Application\obj\Debug\net9.0\LearnTogether.Application.dll
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Application\obj\Debug\net9.0\refint\LearnTogether.Application.dll
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Application\obj\Debug\net9.0\LearnTogether.Application.pdb
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Application\obj\Debug\net9.0\ref\LearnTogether.Application.dll

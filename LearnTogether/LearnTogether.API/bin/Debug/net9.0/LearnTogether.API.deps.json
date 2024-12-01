@@ -1465,7 +1465,10 @@
           "System.IdentityModel.Tokens.Jwt": "7.1.2"
         },
         "runtime": {
-          "LearnTogether.Application.dll": {}
+          "LearnTogether.Application.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "LearnTogether.Core/1.0.0": {
@@ -1473,7 +1476,10 @@
           "Microsoft.EntityFrameworkCore.Relational.Design.Specification.Tests": "2.0.3"
         },
         "runtime": {
-          "LearnTogether.Core.dll": {}
+          "LearnTogether.Core.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "LearnTogether.Infrastructure/1.0.0": {
@@ -1485,7 +1491,10 @@
           "Npgsql.EntityFrameworkCore.PostgreSQL": "8.0.10"
         },
         "runtime": {
-          "LearnTogether.Infrastructure.dll": {}
+          "LearnTogether.Infrastructure.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

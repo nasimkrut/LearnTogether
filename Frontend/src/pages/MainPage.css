@@ -40,3 +40,14 @@
     margin-right: 1rem;
     margin-top: 0;
 }
+
+.helper-button {
+    width: 18rem;
+    background-color: #d9e7c2;
+    color: #55a38a;
+}
+
+.helper-button:hover {
+    background-color: #fa9b4b;
+    color: white;
+}

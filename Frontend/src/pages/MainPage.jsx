@@ -1,23 +1,23 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import FilterPanel from '../components/FilterPanel';
 import UserCard from '../components/UserCard';
 import Loader from '../components/Loader';
 import Header from "../components/Header.jsx";
 import EmptyState from '../components/EmptyState';
 import {mockUsers} from "../utils/MockUsers.jsx";
-// import api from '../services/userApi';
+import {getUsersByFilters} from '../services/userApi';
 import './MainPage.css';
 import Button from "../components/Button.jsx";
 import {Link} from "react-router-dom";
 
 export default function MainPage() {
   const [filters, setFilters] = useState({rating: null, subjects: []});
-  const [users, setUsers] = useState(mockUsers);
+  const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const resetFilters = () => {
     setFilters({rating: null, subjects: []});
-    setUsers(mockUsers)
+    // setUsers(mockUsers)
   };
 
   const applyFilters = () => {
@@ -41,6 +41,9 @@ export default function MainPage() {
       </Header>
       <div className="main-page">
         <h1>Найди людей, которые помогут тебе</h1>
+        <Link to="/helpers">
+          <Button className="helper-button">или предложи помощь другим...</Button>
+        </Link>
         <FilterPanel filters={filters} onChange={setFilters} onApply={applyFilters}/>
         {loading ? (
           <Loader/>

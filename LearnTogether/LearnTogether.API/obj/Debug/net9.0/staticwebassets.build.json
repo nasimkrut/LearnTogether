@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "qL3u4fznAufEw2pVftInqMo5xXpdoQ7qz+sBroG/Wns=",
+  "Hash": "MiNaBQH2DN4RzsRv22wYEVO7jXRqcT1VhKLMvldcf9g=",
   "Source": "LearnTogether.API",
   "BasePath": "_content/LearnTogether.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

@@ -22,3 +22,16 @@ C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.Core\obj\
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.Core\obj\Debug\net9.0\refint\LearnTogether.Core.dll
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.Core\obj\Debug\net9.0\LearnTogether.Core.pdb
 C:\Users\Nasim\LeatnTogether\LearnTogether\LearnTogether\LearnTogether.Core\obj\Debug\net9.0\ref\LearnTogether.Core.dll
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Core\bin\Debug\net9.0\LearnTogether.Core.deps.json
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Core\bin\Debug\net9.0\LearnTogether.Core.dll
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Core\bin\Debug\net9.0\LearnTogether.Core.pdb
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Core\obj\Debug\net9.0\LearnTogether.Core.csproj.AssemblyReference.cache
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Core\obj\Debug\net9.0\LearnTogether.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Core\obj\Debug\net9.0\LearnTogether.Core.AssemblyInfoInputs.cache
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Core\obj\Debug\net9.0\LearnTogether.Core.AssemblyInfo.cs
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Core\obj\Debug\net9.0\LearnTogether.Core.csproj.CoreCompileInputs.cache
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Core\obj\Debug\net9.0\LearnTogether.Core.sourcelink.json
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Core\obj\Debug\net9.0\LearnTogether.Core.dll
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Core\obj\Debug\net9.0\refint\LearnTogether.Core.dll
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Core\obj\Debug\net9.0\LearnTogether.Core.pdb
+C:\University\Useful Application\LearnTogether\LearnTogether\LearnTogether.Core\obj\Debug\net9.0\ref\LearnTogether.Core.dll
