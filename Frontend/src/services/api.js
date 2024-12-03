@@ -28,7 +28,10 @@ export const registerUser = async (data) => {
 export const loginUser = async (data) => {
   try {
     //const response = await api.post('/user/login', data)
-    const response = await api.post('user/login', {params: data})
+    const response = await api.post('user/login', {
+      UserName: data.UserName,
+      PasswordHash: data.PasswordHash
+    });
     return response.data
   } catch (e) {
     console.error('Ошибка авторизации:', e.response?.data || e.message)

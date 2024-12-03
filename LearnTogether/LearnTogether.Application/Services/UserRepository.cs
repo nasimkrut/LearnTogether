@@ -31,7 +31,7 @@ public class UserRepository : IUserRepository
             Where(b => b.Id == id).
             ExecuteUpdateAsync(s => s
                .SetProperty(b => b.UserName, b => username)
-               //.SetProperty(b => b.FullName, b => fullName)
+               .SetProperty(b => b.FullName, b => fullName)
                .SetProperty(b => b.PasswordHash, b => password)
                .SetProperty(b => b.Rating, b => rating));
         
