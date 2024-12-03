@@ -26,7 +26,7 @@ public class UserController : ControllerBase
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] UserLoginDTO loginDto)
     {
-        var user = await _userService.AuthenticateAsync(loginDto.Username, loginDto.Password);
+        var user = await _userService.AuthenticateAsync(loginDto.UserName, loginDto.Password);
         if (user == null)
             return Unauthorized("Invalid credentials");
 
@@ -36,7 +36,7 @@ public class UserController : ControllerBase
 
     public async Task<ActionResult<Guid>> UpdateUser(Guid id, [FromBody] UserLoginDTO userUpdateDto)
     {
-        var user = await _userService.UpdateUserAsync(id, userUpdateDto.Username, userUpdateDto.FullName, userUpdateDto.Password, userUpdateDto.Rating);
+        var user = await _userService.UpdateUserAsync(id, userUpdateDto.UserName, userUpdateDto.FullName, userUpdateDto.Password, userUpdateDto.Rating);
 
         return Ok(user);
     }
