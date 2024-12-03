@@ -40,7 +40,7 @@ public class UserService : IUserService
     public string GenerateJwtToken(User user)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
-        var key = "Your_Secret_Key_Here"u8.ToArray();
+        var key = "oLJq@9XnC!h*H4nCz#^b1W~nKJg%Mj@5^rSz6w@p"u8.ToArray();
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Subject = new ClaimsIdentity(new[]
