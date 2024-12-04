@@ -17,12 +17,10 @@ export default function AuthPage({isLogin}) {
     }
   };
 
-  const backgroundImage = 'url("src/assets/Форма регистрации.png")'
-
   return (
     <>
       <Header/>
-      <div className='auth-page' style={{backgroundImage}}>
+      <div className='auth-page'>
         <div className='auth-container'>
           <h1>{isLogin ? 'Вход' : 'Регистрация'}</h1>
           <AuthForm isLogin={isLogin} onSubmit={handleSubmit}/>

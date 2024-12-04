@@ -1,5 +1,6 @@
 import './WelcomePage.css'
 import {Link} from "react-router-dom";
+import Button from "../components/Button.jsx";
 
 export default function WelcomePage() {
   return (
@@ -8,17 +9,12 @@ export default function WelcomePage() {
         <div>
           <h1>LearnTogether</h1>
           <p>Поиск партнёра для обмена знаниями и для взаимной помощи в учёбе.</p>
-          <div style={{
-            alignItems: 'center',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '0.75rem'
-          }}>
+          <div className="welcome-container">
             <Link to="/login">
-              <button>Вход</button>
+              <Button>Вход</Button>
             </Link>
-            <Link to="/RegistrationPage">
-              <button>Регистрация</button>
+            <Link to="/registration">
+              <Button>Регистрация</Button>
             </Link>
           </div>
         </div>

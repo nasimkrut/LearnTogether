@@ -1,13 +1,19 @@
 import './FilterPanel.css'
 import Button from "./Button.jsx";
 
-const subjectsList = ['math', 'programming', 'physics']
+const subjectsList = ['Math', 'Probability', 'CSharp', 'MachineLearning', 'Algorithms', 'DataStructures']
 const ratingOptions = [
   { value: "", label: "Все" },
   { value: "newbie", label: "Новички" },
   { value: "smart", label: "Умные"},
   { value: "genius", label: "Гении" },
 ]
+
+const mapRatingToValue = (rating) => {
+  if (rating < 2) return 'newbie';
+  if (rating < 4) return 'smart';
+  return 'genius';
+};
 
 export default function FilterPanel({ filters, onChange, onApply }) {
   const handleRatingChange = (event) => {

@@ -39,7 +39,7 @@ export default function AuthForm({ isLogin, onSubmit }) {
         onSubmit(response);
         // navigate("/login")
       } catch (e) {
-        alert(`Ошибка регистрации: ${e.response?.data?.message || 'ААА'}`)
+        alert(`Ошибка регистрации: ${e.response?.data?.message || {login, name, surname}}`)
       }
     }
   };
