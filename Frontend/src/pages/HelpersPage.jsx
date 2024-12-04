@@ -58,8 +58,11 @@ export default function HelpersPage() {
 
   const handleSubmit = async () => {
     const createdPost = {
-      requiredSubject: newPost.requiredSubject,
-      helpSubjects: newPost.helpSubjects.split(',').map(s => s.trim()),
+      requiredSubject: Number(newPost.requiredSubject),
+      helpSubjects: newPost.helpSubjects
+          .split(',')
+          .map(s => Number(s.trim()))
+          .filter(num => !isNaN(num)),
       description: newPost.description,
       tags: [],
     }
