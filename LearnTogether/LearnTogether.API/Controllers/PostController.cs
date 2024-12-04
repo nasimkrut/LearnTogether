@@ -44,7 +44,7 @@ public class PostController : ControllerBase
         return Ok(posts);
     }
     
-    [HttpPost]
+    [HttpPost("AddPost")]
     public async Task<ActionResult<Guid>> AddPostAsync([FromBody] PostDto postDt)
     {
         var post = new Post
