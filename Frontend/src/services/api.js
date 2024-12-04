@@ -9,7 +9,7 @@ const api = axios.create({
 
 export const createPost = async (data) => {
   try {
-    const response = await api.post("/AddPost", {
+    const response = await api.post("api/post/AddPost", {
       requiredSubject: data.requiredSubject,
       helpSubjects: data.helpSubjects,
       description: data.description,
