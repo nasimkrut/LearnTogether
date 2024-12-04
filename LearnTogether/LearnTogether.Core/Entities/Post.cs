@@ -16,7 +16,7 @@ public class Post
     public double Rating
     {
         get => User?.Rating ?? 0;
-        set { }
+        set {}
     }
 
 
