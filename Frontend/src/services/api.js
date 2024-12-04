@@ -11,18 +11,14 @@ const api = axios.create({
 
 export const createPost = async (data) => {
   try {
-    const userName = Cookies.get("userName");
-    if (!userName) {
-      throw new Error("Пользователь не авторизован");
-    }
     //const userId = await getUserId(userName);
     //console.log(userId);
     const response = await api.post("api/post/AddPost", {
-      userId: data.userId,
-      requiredSubject: data.requiredSubject, // число
-      helpSubjects: data.helpSubjects, // масив чисел
-      description: data.description, // строка
-      tags: data.tags || [] // масив строк 
+      UserId: data.userId,
+      RequiredSubject: data.requiredSubject, // число
+      HelpSubjects: data.helpSubjects, // масив чисел
+      Description: data.description, // строка
+      Tags: data.tags || [] // масив строк
     });
     console.log(response);
     return response.data;
