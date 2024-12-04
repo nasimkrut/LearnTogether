@@ -32,7 +32,8 @@ export const getStoredUserName = () => {
 
 export const getUserId = async (userName) => {
   try {
-    const response = await api.get(`api/user/GetUserId`, {params: {userName}});
+    // const response = await api.get(`api/user/GetUserId`, {params: {userName}});
+    const response = await api.get(`api/user/getUserId?userName=${userName}`);
     return response.data;
   } catch (error) {
     console.error('Ошибка при получении id:', error.response?.data || error.message);
