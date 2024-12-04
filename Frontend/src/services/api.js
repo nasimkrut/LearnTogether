@@ -28,7 +28,7 @@ export const createPost = async (data) => {
 
 export const getStoredUserName = () => {
   const name= localStorage.getItem('userName');
-  console.log(name ? name : "нет имени");
+  console.log(name);
   return name;
 };
 
@@ -69,7 +69,7 @@ export const loginUser = async (data) => {
       UserName: data.login,
       Password: data.password.toString()
     });
-    localStorage.setItem('userName', data.UserName);
+    localStorage.setItem('userName', data.login);
     return response.data
   } catch (e) {
     console.error('Ошибка авторизации:', e.response?.data || e.message)
