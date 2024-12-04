@@ -3,11 +3,12 @@ import {Link} from "react-router-dom";
 import Button from "../components/Button.jsx";
 import PostCard from "../components/PostCard.jsx";
 import {useEffect, useState} from "react";
-import {createPost, getPosts} from "../services/api.js"
+import {createPost, getPosts, getStoredUserName, getUserId} from "../services/api.js"
 import './HelpersPage.css'
 import FilterPanel from "../components/FilterPanel";
 import Loader from "../components/Loader";
 import EmptyState from "../components/EmptyState";
+import {mapRatingToValue} from "../utils/Utils.jsx";
 
 export default function HelpersPage() {
   const [showModal, setShowModal] = useState(false);
@@ -43,7 +44,7 @@ export default function HelpersPage() {
     setLoading(true);
     setTimeout(() => {
       const filtered = posts.filter(post =>
-        (!filters.rating || post.rating === filters.rating) &&
+        (!filters.rating || mapRatingToValue(post.rating) === filters.rating) &&
         (filters.subjects.length === 0 || filters.subjects.some(subject => post.helpSubjects.includes(subject)))
       );
       setFilteredPosts(filtered);
@@ -58,11 +59,9 @@ export default function HelpersPage() {
 
   const handleSubmit = async () => {
     const createdPost = {
-      requiredSubject: Number(newPost.requiredSubject),
-      helpSubjects: newPost.helpSubjects
-          .split(',')
-          .map(s => Number(s.trim()))
-          .filter(num => !isNaN(num)),
+      userId: getUserId(getStoredUserName()),
+      requiredSubject: newPost.requiredSubject,
+      helpSubjects: newPost.helpSubjects.split(',').map(s => s.trim()),
       description: newPost.description,
       tags: [],
     }
@@ -75,6 +74,8 @@ export default function HelpersPage() {
       setNewPost({requiredSubject: "", helpSubjects: "", description: "", tags: ""});
     } catch (e) {
       console.error("Ошибка при создании поста:", e)
+      alert("Возникла ошибка. Попробуйте снова!")
+      setShowModal(false);
     }
   }
 

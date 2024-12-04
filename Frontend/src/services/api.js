@@ -10,6 +10,7 @@ const api = axios.create({
 export const createPost = async (data) => {
   try {
     const response = await api.post("api/post/AddPost", {
+      userId: data.userId,
       requiredSubject: data.requiredSubject, // число
       helpSubjects: data.helpSubjects, // масив чисел
       description: data.description, // строка
@@ -22,6 +23,20 @@ export const createPost = async (data) => {
   }
 };
 
+export const getStoredUserName = () => {
+  return localStorage.getItem('userName');
+};
+
+export const getUserId = async (userName) => {
+  try {
+    const response = await api.get(`api/users/GetUserId`, {params: {userName}});
+    return response.data;
+  } catch (error) {
+    console.error('Ошибка при получении id:', error.response?.data || error.message);
+    throw error;
+  }
+}
+
 export const registerUser = async (data) => {
   try {
     console.log('Отправляемые данные:', data);
@@ -32,6 +47,7 @@ export const registerUser = async (data) => {
       Rating: data.Rating,
     });
     console.log(response)
+    localStorage.setItem('userName', data.UserName);
     return response.data;
   } catch (e) {
     console.error('Ошибка регистрации:', e.response?.data || e.message);
@@ -47,6 +63,7 @@ export const loginUser = async (data) => {
       UserName: data.login,
       Password: data.password.toString()
     });
+    localStorage.setItem('userName', data.UserName);
     return response.data
   } catch (e) {
     console.error('Ошибка авторизации:', e.response?.data || e.message)

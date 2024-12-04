@@ -4,7 +4,6 @@ import PostCard from '../components/PostCard.jsx';
 import Loader from '../components/Loader';
 import Header from "../components/Header.jsx";
 import EmptyState from '../components/EmptyState';
-import {mockUsers} from "../utils/MockUsers.jsx";
 import './MainPage.css';
 import Button from "../components/Button.jsx";
 import {Link} from "react-router-dom";

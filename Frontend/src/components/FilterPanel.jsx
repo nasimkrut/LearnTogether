@@ -9,12 +9,6 @@ const ratingOptions = [
   { value: "genius", label: "Гении" },
 ]
 
-const mapRatingToValue = (rating) => {
-  if (rating < 2) return 'newbie';
-  if (rating < 4) return 'smart';
-  return 'genius';
-};
-
 export default function FilterPanel({ filters, onChange, onApply }) {
   const handleRatingChange = (event) => {
     onChange({ ...filters, rating: event.target.value });
