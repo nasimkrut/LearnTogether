@@ -34,6 +34,12 @@ public class UserController : ControllerBase
         return Ok(new { Token = token });
     }
 
+    [HttpGet("getUserId")]
+    public async Task<ActionResult<Guid>> GetUserIdByUserName(string userName)
+    {
+        return await _userService.GetUserByUserNameAsync(userName);
+    }
+
     public async Task<ActionResult<Guid>> UpdateUser(Guid id, [FromBody] User userUpdateDto)
     {
         var user = await _userService.UpdateUserAsync(id, userUpdateDto.UserName, userUpdateDto.FullName,
