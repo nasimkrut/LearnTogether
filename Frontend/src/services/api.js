@@ -27,7 +27,9 @@ export const createPost = async (data) => {
 };
 
 export const getStoredUserName = () => {
-  return localStorage.getItem('userName');
+  const name= localStorage.getItem('userName');
+  console.log(name);
+  return name;
 };
 
 export const getUserId = async (userName) => {
