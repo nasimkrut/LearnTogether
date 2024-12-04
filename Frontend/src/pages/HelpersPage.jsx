@@ -60,19 +60,19 @@ export default function HelpersPage() {
   const handleSubmit = async () => {
     console.log("handleSubmit");
     try {
-      const userName = getStoredUserName(); // Получаем UserName из localStorage
+      const userName = getStoredUserName();
       console.log("stored name:", userName);
       if (!userName) {
         alert("Не удалось найти имя пользователя. Пожалуйста, войдите снова.");
         return;
       }
 
-      const userId = await getUserId(userName); // Ожидаем выполнения функции
+      const userId = await getUserId(userName);
       console.log(`userId: ${userId}`);
       console.log('скип');
 
       const createdPost = {
-        userId: userId, // Используем полученный userId
+        userId: userId,
         requiredSubject: newPost.requiredSubject,
         helpSubjects: newPost.helpSubjects.split(',').map((s) => s.trim()),
         description: newPost.description,
@@ -81,7 +81,7 @@ export default function HelpersPage() {
 
       console.log("Создаётся пост:", createdPost);
 
-      const postId = await createPost(createdPost); // Создаем пост
+      const postId = await createPost(createdPost);
       console.log(`Пост успешно создан с ID: ${postId}`);
 
       setPosts([...posts, { id: postId, ...newPost }]);

@@ -14,7 +14,7 @@ export const createPost = async (data) => {
     //const userId = await getUserId(userName);
     //console.log(userId);
     console.log(data);
-    const response = await api.post("api/post/AddPost", {
+    const response = await api.post("api/AddPost", {
       UserId: data.userId,
       RequiredSubject: data.requiredSubject, // число
       HelpSubjects: data.helpSubjects, // масив чисел
