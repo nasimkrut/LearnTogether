@@ -72,7 +72,7 @@ export default function HelpersPage() {
       console.log('скип');
 
       const createdPost = {
-        userId: userId[0], // Используем полученный userId
+        userId: userId, // Используем полученный userId
         requiredSubject: newPost.requiredSubject,
         helpSubjects: newPost.helpSubjects.split(',').map((s) => s.trim()),
         description: newPost.description,
