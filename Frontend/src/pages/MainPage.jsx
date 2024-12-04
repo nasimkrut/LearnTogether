@@ -1,33 +1,49 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import FilterPanel from '../components/FilterPanel';
-import UserCard from '../components/UserCard';
+import PostCard from '../components/PostCard.jsx';
 import Loader from '../components/Loader';
 import Header from "../components/Header.jsx";
 import EmptyState from '../components/EmptyState';
 import {mockUsers} from "../utils/MockUsers.jsx";
-// import api from '../services/userApi';
 import './MainPage.css';
 import Button from "../components/Button.jsx";
 import {Link} from "react-router-dom";
+import {getPosts} from "../services/api.js";
 
 export default function MainPage() {
   const [filters, setFilters] = useState({rating: null, subjects: []});
-  const [users, setUsers] = useState(mockUsers);
+  // const [users, setUsers] = useState(mockUsers);
   const [loading, setLoading] = useState(false);
+  const [posts, setPosts] = useState([]);
+  const [filteredPosts, setFilteredPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const data = await getPosts({ type: "helpNeeded" });
+        setPosts(data);
+        setFilteredPosts(data);
+      } catch (e) {
+        console.error("Ошибка загрузки постов:", e);
+      }
+    };
+    fetchPosts();
+  }, []);
 
   const resetFilters = () => {
     setFilters({rating: null, subjects: []});
-    setUsers(mockUsers)
+    setFilteredPosts(posts);
+    // setUsers(mockUsers)
   };
 
   const applyFilters = () => {
     setLoading(true);
     setTimeout(() => {
-      const filteredUsers = mockUsers.filter(user =>
-        (!filters.rating || user.rating === filters.rating) &&
-        (filters.subjects.length === 0 || filters.subjects.some(subject => user.subjects.includes(subject)))
+      const filtered = posts.filter(post =>
+        (!filters.rating || post.rating === filters.rating) &&
+        (filters.subjects.length === 0 || filters.subjects.some(subject => post.requiredSubject.equals(subject)))
       );
-      setUsers(filteredUsers);
+      setFilteredPosts(filtered);
       setLoading(false);
     }, 1000);
   };
@@ -41,21 +57,18 @@ export default function MainPage() {
       </Header>
       <div className="main-page">
         <h1>Найди людей, которые помогут тебе</h1>
-<<<<<<< Updated upstream
-=======
         <Link to="/helpers">
           <Button className="orange-button">или предложи помощь другим...</Button>
         </Link>
->>>>>>> Stashed changes
         <FilterPanel filters={filters} onChange={setFilters} onApply={applyFilters}/>
         {loading ? (
           <Loader/>
-        ) : users.length === 0 ? (
+        ) : filteredPosts.length === 0 ? (
           <EmptyState message="Никого нет :(" onReset={resetFilters} actionLabel="Попробовать снова"/>
         ) : (
           <div className="user-list">
-            {users.map(user => (
-              <UserCard key={user.id} user={user}/>
+            {filteredPosts.map(post => (
+              <PostCard key={post.id} post={post} type="helpNeeded"/>
             ))}
           </div>
         )}

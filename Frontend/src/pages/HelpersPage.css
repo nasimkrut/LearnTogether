@@ -1,4 +1,4 @@
-.main-page {
+.helpers-page {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,44 +10,58 @@
     gap: 1rem;
 }
 
-.main-page h1 {
+.helpers-page h1 {
     color: black;
     padding-top: 2rem;
 }
 
-.user-list {
-    position: sticky;
-    max-height: calc(100vh - 320px);
-    overflow-y: auto;
+.helpers-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    width: 800px;
-    scrollbar-color: #1f1f1f #d1d7d1;
+    justify-content: center;
 }
 
-.header-extra {
-    margin-left: auto;
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(59, 72, 56, 0.5);
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-.cabinet-button {
-    font-size: 0.8rem;
+.modal h2 {
+    color: black;
+}
+
+.modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(249, 249, 249, 0.89);
+    padding: 30px;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
     width: 100%;
-    padding: 0.7rem;
-    margin-right: 1rem;
-    margin-top: 0;
+    box-sizing: border-box;
+    text-align: center;
 }
 
-.orange-button {
-    width: auto;
-    background-color: #d9e7c2;
-    color: #55a38a;
+.modal-content input {
+    width: 90%;
+    margin: 10px 0;
+    padding: 8px;
+    background-color: #9a9a9a;
+    border-radius: 5rem;
+    border-color: transparent;
 }
 
-.orange-button:hover {
-    background-color: #fa9b4b;
+.modal-content input::placeholder {
     color: white;
 }

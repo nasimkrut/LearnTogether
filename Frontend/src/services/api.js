@@ -7,6 +7,21 @@ const api = axios.create({
   }
 })
 
+export const createPost = async (data) => {
+  try {
+    const response = await api.post("/AddPost", {
+      requiredSubject: data.requiredSubject,
+      helpSubjects: data.helpSubjects,
+      description: data.description,
+      tags: data.tags || []
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Ошибка при создании поста:', error.response?.data || error.message);
+    throw error;
+  }
+};
+
 export const registerUser = async (data) => {
   try {
     console.log('Отправляемые данные:', data);
@@ -38,16 +53,15 @@ export const loginUser = async (data) => {
   }
 }
 
-export const getUsersByFilters = async (filters) => {
+export const getPosts = async (filters) => {
   try {
-    const response = await api.get(`/main`, { params: filters });
+    const response = await api.get('/filtered', {params: filters});
     return response.data;
   } catch (error) {
-    console.error('Ошибка:', error);
+    console.error("Ошибка получения постов:", error.response?.data || error.message);
     throw error;
   }
 }
-
 
 export const getUserProfile = async (userId) => {
   try {
