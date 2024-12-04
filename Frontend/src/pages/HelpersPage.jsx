@@ -58,8 +58,10 @@ export default function HelpersPage() {
   };
 
   const handleSubmit = async () => {
+    console.log("handleSubmit");
     try {
       const userName = getStoredUserName(); // Получаем UserName из localStorage
+      console.log("stored name:", userName);
       if (!userName) {
         alert("Не удалось найти имя пользователя. Пожалуйста, войдите снова.");
         return;
