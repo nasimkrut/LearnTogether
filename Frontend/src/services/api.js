@@ -9,6 +9,7 @@ const api = axios.create({
 
 export const createPost = async (data) => {
   try {
+    console.log(data.userId);
     const response = await api.post("api/post/AddPost", {
       userId: data.userId,
       requiredSubject: data.requiredSubject, // число
