@@ -81,7 +81,7 @@ export default function HelpersPage() {
 
       console.log("Создаётся пост:", createdPost);
 
-      const postId = await createPost(createdPost); // Создаем пост
+      const postId = await createPost(createdPost, userId); // Создаем пост
       console.log(`Пост успешно создан с ID: ${postId}`);
 
       setPosts([...posts, { id: postId, ...newPost }]);

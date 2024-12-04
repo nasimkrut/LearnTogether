@@ -15,10 +15,10 @@ export const createPost = async (data) => {
     if (!userName) {
       throw new Error("Пользователь не авторизован");
     }
-    const userId = await getUserId(userName);
-    console.log(userId);
+    //const userId = await getUserId(userName);
+    //console.log(userId);
     const response = await api.post("api/post/AddPost", {
-      userId: userId,
+      userId: data.userId,
       requiredSubject: data.requiredSubject, // число
       helpSubjects: data.helpSubjects, // масив чисел
       description: data.description, // строка
