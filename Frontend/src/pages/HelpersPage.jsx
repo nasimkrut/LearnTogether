@@ -59,7 +59,7 @@ export default function HelpersPage() {
 
   const handleSubmit = async () => {
     const createdPost = {
-      userId: getUserId(getStoredUserName()),
+      userId: getUserId(getStoredUserName()).toString(),
       requiredSubject: newPost.requiredSubject,
       helpSubjects: newPost.helpSubjects.split(',').map(s => s.trim()),
       description: newPost.description,
