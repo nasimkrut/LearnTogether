@@ -14,3 +14,10 @@
 .button:hover {
     background-color: #2d9479;
 }
+
+.new-post-button {
+    border: none;
+    margin-bottom: 1rem;
+    width: 200px;
+    padding: 0.7rem;
+}

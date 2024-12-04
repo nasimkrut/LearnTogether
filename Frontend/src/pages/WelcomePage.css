@@ -1,3 +1,12 @@
+:root {
+    --s: 73px; /* control the size */
+    --c1: #44b969;
+    --c2: #7cefa0;
+    --c3: #beffd1;
+
+    --_g: var(--c3) 0 120deg,#0000 0;
+}
+
 .main-container {
     display: flex;
     height: 100vh;
@@ -11,7 +20,7 @@
     align-items: flex-start;
     justify-content: center;
     background-color: #ffffff;
-    background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231da94c' fill-opacity='0.2'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    /*background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231da94c' fill-opacity='0.2'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");*/
     color: black;
 }
 
@@ -31,7 +40,7 @@
     padding: 0.75rem;
     font-size: 1.5rem;
     color: white;
-    background-color: #e18f14;
+    background-color: #f3a83c;
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
@@ -42,13 +51,23 @@
 }
 
 .welcome-page button:hover {
-    background-color: #cc7400;
+    background-color: #e7942a;
 }
 
 .image-container {
     flex: 1;
-    background-color: #eff2eb;
-    background-image: url("https://images.pexels.com/photos/5538635/pexels-photo-5538635.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
-    background-size: cover;
-    background-position: center;
+    background:
+            conic-gradient(from -60deg at 50% calc(100%/3), var(--_g)),
+            conic-gradient(from 120deg at 50% calc(200%/3), var(--_g)),
+            conic-gradient(from 60deg at calc(200%/3), var(--c3) 60deg, var(--c2) 0 120deg, rgba(255, 0, 0, 0) 0),
+            conic-gradient(from 180deg at calc(100%/3), var(--c1) 60deg, var(--_g)),
+            linear-gradient(90deg, var(--c1) calc(100%/6), var(--c2) 0 50%, var(--c1) 0 calc(500%/6), var(--c2) 0);
+    background-size: calc(1.732 * var(--s)) var(--s);
+}
+
+.welcome-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.75rem;
 }
