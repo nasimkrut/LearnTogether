@@ -8,7 +8,7 @@ export const mockUsers = [
     subjects: ['math'],
     skills: ['Алгебра', 'Дискретная математика', 'Геометрия'],
     photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUaI1VJbaD3QI3Yd_EhIHOEkvU9v83NpdEbdVxfx6iUXgfyt9cDsc_4ttCjv_glEovRvU&usqp=CAU',
-    telegram: 'oI_Io_P'
+    login: 'oI_Io_P'
   },
   {
     id: 2,

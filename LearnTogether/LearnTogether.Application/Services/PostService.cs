@@ -46,7 +46,7 @@ public class PostService : IPostService
         foreach (var subscription in userSubscriptions)
         {
             await SendNotification(subscription, 
-                $"Вот эта капибара по имени {post.User.Username} добавил(а) пост");
+                $"Вот эта капибара по имени {post.User.UserName} добавил(а) пост");
         }
 
         var subjectSubscriptions = await _subscriptionRepository

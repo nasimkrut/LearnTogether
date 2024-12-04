@@ -14,9 +14,9 @@ public class UserRepository : IUserRepository
         _context = context;
     }
 
-    public async Task<User> GetUserByEmailAsync(string email)
+    public async Task<User> GetUserByUserNameAsync(string userName)
     {
-        return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+        return await _context.Users.FirstOrDefaultAsync(u => u.UserName == userName);
     }
 
     public async Task AddUserAsync(User user)
@@ -25,13 +25,13 @@ public class UserRepository : IUserRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task<Guid> UpdateUser(Guid id, string username, string email, string password, double rating)
+    public async Task<Guid> UpdateUser(Guid id, string username, string fullName, string password, double rating)
     {
         await _context.Users.
             Where(b => b.Id == id).
             ExecuteUpdateAsync(s => s
-               .SetProperty(b => b.Username, b => username)
-               .SetProperty(b => b.Email, b => email)
+               .SetProperty(b => b.UserName, b => username)
+               .SetProperty(b => b.FullName, b => fullName)
                .SetProperty(b => b.PasswordHash, b => password)
                .SetProperty(b => b.Rating, b => rating));
         

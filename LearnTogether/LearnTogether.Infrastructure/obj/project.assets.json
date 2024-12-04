@@ -5411,6 +5411,7 @@
       "path": "system.runtime.interopservices.runtimeinformation/4.0.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -6753,23 +6754,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Nasim\\.nuget\\packages\\": {},
+    "C:\\Users\\Me\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nasim\\LeatnTogether\\LearnTogether\\LearnTogether\\LearnTogether.Infrastructure\\LearnTogether.Infrastructure.csproj",
+      "projectUniqueName": "C:\\University\\Useful Application\\LearnTogether\\LearnTogether\\LearnTogether.Infrastructure\\LearnTogether.Infrastructure.csproj",
       "projectName": "LearnTogether.Infrastructure",
-      "projectPath": "C:\\Users\\Nasim\\LeatnTogether\\LearnTogether\\LearnTogether\\LearnTogether.Infrastructure\\LearnTogether.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\Nasim\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nasim\\LeatnTogether\\LearnTogether\\LearnTogether\\LearnTogether.Infrastructure\\obj\\",
+      "projectPath": "C:\\University\\Useful Application\\LearnTogether\\LearnTogether\\LearnTogether.Infrastructure\\LearnTogether.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\Me\\.nuget\\packages\\",
+      "outputPath": "C:\\University\\Useful Application\\LearnTogether\\LearnTogether\\LearnTogether.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Nasim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Me\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6778,15 +6779,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://www.nuget.org/api/v2": {}
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\Nasim\\LeatnTogether\\LearnTogether\\LearnTogether\\LearnTogether.Core\\LearnTogether.Core.csproj": {
-              "projectPath": "C:\\Users\\Nasim\\LeatnTogether\\LearnTogether\\LearnTogether\\LearnTogether.Core\\LearnTogether.Core.csproj"
+            "C:\\University\\Useful Application\\LearnTogether\\LearnTogether\\LearnTogether.Core\\LearnTogether.Core.csproj": {
+              "projectPath": "C:\\University\\Useful Application\\LearnTogether\\LearnTogether\\LearnTogether.Core\\LearnTogether.Core.csproj"
             }
           }
         }
@@ -6799,7 +6799,7 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "direct"
+        "auditMode": "all"
       }
     },
     "frameworks": {
@@ -6839,7 +6839,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.1.24101.2/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\Me\\.dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

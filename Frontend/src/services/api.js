@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/",
+  baseURL: "http://84.201.167.107/api/",
   headers: {
     'Content-Type': 'application/json',
   }
@@ -9,17 +9,38 @@ const api = axios.create({
 
 export const registerUser = async (data) => {
   try {
-    const response = await api.post('/api/user/register', data)
+    console.log('Отправляемые данные:', data);
+    const response = await api.post('/user/register', {
+      UserName: data.UserName,
+      FullName: data.FullName,
+      PasswordHash: data.PasswordHash,
+      Rating: data.Rating,
+    });
+    console.log(response)
+    return response.data;
+  } catch (e) {
+    console.error('Ошибка регистрации:', e.response?.data || e.message);
+    throw e;
+  }
+};
+
+export const loginUser = async (data) => {
+  try {
+    //const response = await api.post('/user/login', data)
+    const response = await api.post('/user/login', {
+      UserName: data.login,
+      PasswordHash: data.password
+    });
     return response.data
   } catch (e) {
-    console.error('Ошибка регистрации:', e.response?.data || e.message)
+    console.error('Ошибка авторизации:', e.response?.data || e.message)
     throw e;
   }
 }
 
-export const getUsers = async (filters) => {
+export const getUsersByFilters = async (filters) => {
   try {
-    const response = await api.get(`/main}`, filters);
+    const response = await api.get(`/main`, { params: filters });
     return response.data;
   } catch (error) {
     console.error('Ошибка:', error);

@@ -1,7 +1,4 @@
-@LearnTogether.API_HostAddress = http://localhost:5218
-
-GET {{LearnTogether.API_HostAddress}}/weatherforecast/
-Accept: application/json
+@LearnTogether.API_HostAddress = http://84.201.167.107:5000
 
 ###
 //http listeners

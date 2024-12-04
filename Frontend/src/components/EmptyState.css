@@ -15,7 +15,7 @@
 
 .empty-state-button {
     padding: 10px 20px;
-    background-color: #44957b;
+    background-color: #ffaf4c;
     color: white;
     border: none;
     border-radius: 5px;
@@ -25,5 +25,5 @@
 }
 
 .empty-state-button:hover {
-    background-color: #127358;
+    background-color: #dc942c;
 }

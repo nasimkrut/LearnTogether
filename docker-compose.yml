@@ -1,31 +1,47 @@
 ﻿services:
   backend:
+    container_name: backend
     build:
       context: .
       dockerfile: LearnTogether/LearnTogether.API/Dockerfile
     ports:
       - "5000:80"  
     environment:
+      Jwt__Issuer:  "http://84.201.167.107/api/"
+      Jwt__Audience: "http://84.201.167.107:3000"
+      Jwt__Key: "oLJq@9XnC!h*H4nCz#^b1W~nKJg%Mj@5^rSz6w@p"
       ConnectionStrings__Default: "Host=postgres;Database=LearnTogetherDb;Username=postgres;Password=LearnTogetherPassword"
     depends_on:
       - postgres
   postgres:
+    container_name: postgres
     image: postgres:15  
     environment:        
       POSTGRES_USER: postgres     
-      POSTGRES_PASSWORD: geocodeFT 
+      POSTGRES_PASSWORD: LearnTogetherPassword 
       POSTGRES_DB: LearnTogetherDb    
     ports:
       - "5432:5432" 
     volumes:
       - db_data:/var/lib/postgresql/data
   frontend:
+    container_name: frontend
     build:
-      context: .
-      dockerfile: Frontend/my-app/Dockerfile
+      context: ./Frontend
+      dockerfile: Dockerfile
     ports:
       - "3000:80"
     depends_on:
       - backend
+  nginx:
+    container_name: nginx
+    image: nginx:1.25
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - frontend
+      - backend
 volumes:
-  db_data:  
+  db_data: 

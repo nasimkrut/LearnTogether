@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import './AuthForm.css';
 import Button from "./Button.jsx";
-import {registerUser} from "../services/api.js";
+import {registerUser, loginUser} from "../services/api.js";
 
 export default function AuthForm({ isLogin, onSubmit }) {
   const navigate = useNavigate();
@@ -15,15 +15,28 @@ export default function AuthForm({ isLogin, onSubmit }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (isLogin) {
-      onSubmit({ login, password });
+      try {
+        const user = {login, password}
+        console.log(password);
+        const response = await loginUser(user);
+        console.log(response)
+        onSubmit(response);
+      } catch (e) {
+        alert(`Ошибка авторизации: ${e.response?.data?.message || 'ААА'}`)
+      }
     } else {
       try {
-        const rating = 0.0;
-        const fullName = name + ' ' + surname;
-        const newUser = { login, fullName, password, rating}
+        const UserName = login;
+        const PasswordHash = password;
+        const Rating = 0.0;
+        const FullName = name + ' ' + surname;
+        const newUser = {UserName, FullName, PasswordHash, Rating};
+        console.log(UserName, PasswordHash, Rating, FullName)
         const response = await registerUser(newUser);
         console.log(response)
+        onSubmit(response);
         // navigate("/login")
       } catch (e) {
         alert(`Ошибка регистрации: ${e.response?.data?.message || {login, name, surname}}`)

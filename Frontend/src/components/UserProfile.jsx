@@ -17,13 +17,13 @@ const UserProfile = ({ user, onClose }) => {
         <p>Навыки: {user.skills.join(", ")}</p>
         {showContact ? (
           <a
-            href={`https://t.me/${user.telegram}`}
+            href={`https://t.me/${user.login}`}
             target="_blank"
             rel="noopener noreferrer"
             className="contact-info"
             style={{textDecoration: "none"}}
           >
-            @{user.telegram}
+            @{user.login}
           </a>
         ) : (
           <Button onClick={() => {
