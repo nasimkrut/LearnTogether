@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://84.201.167.107/api/",
+  baseURL: "http://84.201.167.107/",
   headers: {
     'Content-Type': 'application/json',
   }
@@ -10,8 +10,8 @@ const api = axios.create({
 export const registerUser = async (data) => {
   try {
     console.log('Отправляемые данные:', data);
-    const response = await api.post('/user/register', {
-      User: data.UserName,
+    const response = await api.post('api/user/register', {
+      UserName: data.UserName,
       FullName: data.FullName,
       PasswordHash: data.PasswordHash,
       Rating: data.Rating,
@@ -27,10 +27,9 @@ export const registerUser = async (data) => {
 export const loginUser = async (data) => {
   try {
     //const response = await api.post('/user/login', data)
-    const PasswordHash = data.password;
-    const response = await api.post('/user/login', {
+    const response = await api.post('api/user/login', {
       UserName: data.login,
-      PasswordHash: PasswordHash
+      PasswordHash: data.password
     });
     return response.data
   } catch (e) {
