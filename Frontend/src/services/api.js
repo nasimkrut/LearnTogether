@@ -28,9 +28,9 @@ export const registerUser = async (data) => {
 export const loginUser = async (data) => {
   try {
     //const response = await api.post('/user/login', data)
-    const response = await api.post('user/login', {
+    const response = await api.post('/user/login', {
       UserName: data.UserName,
-      PasswordHash: data.PasswordHash
+        PasswordHash: data.PasswordHash
     });
     return response.data
   } catch (e) {
