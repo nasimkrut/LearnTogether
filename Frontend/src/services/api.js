@@ -13,6 +13,7 @@ export const createPost = async (data) => {
   try {
     //const userId = await getUserId(userName);
     //console.log(userId);
+    console.log(data);
     const response = await api.post("api/post/AddPost", {
       UserId: data.userId,
       RequiredSubject: data.requiredSubject, // число
