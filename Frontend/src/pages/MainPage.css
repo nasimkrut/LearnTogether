@@ -39,4 +39,25 @@
     padding: 0.7rem;
     margin-right: 1rem;
     margin-top: 0;
+<<<<<<< Updated upstream
+=======
+}
+
+.orange-button {
+    width: 18rem;
+    background-color: #d9e7c2;
+    color: #55a38a;
+}
+
+.orange-button:hover {
+    background-color: #fa9b4b;
+    color: white;
+}
+
+.helpers-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+>>>>>>> Stashed changes
 }

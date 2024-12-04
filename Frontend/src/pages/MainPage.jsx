@@ -41,6 +41,12 @@ export default function MainPage() {
       </Header>
       <div className="main-page">
         <h1>Найди людей, которые помогут тебе</h1>
+<<<<<<< Updated upstream
+=======
+        <Link to="/helpers">
+          <Button className="orange-button">или предложи помощь другим...</Button>
+        </Link>
+>>>>>>> Stashed changes
         <FilterPanel filters={filters} onChange={setFilters} onApply={applyFilters}/>
         {loading ? (
           <Loader/>

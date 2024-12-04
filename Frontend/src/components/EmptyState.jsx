@@ -1,14 +1,15 @@
 import './EmptyState.css';
 import PropTypes from "prop-types";
+import Button from "./Button.jsx";
 
 export default function EmptyState({ message, onReset, actionLabel }) {
   return (
     <div className="empty-state">
       <p>{message || 'Ничего не найдено.'}</p>
       {onReset && (
-        <button onClick={onReset} className="empty-state-button">
+        <Button onClick={onReset} className="orange-button">
           {actionLabel || 'Попробовать снова'}
-        </button>
+        </Button>
       )}
     </div>
   );
