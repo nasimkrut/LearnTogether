@@ -17,7 +17,6 @@ export const registerUser = async (data) => {
       Rating: data.Rating,
     });
     console.log(response)
-    console.log(response.data);
     return response.data;
   } catch (e) {
     console.error('Ошибка регистрации:', e.response?.data || e.message);
@@ -29,8 +28,8 @@ export const loginUser = async (data) => {
   try {
     //const response = await api.post('/user/login', data)
     const response = await api.post('/user/login', {
-      UserName: data.UserName,
-        PasswordHash: data.PasswordHash
+      UserName: data.login,
+      PasswordHash: data.password
     });
     return response.data
   } catch (e) {

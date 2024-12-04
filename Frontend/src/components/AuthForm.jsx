@@ -19,6 +19,7 @@ export default function AuthForm({ isLogin, onSubmit }) {
     if (isLogin) {
       try {
         const user = {login, password}
+        console.log(password);
         const response = await loginUser(user);
         console.log(response)
         onSubmit(response);
