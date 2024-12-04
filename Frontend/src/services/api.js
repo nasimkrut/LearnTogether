@@ -1,4 +1,5 @@
 import axios from "axios";
+import log from "eslint-plugin-react/lib/util/log.js";
 
 const api = axios.create({
   baseURL: "http://84.201.167.107/",
@@ -69,6 +70,7 @@ export const loginUser = async (data) => {
       UserName: data.login,
       Password: data.password.toString()
     });
+    console.log(data.login)
     localStorage.setItem('userName', data.login);
     return response.data
   } catch (e) {
