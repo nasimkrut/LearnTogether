@@ -16,8 +16,10 @@ export const createPost = async (data) => {
       description: data.description, // строка
       tags: data.tags || [] // масив строк 
     });
+    console.log(response);
     return response.data;
   } catch (error) {
+    console.log(error);
     console.error('Ошибка при создании поста:', error.response?.data || error.message);
     throw error;
   }
