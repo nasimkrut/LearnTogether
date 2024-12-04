@@ -35,10 +35,8 @@ public class UserController : ControllerBase
     }
 
     [HttpGet("getUserId")]
-    public async Task<ActionResult<Guid>> GetUserIdByUserName([FromBody] string userName)
-    {
-        return await _userService.GetUserByUserNameAsync(userName);
-    }
+    public async Task<ActionResult<Guid>> GetUserIdByUserName([FromQuery] string userName) 
+        => await _userService.GetUserByUserNameAsync(userName);
 
     public async Task<ActionResult<Guid>> UpdateUser(Guid id, [FromBody] User userUpdateDto)
     {
