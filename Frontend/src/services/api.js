@@ -34,7 +34,7 @@ export const createPost = async (data) => {
 };
 
 export const getStoredUserName = () => {
-  const name = localStorage.getItem('userName');
+  const name = sessionStorage.getItem('userName');
   console.log(name);
   return name;
 };
@@ -43,7 +43,7 @@ export const getUserId = async (userName) => {
   try {
     // const response = await api.get(`api/user/GetUserId`, {params: {userName}});
     const response = await api.get(`api/user/getUserId?userName=${userName.toString()}`);
-    return response.data;
+    return response.data.toString();
   } catch (error) {
     console.error('Ошибка при получении id:', error.response?.data || error.message);
     throw error;
@@ -59,9 +59,9 @@ export const registerUser = async (data) => {
       Rating: data.Rating,
     });
     const userId = await getUserId(data.UserName);
-    localStorage.setItem('userId', userId);
+    sessionStorage.setItem('userId', userId);
     console.log(userId)
-    localStorage.setItem('userName', data.UserName);
+    sessionStorage.setItem('userName', data.UserName);
     return response.data;
   } catch (e) {
     console.error('Ошибка регистрации:', e.response?.data || e.message);
@@ -76,7 +76,7 @@ export const loginUser = async (data) => {
       UserName: data.login,
       Password: data.password.toString()
     });
-    localStorage.setItem('userName', data.login);
+    sessionStorage.setItem('userName', data.login);
     return response.data
   } catch (e) {
     console.error('Ошибка авторизации:', e.response?.data || e.message)

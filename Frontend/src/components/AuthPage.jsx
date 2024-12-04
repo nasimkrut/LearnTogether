@@ -9,7 +9,7 @@ export default function AuthPage({isLogin}) {
   const handleSubmit = (data) => {
     console.log(isLogin ? 'Login data submitted:' : 'Registration data submitted:', data);
     if (isLogin && data.token) {
-      localStorage.setItem('token', data.token);
+      sessionStorage.setItem('token', data.token);
       navigate("/main")
     }
     else {

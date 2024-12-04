@@ -16,14 +16,14 @@ export default function CabinetPage() {
       reader.onload = (e) => {
         const baseImage = e.target.result;
         setProfilePic(baseImage);
-        localStorage.setItem("profilePic", baseImage);
+        sessionStorage.setItem("profilePic", baseImage);
       };
       reader.readAsDataURL(file);
     }
   }
 
   useEffect(() => {
-    const savedPic = localStorage.getItem("profilePic");
+    const savedPic = sessionStorage.getItem("profilePic");
     if (savedPic) {
       setProfilePic(savedPic);
     }
