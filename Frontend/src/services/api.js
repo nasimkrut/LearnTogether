@@ -54,9 +54,9 @@ export const registerUser = async (data) => {
       PasswordHash: data.PasswordHash,
       Rating: data.Rating,
     });
-    console.log('Data login4:', data.login)
     console.log(response)
     localStorage.setItem('userName', data.UserName);
+    console.log('Storage', localStorage)
     console.log('Data login5:', data.login)
     return response.data;
   } catch (e) {
@@ -69,6 +69,7 @@ export const loginUser = async (data) => {
   try {
     //const response = await api.post('/user/login', data)
     console.log(data.password, data.password.toString(), data.password.type)
+    console.log('data from login user:', data)
     console.log('Data login1:', data.login)
     const response = await api.post('api/user/login', {
       UserName: data.login,
