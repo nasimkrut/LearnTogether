@@ -47,7 +47,7 @@ export const getUserId = async (userName) => {
 export const registerUser = async (data) => {
   try {
     console.log('Отправляемые данные:', data);
-    console.log('Data login3:', data.login)
+    console.log('Data login3:', data.UserName)
     const response = await api.post('api/user/register', {
       UserName: data.UserName,
       FullName: data.FullName,
@@ -57,7 +57,7 @@ export const registerUser = async (data) => {
     console.log(response)
     localStorage.setItem('userName', data.UserName);
     console.log('Storage', localStorage)
-    console.log('Data login5:', data.login)
+    console.log('Data login5:', data.UserName)
     return response.data;
   } catch (e) {
     console.error('Ошибка регистрации:', e.response?.data || e.message);
