@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 import log from "eslint-plugin-react/lib/util/log.js";
 
 const api = axios.create({
@@ -10,13 +11,14 @@ const api = axios.create({
 
 export const createPost = async (data) => {
   try {
-    const userId = localStorage.getItem('userId');
-    if (!userId) {
-      throw new Error('Пользователь не авторизован');
+    const userName = Cookies.get("userName");
+    if (!userName) {
+      throw new Error("Пользователь не авторизован");
     }
-    console.log(data.userId);
+    const userId = await getUserId(userName);
+    console.log(userId);
     const response = await api.post("api/post/AddPost", {
-      userId: data.userId,
+      userId: userId,
       requiredSubject: data.requiredSubject, // число
       helpSubjects: data.helpSubjects, // масив чисел
       description: data.description, // строка
@@ -69,6 +71,7 @@ export const registerUser = async (data) => {
 
 export const loginUser = async (data) => {
   try {
+    Cookies.set('userName', data.UserName, { expires: 7 });
     const response = await api.post('api/user/login', {
       UserName: data.login,
       Password: data.password.toString()
