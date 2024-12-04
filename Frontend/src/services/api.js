@@ -10,6 +10,10 @@ const api = axios.create({
 
 export const createPost = async (data) => {
   try {
+    const userId = localStorage.getItem('userId');
+    if (!userId) {
+      throw new Error('Пользователь не авторизован');
+    }
     console.log(data.userId);
     const response = await api.post("api/post/AddPost", {
       userId: data.userId,
@@ -46,18 +50,16 @@ export const getUserId = async (userName) => {
 
 export const registerUser = async (data) => {
   try {
-    console.log('Отправляемые данные:', data);
-    console.log('Data login3:', data.UserName)
     const response = await api.post('api/user/register', {
       UserName: data.UserName,
       FullName: data.FullName,
       PasswordHash: data.PasswordHash,
       Rating: data.Rating,
     });
-    console.log(response)
+    const userId = await getUserId(data.UserName);
+    localStorage.setItem('userId', userId);
+    console.log(userId)
     localStorage.setItem('userName', data.UserName);
-    console.log('Storage', localStorage)
-    console.log('Data login5:', data.UserName)
     return response.data;
   } catch (e) {
     console.error('Ошибка регистрации:', e.response?.data || e.message);
@@ -67,16 +69,11 @@ export const registerUser = async (data) => {
 
 export const loginUser = async (data) => {
   try {
-    //const response = await api.post('/user/login', data)
-    console.log(data.password, data.password.toString(), data.password.type)
-    console.log('data from login user:', data)
-    console.log('Data login1:', data.login)
     const response = await api.post('api/user/login', {
       UserName: data.login,
       Password: data.password.toString()
     });
     localStorage.setItem('userName', data.login);
-    console.log('Data login2:', data.login)
     return response.data
   } catch (e) {
     console.error('Ошибка авторизации:', e.response?.data || e.message)
