@@ -29,7 +29,7 @@ export const loginUser = async (data) => {
     //const response = await api.post('/user/login', data)
     const response = await api.post('/user/login', {
       UserName: data.login,
-      PasswordHash: data.password
+      Password: data.password
     });
     return response.data
   } catch (e) {
