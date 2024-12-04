@@ -17,7 +17,7 @@ export default function WelcomePage() {
             <Link to="/login">
               <button>Вход</button>
             </Link>
-            <Link to="/RegistrationPage">
+            <Link to="/registration">
               <button>Регистрация</button>
             </Link>
           </div>
