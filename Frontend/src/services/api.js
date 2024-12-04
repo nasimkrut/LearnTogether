@@ -66,11 +66,11 @@ export const loginUser = async (data) => {
   try {
     //const response = await api.post('/user/login', data)
     console.log(data.password, data.password.toString(), data.password.type)
+    console.log(data.login)
     const response = await api.post('api/user/login', {
       UserName: data.login,
       Password: data.password.toString()
     });
-    console.log(data.login)
     localStorage.setItem('userName', data.login);
     return response.data
   } catch (e) {
