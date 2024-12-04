@@ -47,14 +47,17 @@ export const getUserId = async (userName) => {
 export const registerUser = async (data) => {
   try {
     console.log('Отправляемые данные:', data);
+    console.log('Data login3:', data.login)
     const response = await api.post('api/user/register', {
       UserName: data.UserName,
       FullName: data.FullName,
       PasswordHash: data.PasswordHash,
       Rating: data.Rating,
     });
+    console.log('Data login4:', data.login)
     console.log(response)
     localStorage.setItem('userName', data.UserName);
+    console.log('Data login5:', data.login)
     return response.data;
   } catch (e) {
     console.error('Ошибка регистрации:', e.response?.data || e.message);
@@ -66,12 +69,13 @@ export const loginUser = async (data) => {
   try {
     //const response = await api.post('/user/login', data)
     console.log(data.password, data.password.toString(), data.password.type)
-    console.log(data.login)
+    console.log('Data login1:', data.login)
     const response = await api.post('api/user/login', {
       UserName: data.login,
       Password: data.password.toString()
     });
     localStorage.setItem('userName', data.login);
+    console.log('Data login2:', data.login)
     return response.data
   } catch (e) {
     console.error('Ошибка авторизации:', e.response?.data || e.message)
