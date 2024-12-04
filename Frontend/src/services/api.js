@@ -34,7 +34,7 @@ export const createPost = async (data) => {
 };
 
 export const getStoredUserName = () => {
-  const name= localStorage.getItem('userName');
+  const name = localStorage.getItem('userName');
   console.log(name);
   return name;
 };

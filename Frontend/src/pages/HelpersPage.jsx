@@ -58,26 +58,39 @@ export default function HelpersPage() {
   };
 
   const handleSubmit = async () => {
-    const createdPost = {
-      userId: getUserId(getStoredUserName()).toString(),
-      requiredSubject: newPost.requiredSubject,
-      helpSubjects: newPost.helpSubjects.split(',').map(s => s.trim()),
-      description: newPost.description,
-      tags: [],
-    }
     try {
-      const postId = await createPost(createdPost);
+      const userName = getStoredUserName(); // Получаем UserName из localStorage
+      if (!userName) {
+        alert("Не удалось найти имя пользователя. Пожалуйста, войдите снова.");
+        return;
+      }
+
+      const userId = await getUserId(userName); // Ожидаем выполнения функции
+      console.log(`userId: ${userId}`);
+
+      const createdPost = {
+        userId: userId, // Используем полученный userId
+        requiredSubject: newPost.requiredSubject,
+        helpSubjects: newPost.helpSubjects.split(',').map((s) => s.trim()),
+        description: newPost.description,
+        tags: newPost.tags ? newPost.tags.split(',').map((t) => t.trim()) : [],
+      };
+
+      console.log("Создаётся пост:", createdPost);
+
+      const postId = await createPost(createdPost); // Создаем пост
       console.log(`Пост успешно создан с ID: ${postId}`);
-      setPosts([...posts, {id: postId, ...newPost}]);
-      setFilteredPosts([...posts, {id: postId, ...newPost}]);
+
+      setPosts([...posts, { id: postId, ...newPost }]);
+      setFilteredPosts([...posts, { id: postId, ...newPost }]);
       setShowModal(false);
-      setNewPost({requiredSubject: "", helpSubjects: "", description: "", tags: ""});
+      setNewPost({ requiredSubject: "", helpSubjects: "", description: "", tags: "" });
     } catch (e) {
-      console.error("Ошибка при создании поста:", e)
-      alert("Возникла ошибка. Попробуйте снова!")
+      console.error("Ошибка при создании поста:", e);
+      alert("Возникла ошибка. Попробуйте снова!");
       setShowModal(false);
     }
-  }
+  };
 
   return (
     <>
