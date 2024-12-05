@@ -9,6 +9,13 @@ import FilterPanel from "../components/FilterPanel";
 import Loader from "../components/Loader";
 import EmptyState from "../components/EmptyState";
 import {mapRatingToValue} from "../utils/Utils.jsx";
+import {mockPosts} from "../utils/MockPosts.jsx";
+
+const subjects = [
+  { value: 'Math', label: 'Математика' },
+  { value: 'Probability', label: 'Теория вероятностей'},
+
+]
 
 export default function HelpersPage() {
   const [showModal, setShowModal] = useState(false);
@@ -21,18 +28,19 @@ export default function HelpersPage() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const data = await getPosts({type: "canHelp"})
-        setPosts(data);
-        setFilteredPosts(data);
-      } catch (e) {
-        console.error("Ошибка загрузки постов:", e);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchPosts();
+    setPosts(mockPosts)
+    // const fetchPosts = async () => {
+    //   try {
+    //     const data = await getPosts({type: "canHelp"})
+    //     setPosts(data);
+    //     setFilteredPosts(data);
+    //   } catch (e) {
+    //     console.error("Ошибка загрузки постов:", e);
+    //   } finally {
+    //     setLoading(false);
+    //   }
+    // }
+    // fetchPosts();
   }, []);
 
   const resetFilters = () => {
@@ -45,7 +53,7 @@ export default function HelpersPage() {
     setTimeout(() => {
       const filtered = posts.filter(post =>
         (!filters.rating || mapRatingToValue(post.rating) === filters.rating) &&
-        (filters.subjects.length === 0 || filters.subjects.some(subject => post.helpSubjects.includes(subject)))
+        (filters.subjects.length === 0 || filters.subjects.some(subject => post.requiredSubject === subject))
       );
       setFilteredPosts(filtered);
       setLoading(false);
@@ -57,43 +65,41 @@ export default function HelpersPage() {
     setNewPost((prev) => ({...prev, [name]: value}));
   };
 
-  const handleSubmit = async () => {
-    console.log("handleSubmit");
-    try {
-      const userName = getStoredUserName();
-      console.log("stored name:", userName);
-      if (!userName) {
-        alert("Не удалось найти имя пользователя. Пожалуйста, войдите снова.");
-        return;
+  const handleMultiSelectChange = (e) => {
+    const options = e.target.options;
+    const values = [];
+    for (let i = 0; i < options.length; i++) {
+      if (options[i].selected) {
+        values.push(options[i].value);
       }
+    }
+    setNewPost(prevState => ({
+      ...prevState,
+      helpSubjects: values
+    }));
+  };
 
-      const userId = await getUserId(userName);
-      console.log(`userId: ${userId}`);
-      console.log('скип');
-
-      const createdPost = {
-        userId: userId,
-        requiredSubject: newPost.requiredSubject,
-        helpSubjects: newPost.helpSubjects.split(',').map((s) => s.trim()),
-        description: newPost.description,
-        tags: newPost.tags ? newPost.tags.split(',').map((t) => t.trim()) : [],
-      };
-
-      console.log("Создаётся пост:", createdPost);
-
+  const handleSubmit = async () => {
+    const createdPost = {
+      userId: getUserId(getStoredUserName.then(name => name)).toString(),
+      requiredSubject: newPost.requiredSubject,
+      helpSubjects: newPost.helpSubjects.split(',').map(s => s.trim()),
+      description: newPost.description,
+      tags: [],
+    }
+    try {
       const postId = await createPost(createdPost);
       console.log(`Пост успешно создан с ID: ${postId}`);
-
-      setPosts([...posts, { id: postId, ...newPost }]);
-      setFilteredPosts([...posts, { id: postId, ...newPost }]);
+      setPosts([...posts, {id: postId, ...newPost}]);
+      setFilteredPosts([...posts, {id: postId, ...newPost}]);
       setShowModal(false);
-      setNewPost({ requiredSubject: "", helpSubjects: "", description: "", tags: "" });
+      setNewPost({requiredSubject: "", helpSubjects: "", description: "", tags: ""});
     } catch (e) {
-      console.error("Ошибка при создании поста:", e);
-      alert("Возникла ошибка. Попробуйте снова!");
+      console.error("Ошибка при создании поста:", e)
+      alert("Возникла ошибка. Попробуйте снова!")
       setShowModal(false);
     }
-  };
+  }
 
   return (
     <>

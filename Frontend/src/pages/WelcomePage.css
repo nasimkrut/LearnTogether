@@ -1,10 +1,10 @@
 :root {
-    --s: 73px; /* control the size */
-    --c1: #44b969;
-    --c2: #7cefa0;
-    --c3: #beffd1;
+    --s: 94px; /* control the size*/
+    --c1: #ffffff;
+    --c2: #a31e39;
+    --c3: #31570e;
 
-    --_g: var(--c3) 0 120deg,#0000 0;
+    --_c:#0000,var(--c1) 1deg 79deg,#0000 81deg;
 }
 
 .main-container {
@@ -56,13 +56,18 @@
 
 .image-container {
     flex: 1;
+    --g0:conic-gradient(from 140deg at 50% 87.5% ,var(--_c));
+    --g1:conic-gradient(from 140deg at 50% 81.25%,var(--_c));
+    --g2:conic-gradient(from 140deg at 50% 75%   ,var(--_c));
+    --g3:conic-gradient(at 10% 20%,#0000 75%,var(--c1) 0);
     background:
-            conic-gradient(from -60deg at 50% calc(100%/3), var(--_g)),
-            conic-gradient(from 120deg at 50% calc(200%/3), var(--_g)),
-            conic-gradient(from 60deg at calc(200%/3), var(--c3) 60deg, var(--c2) 0 120deg, rgba(255, 0, 0, 0) 0),
-            conic-gradient(from 180deg at calc(100%/3), var(--c1) 60deg, var(--_g)),
-            linear-gradient(90deg, var(--c1) calc(100%/6), var(--c2) 0 50%, var(--c1) 0 calc(500%/6), var(--c2) 0);
-    background-size: calc(1.732 * var(--s)) var(--s);
+            var(--g0) 0 calc(var(--s)/-4),var(--g0) var(--s) calc(3*var(--s)/4),
+            var(--g1) ,var(--g1) var(--s) var(--s),
+            var(--g2) 0 calc(var(--s)/ 4),var(--g2) var(--s) calc(5*var(--s)/4),
+            var(--g3) calc( var(--s)/-10) var(--s),
+            var(--g3) calc(9*var(--s)/10) calc(2*var(--s)),
+            repeating-conic-gradient(from 45deg,var(--c2) 0 25%,var(--c3) 0 50%);
+    background-size: calc(2*var(--s)) calc(2*var(--s));
 }
 
 .welcome-container {

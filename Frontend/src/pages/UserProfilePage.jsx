@@ -4,6 +4,7 @@ import UserProfile from "../components/UserProfile.jsx";
 import {useEffect, useState} from "react";
 import "./UserProfilePage.css"
 import Header from "../components/Header.jsx";
+import {mockPosts} from '../utils/MockPosts.jsx';
 
 export default function UserProfilePage() {
   const {userId} = useParams();
@@ -23,8 +24,8 @@ export default function UserProfilePage() {
     //     setLoading(false);
     //   });
 
-    const mockUser = mockUsers.find(user => user.id === parseInt(userId));
-    setUser(mockUser || null);
+    const mockPost = mockPosts.find(user => user.userId === userId);
+    setUser(mockPost || null);
     setLoading(false);
   }, [userId]);
 

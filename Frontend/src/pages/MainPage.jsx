@@ -8,6 +8,8 @@ import './MainPage.css';
 import Button from "../components/Button.jsx";
 import {Link} from "react-router-dom";
 import {getPosts} from "../services/api.js";
+import {mockPosts} from "../utils/MockPosts.jsx";
+import {mapRatingToValue} from "../utils/Utils.jsx";
 
 export default function MainPage() {
   const [filters, setFilters] = useState({rating: null, subjects: []});
@@ -16,35 +18,37 @@ export default function MainPage() {
   const [posts, setPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
 
+  const applyFilters = () => {
+    setLoading(true);
+    setTimeout(() => {
+      const filtered = posts.filter(post =>
+        (!filters.rating || mapRatingToValue(post.rating) === filters.rating) &&
+        (filters.subjects.length === 0 || filters.subjects.some(subject => post.helpSubjects.includes(subject)))
+      );
+      setFilteredPosts(filtered);
+      setLoading(false);
+    }, 1000);
+  };
+
   useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const data = await getPosts({ type: "helpNeeded" });
-        setPosts(data);
-        setFilteredPosts(data);
-      } catch (e) {
-        console.error("Ошибка загрузки постов:", e);
-      }
-    };
-    fetchPosts();
+    setPosts(mockPosts)
+    // const fetchPosts = async () => {
+    //   try {
+    //     const data = await getPosts({ type: "helpNeeded" });
+    //     setPosts(data);
+    //     setFilteredPosts(data);
+    //   } catch (e) {
+    //     console.error("Ошибка загрузки постов:", e);
+    //   }
+    // };
+    // fetchPosts();
   }, []);
 
   const resetFilters = () => {
     setFilters({rating: null, subjects: []});
     setFilteredPosts(posts);
+    applyFilters()
     // setUsers(mockUsers)
-  };
-
-  const applyFilters = () => {
-    setLoading(true);
-    setTimeout(() => {
-      const filtered = posts.filter(post =>
-        (!filters.rating || post.rating === filters.rating) &&
-        (filters.subjects.length === 0 || filters.subjects.some(subject => post.requiredSubject.equals(subject)))
-      );
-      setFilteredPosts(filtered);
-      setLoading(false);
-    }, 1000);
   };
 
   return (
@@ -67,7 +71,7 @@ export default function MainPage() {
         ) : (
           <div className="user-list">
             {filteredPosts.map(post => (
-              <PostCard key={post.id} post={post} type="helpNeeded"/>
+              <PostCard key={post.userId} post={post} type="helpNeeded"/>
             ))}
           </div>
         )}
