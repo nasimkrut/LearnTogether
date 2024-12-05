@@ -28,19 +28,19 @@ export default function HelpersPage() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setPosts(mockPosts)
-    // const fetchPosts = async () => {
-    //   try {
-    //     const data = await getPosts({type: "canHelp"})
-    //     setPosts(data);
-    //     setFilteredPosts(data);
-    //   } catch (e) {
-    //     console.error("Ошибка загрузки постов:", e);
-    //   } finally {
-    //     setLoading(false);
-    //   }
-    // }
-    // fetchPosts();
+      //setPosts(mockPosts)
+      const fetchPosts = async () => {
+          try {
+              const data = await getPosts({type: "canHelp"})
+        setPosts(data);
+        setFilteredPosts(data);
+      } catch (e) {
+        console.error("Ошибка загрузки постов:", e);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchPosts();
   }, []);
 
   const resetFilters = () => {
