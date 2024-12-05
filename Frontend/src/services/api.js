@@ -11,6 +11,8 @@ const api = axios.create({
 
 export const createPost = async (data) => {
   try {
+    //const userId = await getUserId(userName);
+    //console.log(userId);
     console.log(data);
     const response = await api.post("api/post/AddPost", {
       UserId: data.userId,
@@ -36,6 +38,7 @@ export const getStoredUserName = () => {
 
 export const getUserId = async (userName) => {
   try {
+    // const response = await api.get(`api/user/GetUserId`, {params: {userName}});
     const response = await api.get(`api/user/getUserId?userName=${userName.toString()}`);
     return response.data.toString();
   } catch (error) {
@@ -46,8 +49,6 @@ export const getUserId = async (userName) => {
 
 export const registerUser = async (data) => {
   try {
-    console.log('Отправляемые данные:', data);
-    console.log('Data login3:', data.UserName)
     const response = await api.post('api/user/register', {
       UserName: data.UserName,
       FullName: data.FullName,
@@ -67,9 +68,7 @@ export const registerUser = async (data) => {
 
 export const loginUser = async (data) => {
   try {
-    //const response = await api.post('/user/login', data)
-    console.log(data.password, data.password.toString(), data.password.type)
-    console.log('Data login1:', data.login)
+    Cookies.set('userName', data.UserName, { expires: 7 });
     const response = await api.post('api/user/login', {
       UserName: data.login,
       Password: data.password.toString()
