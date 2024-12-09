@@ -113,6 +113,8 @@ export default function HelpersPage() {
         helpSubjects: newPost.helpSubjects,
         description: newPost.description,
         tags: newPost.tags ? newPost.tags.split(',').map((t) => t.trim()) : [],
+        time: new Date().toLocaleTimeString(),
+        postId: newPost.id,
       };
 
       console.log("Создаётся пост:", createdPost);
@@ -155,7 +157,7 @@ export default function HelpersPage() {
         ) : filteredPosts.length === 0 ? (
           <EmptyState message="Никого нет :(" onReset={resetFilters} actionLabel="Попробовать снова"/>
         ) : (
-          <div className="helpers-container">
+          <div className="users-container">
             <div className="user-list">
               {filteredPosts.map((post) => (
                 <PostCard key={post.id} post={post}/>

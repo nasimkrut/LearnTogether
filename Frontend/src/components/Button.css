@@ -18,6 +18,6 @@
 .new-post-button {
     border: none;
     margin-bottom: 1rem;
-    width: 200px;
+    width: auto;
     padding: 0.7rem;
 }

@@ -5,7 +5,6 @@ import WelcomePage from "./pages/WelcomePage.jsx";
 import MainPage from "./pages/MainPage.jsx";
 import UserProfilePage from "./pages/UserProfilePage.jsx";
 import CabinetPage from "./pages/CabinetPage.jsx";
-import HelpersPage from "./pages/HelpersPage.jsx";
 
 function App() {
   return (
@@ -17,7 +16,6 @@ function App() {
         <Route path="/main" element={<MainPage />} />
         <Route path="/profile/:userId" element={<UserProfilePage />} />
         <Route path="/cabinet" element={<CabinetPage />} />
-        <Route path="/helpers" element={<HelpersPage />} />
       </Routes>
     </Router>
   )
