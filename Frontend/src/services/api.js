@@ -83,7 +83,7 @@ export const loginUser = async (data) => {
 export const getPosts = async (filters) => {
   try {
     console.log(filters)
-    if (filters === null){
+    if (filters === undefined){
       const response= await api.get('/api/post/getAllPosts?');
       return response.data;
     }
