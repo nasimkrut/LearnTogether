@@ -5,7 +5,7 @@
       context: .
       dockerfile: LearnTogether/LearnTogether.API/Dockerfile
     ports:
-      - "80:80"  
+      - "8080:80"  
     environment:
       Jwt__Issuer:  "http://84.201.167.107/api/"
       Jwt__Audience: "http://84.201.167.107:3000"
