@@ -82,8 +82,14 @@ export const loginUser = async (data) => {
 
 export const getPosts = async (filters) => {
   try {
+    if (filters === null){
+      const response= await api.get('/api/Post/getAllPosts');
+      return response.data;
+    }
+    else {
     const response = await api.get('/filtered', {params: filters});
     return response.data;
+    }
   } catch (error) {
     console.error("Ошибка получения постов:", error.response?.data || error.message);
     throw error;
