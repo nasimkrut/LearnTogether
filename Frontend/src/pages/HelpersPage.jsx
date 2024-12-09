@@ -73,10 +73,24 @@ export default function HelpersPage() {
       console.log(newPost.requiredSubject.type, newPost.requiredSubject)
       console.log(newPost.helpSubjects.type, newPost.helpSubjects)
 
+      const SubjectsEnum = {
+        Math: 1,
+        Probability: 2,
+        CiSharp: 3,
+        MachineLearning: 4,
+        Algorithms: 5,
+        DataStructures: 6,
+        // Добавьте остальные предметы...
+      };
+        
       const createdPost = {
         userId: userId, // Используем полученный userId
-        requiredSubject: newPost.requiredSubject,
-        helpSubjects: newPost.helpSubjects.split(',').map((s) => s.trim()),
+        requiredSubject: SubjectsEnum[newPost.requiredSubject] || null,
+        helpSubjects: newPost.helpSubjects
+            .split(',')
+            .map((s) => s.trim())
+            .map((subject) => SubjectsEnum[subject] || null) // Преобразуем строки в int, пропуская незнакомые значения
+            .filter((id) => id !== null),
         description: newPost.description,
         tags: newPost.tags ? newPost.tags.split(',').map((t) => t.trim()) : [],
       };
