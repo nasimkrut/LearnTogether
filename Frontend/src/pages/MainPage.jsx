@@ -71,7 +71,7 @@ export default function MainPage() {
         ) : (
           <div className="user-list">
             {filteredPosts.map(post => (
-              <PostCard key={post.userId} post={post} type="helpNeeded"/>
+              <PostCard key={post.userId} post={post}/>
             ))}
           </div>
         )}
