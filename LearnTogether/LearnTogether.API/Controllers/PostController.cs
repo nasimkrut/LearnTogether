@@ -40,7 +40,7 @@ public class PostController : ControllerBase
         [FromQuery] Subject? requiredSubject,
         [FromQuery] Subject[] helpSubjects,
         [FromQuery] double? minRating,
-        [FromQuery] string sortBy)
+        [FromQuery] SortType sortBy)
     {
         var posts = await _postService.GetFilteredPostsAsync(requiredSubject, helpSubjects, minRating, sortBy);
         return Ok(posts);

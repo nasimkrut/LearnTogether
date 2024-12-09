@@ -24,7 +24,7 @@ public class PostRepository : IPostRepository
         return await _context.Posts.ToListAsync();
     }
 
-    public async Task<List<Post>> GetFilteredPostsAsync(Subject? requiredSubject, Subject[] helpSubjects, double? minRating, string sortBy)
+    public async Task<List<Post>> GetFilteredPostsAsync(Subject? requiredSubject, Subject[] helpSubjects, double? minRating, SortType sortBy)
     {
         var query = _context.Posts.AsQueryable();
 
@@ -37,12 +37,12 @@ public class PostRepository : IPostRepository
         if (minRating.HasValue)
             query = query.Where(post => post.Rating >= minRating.Value);
 
-        query = sortBy.ToLower() switch
+        query = sortBy switch
         {
-            "новые" => query.OrderBy(p => p.DateCreated),
-            "старые" => query.OrderByDescending(p => p.DateCreated),
-            "рейтинг выше" => query.OrderBy(p => p.Rating),
-            "рейтинг ниже" => query.OrderByDescending(p => p.Rating),
+            SortType.New => query.OrderBy(p => p.DateCreated),
+            SortType.Old => query.OrderByDescending(p => p.DateCreated),
+            SortType.RatingMinToMax => query.OrderBy(p => p.Rating),
+            SortType.RatingMaxToMin => query.OrderByDescending(p => p.Rating),
             _ => query
         };
 
