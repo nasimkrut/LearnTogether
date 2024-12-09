@@ -47,15 +47,15 @@ public class PostController : ControllerBase
     }
 
     [HttpPost("AddPost")]
-    public async Task<ActionResult<Guid>> AddPostAsync([FromBody] PostDto postDt)
+    public async Task<ActionResult<Guid>> AddPostAsync([FromBody] PostDto postDto)
     {
         var post = new Post
         {
-            UserId = postDt.UserId,
-            RequiredSubject = postDt.RequiredSubject,
-            HelpSubjects = postDt.HelpSubjects,
-            Description = postDt.Description,
-            Tags = postDt.Tags,
+            UserId = postDto.UserId,
+            RequiredSubject = postDto.RequiredSubject,
+            HelpSubjects = postDto.HelpSubjects,
+            Description = postDto.Description,
+            Tags = postDto.Tags,
             DateCreated = DateTimeOffset.UtcNow
         };
 
