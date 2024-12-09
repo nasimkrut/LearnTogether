@@ -34,7 +34,7 @@ export default function MainPage() {
     // setPosts(mockPosts)
     const fetchPosts = async () => {
       try {
-        const data = await getPosts({ type: "helpNeeded" });
+        const data = await getPosts();
         setPosts(data);
         setFilteredPosts(data);
       } catch (e) {
@@ -71,7 +71,7 @@ export default function MainPage() {
         ) : (
           <div className="user-list">
             {filteredPosts.map(post => (
-              <PostCard key={post.userId} post={post} type="helpNeeded"/>
+              <PostCard key={post.userId} post={post}/>
             ))}
           </div>
         )}

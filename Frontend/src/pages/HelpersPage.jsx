@@ -43,7 +43,7 @@ export default function HelpersPage() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const data = await getPosts({type: "canHelp"})
+        const data = await getPosts()
         setPosts(data);
         setFilteredPosts(data);
       } catch (e) {
@@ -158,7 +158,7 @@ export default function HelpersPage() {
           <div className="helpers-container">
             <div className="user-list">
               {filteredPosts.map((post) => (
-                <PostCard key={post.id} post={post} type="canHelp"/>
+                <PostCard key={post.id} post={post}/>
               ))}
             </div>
           </div>
