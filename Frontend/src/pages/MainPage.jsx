@@ -31,17 +31,17 @@ export default function MainPage() {
   };
 
   useEffect(() => {
-    setPosts(mockPosts)
-    // const fetchPosts = async () => {
-    //   try {
-    //     const data = await getPosts({ type: "helpNeeded" });
-    //     setPosts(data);
-    //     setFilteredPosts(data);
-    //   } catch (e) {
-    //     console.error("Ошибка загрузки постов:", e);
-    //   }
-    // };
-    // fetchPosts();
+    // setPosts(mockPosts)
+    const fetchPosts = async () => {
+      try {
+        const data = await getPosts({ type: "helpNeeded" });
+        setPosts(data);
+        setFilteredPosts(data);
+      } catch (e) {
+        console.error("Ошибка загрузки постов:", e);
+      }
+    };
+    fetchPosts();
   }, []);
 
   const resetFilters = () => {

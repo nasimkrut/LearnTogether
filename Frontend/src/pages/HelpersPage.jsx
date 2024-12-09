@@ -10,17 +10,30 @@ import Loader from "../components/Loader";
 import EmptyState from "../components/EmptyState";
 import {mapRatingToValue} from "../utils/Utils.jsx";
 import {mockPosts} from "../utils/MockPosts.jsx";
+import Select from "react-select";
+
+// const subjects = [
+//   { value: 'Math', label: 'Математика' },
+//   { value: 'Probability', label: 'Теория вероятностей'},
+//   { value: 'CSharp', label: 'C#'},
+//   { value: 'MachineLearning', label: 'Машинное обучение'},
+//   { value: 'Algorithms', label: 'Алгоритмы'},
+//   { value: 'DataStructures', label: 'Структуры данных'},
+// ]
 
 const subjects = [
-  { value: 'Math', label: 'Математика' },
-  { value: 'Probability', label: 'Теория вероятностей'},
-
+  { value: 0, label: 'Математика' },
+  { value: 1, label: 'Теория вероятностей'},
+  { value: 2, label: 'C#'},
+  { value: 3, label: 'Машинное обучение'},
+  { value: 4, label: 'Алгоритмы'},
+  { value: 5, label: 'Структуры данных'},
 ]
 
 export default function HelpersPage() {
   const [showModal, setShowModal] = useState(false);
   const [newPost, setNewPost] = useState({
-    requiredSubject: "", helpSubjects: "", description: "", tags: ""
+    requiredSubject: "", helpSubjects: [], description: "", tags: ""
   });
   const [posts, setPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
@@ -65,17 +78,17 @@ export default function HelpersPage() {
     setNewPost((prev) => ({...prev, [name]: value}));
   };
 
-  const handleMultiSelectChange = (e) => {
-    const options = e.target.options;
-    const values = [];
-    for (let i = 0; i < options.length; i++) {
-      if (options[i].selected) {
-        values.push(options[i].value);
-      }
-    }
-    setNewPost(prevState => ({
-      ...prevState,
-      helpSubjects: values
+  const handleSingleSelectChange = (selectedOption) => {
+    setNewPost((prev) => ({
+      ...prev,
+      requiredSubject: selectedOption ? selectedOption.value : "",
+    }));
+  };
+
+  const handleMultiSelectChange = (selectedOptions) => {
+    setNewPost((prev) => ({
+      ...prev,
+      helpSubjects: selectedOptions ? selectedOptions.map(option => option.value) : [],
     }));
   };
 
@@ -93,7 +106,7 @@ export default function HelpersPage() {
       setPosts([...posts, {id: postId, ...newPost}]);
       setFilteredPosts([...posts, {id: postId, ...newPost}]);
       setShowModal(false);
-      setNewPost({requiredSubject: "", helpSubjects: "", description: "", tags: ""});
+      setNewPost({requiredSubject: "", helpSubjects: [], description: "", tags: ""});
     } catch (e) {
       console.error("Ошибка при создании поста:", e)
       alert("Возникла ошибка. Попробуйте снова!")
@@ -137,12 +150,12 @@ export default function HelpersPage() {
           <div className="modal">
             <div className="modal-content">
               <h2>Новый пост</h2>
-              <input
-                type="text"
-                name="requiredSubject"
+              <Select
+                options={subjects}
+                onChange={handleSingleSelectChange}
                 placeholder="Нужна помощь с..."
-                value={newPost.requiredSubject}
-                onChange={handleInputChange}
+                isClearable
+                classNamePrefix="react-select"
               />
               <input
                 type="text"
@@ -151,12 +164,12 @@ export default function HelpersPage() {
                 value={newPost.description}
                 onChange={handleInputChange}
               />
-              <input
-                type="text"
-                name="helpSubjects"
-                placeholder="Могу помочь с этими предметами..."
-                value={newPost.helpSubjects}
-                onChange={handleInputChange}
+              <Select
+                isMulti
+                options={subjects}
+                onChange={handleMultiSelectChange}
+                placeholder="Выберите предметы"
+                classNamePrefix="react-select"
               />
               <input
                 type="text"

@@ -1,7 +1,7 @@
 import './FilterPanel.css'
 import Button from "./Button.jsx";
 
-const subjectsList = ['Math', 'Probability', 'CSharp', 'MachineLearning', 'Algorithms', 'DataStructures']
+const subjectsList = ['Математика', 'Теория вероятностей', 'C#', 'Машинное обучение', 'Алгоритмы', 'Структуры данных']
 const ratingOptions = [
   { value: "", label: "Все" },
   { value: "newbie", label: "Новички" },

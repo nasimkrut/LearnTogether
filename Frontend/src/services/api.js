@@ -1,6 +1,5 @@
 import axios from "axios";
 import Cookies from "js-cookie";
-import log from "eslint-plugin-react/lib/util/log.js";
 
 const api = axios.create({
   baseURL: "http://84.201.167.107/",
