@@ -10,13 +10,15 @@ const api = axios.create({
 
 export const createPost = async (data) => {
   try {
-    console.log(data.userId);
-    const response = await api.post('api/post/AddPost', {
-      userId: data.userId,
-      requiredSubject: data.requiredSubject, // число
-      helpSubjects: data.helpSubjects, // масив чисел
-      description: data.description, // строка
-      tags: data.tags || [] // масив строк 
+    //const userId = await getUserId(userName);
+    //console.log(userId);
+    console.log(data);
+    const response = await api.post("api/post/AddPost", {
+      UserId: data.userId,
+      RequiredSubject: data.requiredSubject, // число
+      HelpSubjects: data.helpSubjects, // масив чисел
+      Description: data.description, // строка
+      Tags: data.tags || [] // масив строк
     });
     console.log(response);
     return response.data;
@@ -35,8 +37,9 @@ export const getStoredUserName = () => {
 
 export const getUserId = async (userName) => {
   try {
-    const response = await api.get('api/user/getUserId', {params: {userName}});
-    return response.data;
+    // const response = await api.get(`api/user/GetUserId`, {params: {userName}});
+    const response = await api.get(`api/user/getUserId?userName=${userName.toString()}`);
+    return response.data.toString();
   } catch (error) {
     console.error('Ошибка при получении id:', error.response?.data || error.message);
     throw error;
@@ -45,18 +48,16 @@ export const getUserId = async (userName) => {
 
 export const registerUser = async (data) => {
   try {
-    console.log('Отправляемые данные:', data);
-    console.log('Data login3:', data.UserName)
     const response = await api.post('api/user/register', {
       UserName: data.UserName,
       FullName: data.FullName,
       PasswordHash: data.PasswordHash,
       Rating: data.Rating,
     });
-    console.log('Data login4:', data.UserName)
-    console.log(response)
-    localStorage.setItem('userName', data.UserName);
-    console.log('Data login5:', data.UserName)
+    const userId = await getUserId(data.UserName);
+    sessionStorage.setItem('userId', userId);
+    console.log(userId)
+    sessionStorage.setItem('userName', data.UserName);
     return response.data;
   } catch (e) {
     console.error('Ошибка регистрации:', e.response?.data || e.message);
@@ -66,15 +67,12 @@ export const registerUser = async (data) => {
 
 export const loginUser = async (data) => {
   try {
-    //const response = await api.post('/user/login', data)
-    console.log(data.password, data.password.toString(), data.password.type)
-    console.log('Data login1:', data.login)
+    Cookies.set('userName', data.UserName, { expires: 7 });
     const response = await api.post('api/user/login', {
       UserName: data.login,
       Password: data.password.toString()
     });
-    localStorage.setItem('userName', data.login);
-    console.log('Data login2:', data.login)
+    sessionStorage.setItem('userName', data.login);
     return response.data
   } catch (e) {
     console.error('Ошибка авторизации:', e.response?.data || e.message)

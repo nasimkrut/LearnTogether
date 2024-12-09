@@ -41,19 +41,18 @@ export default function HelpersPage() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setPosts(mockPosts)
-    // const fetchPosts = async () => {
-    //   try {
-    //     const data = await getPosts({type: "canHelp"})
-    //     setPosts(data);
-    //     setFilteredPosts(data);
-    //   } catch (e) {
-    //     console.error("Ошибка загрузки постов:", e);
-    //   } finally {
-    //     setLoading(false);
-    //   }
-    // }
-    // fetchPosts();
+    const fetchPosts = async () => {
+      try {
+        const data = await getPosts({type: "canHelp"})
+        setPosts(data);
+        setFilteredPosts(data);
+      } catch (e) {
+        console.error("Ошибка загрузки постов:", e);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchPosts();
   }, []);
 
   const resetFilters = () => {
@@ -65,8 +64,8 @@ export default function HelpersPage() {
     setLoading(true);
     setTimeout(() => {
       const filtered = posts.filter(post =>
-        (!filters.rating || mapRatingToValue(post.rating) === filters.rating) &&
-        (filters.subjects.length === 0 || filters.subjects.some(subject => post.requiredSubject === subject))
+          (!filters.rating || mapRatingToValue(post.rating) === filters.rating) &&
+          (filters.subjects.length === 0 || filters.subjects.some(subject => post.helpSubjects.includes(subject)))
       );
       setFilteredPosts(filtered);
       setLoading(false);
@@ -93,26 +92,44 @@ export default function HelpersPage() {
   };
 
   const handleSubmit = async () => {
-    const createdPost = {
-      userId: getUserId(getStoredUserName.then(name => name)).toString(),
-      requiredSubject: newPost.requiredSubject,
-      helpSubjects: newPost.helpSubjects.split(',').map(s => s.trim()),
-      description: newPost.description,
-      tags: [],
-    }
+    console.log("handleSubmit");
     try {
-      const postId = await createPost(createdPost);
+      const userName = getStoredUserName(); // Получаем UserName из localStorage
+      console.log("stored name:", userName);
+      if (!userName) {
+        alert("Не удалось найти имя пользователя. Пожалуйста, войдите снова.");
+        return;
+      }
+
+      const userId = await getUserId(userName); // Ожидаем выполнения функции
+      console.log(`userId: ${userId}`);
+      console.log('скип');
+      console.log(newPost.requiredSubject.type, newPost.requiredSubject)
+      console.log(newPost.helpSubjects.type, newPost.helpSubjects)
+
+      const createdPost = {
+        userId: userId, // Используем полученный userId
+        requiredSubject: parseInt(newPost.requiredSubject),
+        helpSubjects: newPost.helpSubjects.split(',').map((s) => parseInt(s.trim())),
+        description: newPost.description,
+        tags: newPost.tags ? newPost.tags.split(',').map((t) => t.trim()) : [],
+      };
+
+      console.log("Создаётся пост:", createdPost);
+
+      const postId = await createPost(createdPost); // Создаем пост
       console.log(`Пост успешно создан с ID: ${postId}`);
-      setPosts([...posts, {id: postId, ...newPost}]);
-      setFilteredPosts([...posts, {id: postId, ...newPost}]);
+
+      setPosts([...posts, { id: postId, ...newPost }]);
+      setFilteredPosts([...posts, { id: postId, ...newPost }]);
       setShowModal(false);
       setNewPost({requiredSubject: "", helpSubjects: [], description: "", tags: ""});
     } catch (e) {
-      console.error("Ошибка при создании поста:", e)
-      alert("Возникла ошибка. Попробуйте снова!")
+      console.error("Ошибка при создании поста:", e);
+      alert("Возникла ошибка. Попробуйте снова!");
       setShowModal(false);
     }
-  }
+  };
 
   return (
     <>
