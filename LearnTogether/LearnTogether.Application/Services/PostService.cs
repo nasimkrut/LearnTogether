@@ -26,7 +26,7 @@ public class PostService : IPostService
         return await _postRepository.GetAllAsync();
     }
 
-    public async Task<List<Post>> GetFilteredPostsAsync(Subject? requiredSubject, Subject[] helpSubjects, double? minRating, string sortBy)
+    public async Task<List<Post>> GetFilteredPostsAsync(Subject? requiredSubject, Subject[] helpSubjects, double? minRating, SortType sortBy)
     {
         return await _postRepository.GetFilteredPostsAsync(requiredSubject, helpSubjects, minRating, sortBy);
     }
