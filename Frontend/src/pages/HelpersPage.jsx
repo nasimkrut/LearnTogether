@@ -70,6 +70,8 @@ export default function HelpersPage() {
       const userId = await getUserId(userName); // Ожидаем выполнения функции
       console.log(`userId: ${userId}`);
       console.log('скип');
+      console.log(newPost.requiredSubject.type, newPost.requiredSubject)
+      console.log(newPost.helpSubjects.type, newPost.helpSubjects)
 
       const createdPost = {
         userId: userId, // Используем полученный userId
