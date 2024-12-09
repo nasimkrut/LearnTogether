@@ -43,7 +43,7 @@ export default function HelpersPage() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const data = await getPosts({type: "canHelp"})
+        const data = await getPosts()
         setPosts(data);
         setFilteredPosts(data);
       } catch (e) {

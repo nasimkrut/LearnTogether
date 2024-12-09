@@ -34,7 +34,7 @@ export default function MainPage() {
     // setPosts(mockPosts)
     const fetchPosts = async () => {
       try {
-        const data = await getPosts({ type: "helpNeeded" });
+        const data = await getPosts();
         setPosts(data);
         setFilteredPosts(data);
       } catch (e) {

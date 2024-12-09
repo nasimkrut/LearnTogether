@@ -82,6 +82,7 @@ export const loginUser = async (data) => {
 
 export const getPosts = async (filters) => {
   try {
+    console.log(filters, filters.type)
     if (filters === null){
       const response= await api.get('/api/Post/getAllPosts');
       return response.data;
