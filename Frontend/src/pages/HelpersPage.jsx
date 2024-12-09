@@ -56,37 +56,29 @@ export default function HelpersPage() {
     const {name, value} = e.target;
     setNewPost((prev) => ({...prev, [name]: value}));
   };
+
   const handleSubmit = async () => {
+    console.log("handleSubmit");
     try {
-      const userName = getStoredUserName(); // Получаем UserName из sessionStorage
+      const userName = getStoredUserName(); // Получаем UserName из localStorage
+      console.log("stored name:", userName);
       if (!userName) {
         alert("Не удалось найти имя пользователя. Пожалуйста, войдите снова.");
         return;
       }
 
-      const userId = await getUserId(userName); // Ожидаем выполнения функции getUserId
+      const userId = await getUserId(userName); // Ожидаем выполнения функции
+      console.log(`userId: ${userId}`);
+      console.log('скип');
+      console.log(newPost.requiredSubject.type, newPost.requiredSubject)
+      console.log(newPost.helpSubjects.type, newPost.helpSubjects)
 
-      const SubjectsEnum = {
-        Math: 1,
-        Probability: 2,
-        CiSharp: 3,
-        MachineLearning: 4,
-        Algorithms: 5,
-        DataStructures: 6,
-        // Добавьте остальные предметы...
-      };
-
-      // Преобразуем данные поста в нужный формат
       const createdPost = {
-        UserId: userId, // Используем полученный userId
-        RequiredSubject: SubjectsEnum[newPost.requiredSubject] || null, // Преобразование в int
-        HelpSubjects: newPost.helpSubjects
-            .split(',') // Разделяем строку по запятым
-            .map((s) => s.trim()) // Убираем пробелы
-            .map((subject) => SubjectsEnum[subject] || null) // Преобразуем строки в int
-            .filter((id) => id !== null), // Исключаем некорректные значения
-        Description: newPost.description, // Строка
-        Tags: newPost.tags ? newPost.tags.split(',').map((t) => t.trim()) : [], // Массив строк
+        userId: userId, // Используем полученный userId
+        requiredSubject: parseInt(newPost.requiredSubject),
+        helpSubjects: newPost.helpSubjects.split(',').map((s) => parseInt(s.trim())),
+        description: newPost.description,
+        tags: newPost.tags ? newPost.tags.split(',').map((t) => t.trim()) : [],
       };
 
       console.log("Создаётся пост:", createdPost);
@@ -94,7 +86,6 @@ export default function HelpersPage() {
       const postId = await createPost(createdPost); // Создаем пост
       console.log(`Пост успешно создан с ID: ${postId}`);
 
-      // Добавляем новый пост в список
       setPosts([...posts, { id: postId, ...newPost }]);
       setFilteredPosts([...posts, { id: postId, ...newPost }]);
       setShowModal(false);
