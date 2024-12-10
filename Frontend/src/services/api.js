@@ -18,8 +18,7 @@ export const createPost = async (data) => {
       RequiredSubject: data.requiredSubject, // число
       HelpSubjects: data.helpSubjects, // масив чисел
       Description: data.description, // строка
-      Tags: data.tags || [], // масив строк
-      DateCreated: data.createdAt ? data.createdAt : new Date().toLocaleTimeString(),
+      Tags: data.tags || [] // масив строк
     });
     console.log(response);
     return response.data;
@@ -89,12 +88,7 @@ export const getPosts = async (filters) => {
       return response.data;
     }
     else {
-    const response = await api.get('/api/post/filtered', {
-      requiredSubject: filters.requiredSubject,
-      helpSubjects: filters.helpSubjects,
-      minRating: filters.rating,
-      sortBy: filters.sortBy
-    });
+    const response = await api.get('/filtered', {params: filters});
     return response.data;
     }
   } catch (error) {
@@ -102,23 +96,6 @@ export const getPosts = async (filters) => {
     throw error;
   }
 }
-
-// const getFilteredPosts = async (filters) => {
-//   const params = new URLSearchParams({
-//     requiredSubject: filters.requiredSubject || "",
-//     helpSubjects: filters.helpSubjects.join(",") || "",
-//     minRating: filters.rating || "",
-//     sortBy: filters.sortBy || "New",
-//   });
-//
-//   const response = await fetch(`/filtered?${params.toString()}`);
-//   if (!response.ok) {
-//     throw new Error("Ошибка при загрузке постов");
-//   }
-//
-//   return await response.json();
-// };
-
 
 export const getUserProfile = async (userId) => {
   try {
