@@ -17,10 +17,15 @@ public class UserService : IUserService
         _userRepository = userRepository;
     }
 
-    public async Task<Guid> GetUserByUserNameAsync(string userName)
+    public async Task<Guid> GetUserIdByUserNameAsync(string userName)
     {
         var user = await _userRepository.GetUserByUserNameAsync(userName);
         return user.Id;
+    }
+
+    public async Task<User> GetUserByUserName(string userName)
+    {
+        return await _userRepository.GetUserByUserNameAsync(userName);
     }
 
     public async Task<bool> RegisterUserAsync(User user)
