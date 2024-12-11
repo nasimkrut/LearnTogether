@@ -2,32 +2,53 @@ import './FilterPanel.css'
 import Button from "./Button.jsx";
 
 
-const subjectsList = [
-  { value: 1, label: 'Математика' },
-  { value: 2, label: 'Теория вероятностей'},
-  { value: 3, label: 'C#'},
-  { value: 4, label: 'Машинное обучение'},
-  { value: 5, label: 'Алгоритмы'},
-  { value: 6, label: 'Структуры данных'},
+const subjectList = [
+  {value: 1, label: 'Математика'},
+  {value: 2, label: 'Теория вероятностей'},
+  {value: 3, label: 'C#'},
+  {value: 4, label: 'Машинное обучение'},
+  {value: 5, label: 'Алгоритмы'},
+  {value: 6, label: 'Структуры данных'},
 ]
+
 // const subjectsList = ['Математика', 'Теория вероятностей', 'C#', 'Машинное обучение', 'Алгоритмы', 'Структуры данных']
 const ratingOptions = [
-  { value: "", label: "Все" },
-  { value: "newbie", label: "Новички" },
-  { value: "smart", label: "Умные"},
-  { value: "genius", label: "Гении" },
+  {value: "", label: "Все"},
+  {value: "newbie", label: "Новички"},
+  {value: "smart", label: "Умные"},
+  {value: "genius", label: "Гении"},
 ]
 
-export default function FilterPanel({ filters, onChange, onApply }) {
+const sortOptions = [
+  { value: "New", label: "По дате добавления: новые → старые" },
+  { value: "Old", label: "По дате добавления: старые → новые" },
+  { value: "RatingMaxToMin", label: "По рейтингу: высокий → низкий" },
+  { value: "RatingMinToMax", label: "По рейтингу: низкий → высокий" },
+];
+
+export default function FilterPanel({filters, onChange, onApply}) {
   const handleRatingChange = (event) => {
-    onChange({ ...filters, rating: event.target.value });
+    onChange({...filters, rating: event.target.value});
   }
 
-  const handleSubjectsChange = (subject) => {
-    const updatedSubjects = filters.subjects.includes(subject)
-      ? filters.subjects.filter((s) => s !== subject)
-      : [...filters.subjects, subject];
-    onChange({ ...filters, subjects: updatedSubjects });
+  const handleSortChange = (event) => {
+    onChange({ ...filters, sortBy: event.target.value });
+  };
+
+  const handleHelpSubjectsChange = (subject) => {
+    console.log(subject)
+    const updatedSubjects = filters.helpSubjects.includes(subject)
+      ? filters.helpSubjects.filter((s) => s !== subject)
+      : [...filters.helpSubjects, subject];
+    onChange({...filters, helpSubjects: updatedSubjects});
+  }
+
+  const handleRequiredSubjectChange = (subject) => {
+    console.log(subject)
+    const updatedSubject = filters.requiredSubject === subject
+      ? null
+      : subject;
+    onChange({...filters, requiredSubject: updatedSubject});
   }
 
   return (
@@ -48,13 +69,40 @@ export default function FilterPanel({ filters, onChange, onApply }) {
       </div>
 
       <div className="filter-group">
-        <label>Предметы:</label>
+        <label htmlFor="sort-select">Сортировка:</label>
+        <select
+          id="sort-select"
+          value={filters.sortBy || ""}
+          onChange={handleSortChange}
+        >
+          {sortOptions.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div className="filter-group">
+        <label>Предметы, с которыми вы готовы помочь:</label>
         <div className="subjects-buttons">
-          {subjectsList.map((subject) => (
+          {subjectList.map((subject) => (
             <button
               key={subject.value}
-              className={filters.subjects.includes(subject.value) ? 'selected' : ''}
-              onClick={() => handleSubjectsChange(subject.value)}
+              className={filters.helpSubjects.includes(subject.value) ? 'selected' : ''}
+              onClick={() => handleHelpSubjectsChange(subject.value)}
+            >
+              {subject.label}
+            </button>
+          ))}
+        </div>
+        <label>Предмет, с которым вам нужна помощь:</label>
+        <div className="subjects-buttons">
+          {subjectList.map((subject) => (
+            <button
+              key={subject.value}
+              className={filters.requiredSubject === subject.value ? 'selected' : ''}
+              onClick={() => handleRequiredSubjectChange(subject.value)}
             >
               {subject.label}
             </button>

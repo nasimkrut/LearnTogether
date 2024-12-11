@@ -6,6 +6,7 @@ import Header from "./Header.jsx";
 
 export default function AuthPage({isLogin}) {
   const navigate = useNavigate();
+
   const handleSubmit = (data) => {
     console.log(isLogin ? 'Login data submitted:' : 'Registration data submitted:', data);
     if (isLogin && data.token) {

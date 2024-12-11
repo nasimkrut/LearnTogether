@@ -46,6 +46,16 @@ export const getUserId = async (userName) => {
   }
 }
 
+export const getUserById = async (id) => {
+  try {
+    const response = await api.get(`api/user/getUserById?id=${id.toString()}`);
+    return response.data;
+  } catch (error) {
+    console.error(`Ошибка при получении user с id=${id}:`, error.response?.data || error.message);
+    throw error;
+  }
+}
+
 export const registerUser = async (data) => {
   try {
     const response = await api.post('api/user/register', {
