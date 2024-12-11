@@ -39,10 +39,17 @@ public class UserController : ControllerBase
         => await _userService.GetUserIdByUserNameAsync(userName);
 
     [HttpGet("getUserByUserName")]
-    public async Task<ActionResult<User>> GetUserByUserName([FromQuery] Guid userId)
+    public async Task<ActionResult<User>> GetUserByUserName([FromQuery] string userName)
+    {
+        return await _userService.GetUserByUserName(userName);
+    }
+    
+    [HttpGet("getUserByUserId")]
+    public async Task<ActionResult<User>> GetUserByUserId([FromQuery] Guid userId)
     {
         return await _userService.GetUserByUserId(userId);
     }
+    
     public async Task<ActionResult<Guid>> UpdateUser(Guid id, [FromBody] User userUpdateDto)
     {
         var user = await _userService.UpdateUserAsync(id, userUpdateDto.UserName, userUpdateDto.FullName,

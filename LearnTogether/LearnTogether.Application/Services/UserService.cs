@@ -28,6 +28,11 @@ public class UserService : IUserService
         return await _userRepository.GetUserByUserIdAsync(userId);
     }
     
+    public async Task<User> GetUserByUserName(string userName)
+    {
+        return await _userRepository.GetUserByUserNameAsync(userName);
+    }
+    
     
 
     public async Task<bool> RegisterUserAsync(User user)
