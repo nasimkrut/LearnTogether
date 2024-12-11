@@ -25,7 +25,7 @@ export default function PostCard({post}) {
         setPostData({
           userName: user.userName,
           fullName: user.fullName,
-          photo: user.photo,
+          photo: user.photo ?? '/placeholder.png',
         });
       } catch (error) {
         console.error('Ошибка при загрузке данных пользователя:', error);

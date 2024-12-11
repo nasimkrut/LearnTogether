@@ -2,10 +2,12 @@ import Header from "../components/Header.jsx";
 import './CabinetPage.css'
 import {useEffect, useState} from "react";
 import {getUserByUserName} from "../services/api.js";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {getSubjectLabel} from "../utils/Utils.jsx";
+import Button from "../components/Button.jsx";
 
 export default function CabinetPage() {
+  const navigate = useNavigate();
   const {userName} = useParams();
   const [user, setUser] = useState(null);
   const [profilePic, setProfilePic] = useState("");
@@ -37,9 +39,9 @@ export default function CabinetPage() {
         const mockUser = {
           fullName: "Иван Иванов",
           speciality: "ФИИТ",
-          group: "ФТ-203",
+          group: "ФТ-000",
           helpSubjects: ["JavaScript", "React", "Node.js"],
-          userName: "a",
+          userName: "тут пусто",
         };
         setUser(mockUser);
       } finally {
@@ -52,6 +54,10 @@ export default function CabinetPage() {
 
     fetchUserData();
   }, [userName]);
+
+  const handleClosePage = () => {
+    navigate('/main');
+  };
 
   return (
     <>
@@ -89,6 +95,7 @@ export default function CabinetPage() {
           ) : (
             <p>Загрузка данных пользователя...</p>
           )}
+          <button className="close-button" onClick={handleClosePage} aria-label="Close profile">×</button>
         </div>
       </div>
     </>

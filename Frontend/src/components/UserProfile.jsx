@@ -11,11 +11,11 @@ const UserProfile = ({user, onClose}) => {
       <button className="close-button" onClick={onClose} aria-label="Close profile">×</button>
 
       <div className="profile-content">
-        <img src={user.photo} alt={user.userName} className="user-photo"/>
+        <img src={user.photo ?? '/placeholder.png'} alt={user.userName} className="user-photo"/>
         <h2>{user.fullName}</h2>
         <p>Специальность: {user.speciality ?? 'пусто'}</p>
         {user.group ? <p>Группа: {user.group}</p> : null}
-        <p>Навыки: {user.helpSubjects.map(getSubjectLabel).join(", ")}</p>
+        <p>Навыки: {user.helpSubjects && user.helpSubjects.length > 0 ? user.helpSubjects.map(getSubjectLabel).join(", ") : 'пусто'}</p>
         {showContact ? (
           (user.login ?
               <a
