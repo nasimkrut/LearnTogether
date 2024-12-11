@@ -2,6 +2,7 @@ import Select from "react-select";
 import Button from "./Button.jsx";
 import {useState} from "react";
 import {createPost, getStoredUserName, getUserId} from "../services/api.js";
+import "./CreatePostForm.css"
 
 export default function CreatePostForm({ subjects, onPostCreated, setShowModal }) {
   const [newPost, setNewPost] = useState({
@@ -70,7 +71,7 @@ export default function CreatePostForm({ subjects, onPostCreated, setShowModal }
         <Select
           options={subjects}
           onChange={handleSingleSelectChange}
-          placeholder="Нужна помощь с..."
+          placeholder="Нужна помощь с предметом.."
           isClearable
           classNamePrefix="react-select"
         />
@@ -85,7 +86,7 @@ export default function CreatePostForm({ subjects, onPostCreated, setShowModal }
           isMulti
           options={subjects}
           onChange={handleMultiSelectChange}
-          placeholder="Выберите предметы"
+          placeholder="Помогу с предметами.."
           classNamePrefix="react-select"
         />
         <input

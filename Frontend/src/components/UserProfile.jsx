@@ -1,20 +1,7 @@
 import {useState} from "react";
 import "./UserProfile.css"
 import Button from "./Button.jsx";
-
-const subjects = [
-  {value: 1, label: 'Математика'},
-  {value: 2, label: 'Теория вероятностей'},
-  {value: 3, label: 'C#'},
-  {value: 4, label: 'Машинное обучение'},
-  {value: 5, label: 'Алгоритмы'},
-  {value: 6, label: 'Структуры данных'},
-];
-
-const getSubjectLabel = (value) => {
-  const subject = subjects.find(subject => subject.value === value);
-  return subject ? subject.label : 'Неизвестный предмет';
-};
+import {getSubjectLabel} from "../utils/Utils.jsx";
 
 const UserProfile = ({user, onClose}) => {
   const [showContact, setShowContact] = useState(false);
