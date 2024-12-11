@@ -11,7 +11,7 @@ public interface IUserService
     string GenerateJwtToken(User user);
 
     Task<Guid> GetUserIdByUserNameAsync(string userName);
-    Task<User> GetUserByUserName(string userName);
+    Task<User> GetUserByUserId(Guid userId);
     
     Task<Guid> UpdateUserAsync(Guid id, string username, string fullName, string password, double rating);
     
