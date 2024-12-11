@@ -1,16 +1,8 @@
 import './PostCard.css'
 import {useNavigate} from "react-router-dom";
-import {getUserByUserName} from "../services/api.js"
+import {getUserByUserId, getUserByUserName} from "../services/api.js"
 import {useEffect, useState} from "react";
-
-const subjects = [
-  {value: 1, label: 'Математика'},
-  {value: 2, label: 'Теория вероятностей'},
-  {value: 3, label: 'C#'},
-  {value: 4, label: 'Машинное обучение'},
-  {value: 5, label: 'Алгоритмы'},
-  {value: 6, label: 'Структуры данных'},
-];
+import {subjects} from "../utils/Utils.jsx";
 
 const getSubjectLabel = (value) => {
   const subject = subjects.find(subject => subject.value === value);
@@ -29,7 +21,7 @@ export default function PostCard({post}) {
         //   fullName: post.fullName,
         //   photo: post.photo,
         // })
-        const user = await getUserByUserName(post.userName);
+        const user = await getUserByUserId(post.userId);
         setPostData({
           userName: user.userName,
           fullName: user.fullName,
@@ -46,7 +38,7 @@ export default function PostCard({post}) {
     };
 
     fetchUserData();
-  }, [post.fullName, post.photo, post.userName]);
+  }, [post.userId]);
 
   const handleCardClick = () => {
     console.log('Click on post:', post);
