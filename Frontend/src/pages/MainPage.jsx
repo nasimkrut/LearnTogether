@@ -86,7 +86,8 @@ export default function MainPage() {
   };
 
   useEffect(() => {
-    setPosts(mockPosts);
+    // setPosts(mockPosts);
+    // setFilteredPosts(mockPosts);
     fetchPosts();
   }, []);
 
@@ -118,8 +119,8 @@ export default function MainPage() {
           <EmptyState message="Никого нет :(" onReset={resetFilters} actionLabel="Попробовать снова"/>
         ) : (
             <div className="user-list">
-              {filteredPosts.map((post) => (
-                <PostCard key={post.id} post={post}/>
+              {filteredPosts.map((post, index) => (
+                <PostCard key={post.id || index} post={post} />
               ))}
             </div>
         )}

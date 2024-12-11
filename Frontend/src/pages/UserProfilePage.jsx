@@ -7,7 +7,7 @@ import Header from "../components/Header.jsx";
 import {mockPosts} from '../utils/MockPosts.jsx';
 
 export default function UserProfilePage() {
-  const {userId} = useParams();
+  const {userName} = useParams();
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -24,10 +24,10 @@ export default function UserProfilePage() {
     //     setLoading(false);
     //   });
 
-    const mockPost = mockPosts.find(user => user.userId === userId);
+    const mockPost = mockPosts.find(user => user.userName === userName);
     setUser(mockPost || null);
     setLoading(false);
-  }, [userId]);
+  }, [userName]);
 
   if (loading) return <p>Загрузка...</p>
   if (!user) return <p>Пользователь не найден.</p>

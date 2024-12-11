@@ -15,9 +15,8 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/registration" element={<RegistrationPage />} />
         <Route path="/main" element={<MainPage />} />
-        <Route path="/profile/:userId" element={<UserProfilePage />} />
+        <Route path="/profile/:userName" element={<UserProfilePage />} />
         <Route path="/cabinet" element={<CabinetPage />} />
-        <Route path="/helpers" element={<HelpersPage />} />
       </Routes>
     </Router>
   )
