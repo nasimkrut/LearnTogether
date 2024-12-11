@@ -1,17 +1,7 @@
 import './FilterPanel.css'
 import Button from "./Button.jsx";
+import {subjects} from "../utils/Utils.jsx";
 
-
-const subjectList = [
-  {value: 1, label: 'Математика'},
-  {value: 2, label: 'Теория вероятностей'},
-  {value: 3, label: 'C#'},
-  {value: 4, label: 'Машинное обучение'},
-  {value: 5, label: 'Алгоритмы'},
-  {value: 6, label: 'Структуры данных'},
-]
-
-// const subjectsList = ['Математика', 'Теория вероятностей', 'C#', 'Машинное обучение', 'Алгоритмы', 'Структуры данных']
 const ratingOptions = [
   {value: "", label: "Все"},
   {value: "newbie", label: "Новички"},
@@ -86,7 +76,7 @@ export default function FilterPanel({filters, onChange, onApply}) {
       <div className="filter-group">
         <label>Предметы, с которыми вы готовы помочь:</label>
         <div className="subjects-buttons">
-          {subjectList.map((subject) => (
+          {subjects.map((subject) => (
             <button
               key={subject.value}
               className={filters.helpSubjects.includes(subject.value) ? 'selected' : ''}
@@ -98,7 +88,7 @@ export default function FilterPanel({filters, onChange, onApply}) {
         </div>
         <label>Предмет, с которым вам нужна помощь:</label>
         <div className="subjects-buttons">
-          {subjectList.map((subject) => (
+          {subjects.map((subject) => (
             <button
               key={subject.value}
               className={filters.requiredSubject === subject.value ? 'selected' : ''}

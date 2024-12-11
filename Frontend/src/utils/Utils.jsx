@@ -4,7 +4,7 @@ export const mapRatingToValue = (rating) => {
   return 'genius';
 };
 
-const subjects = [
+export const subjects = [
   {value: 1, label: 'Математика'},
   {value: 2, label: 'Теория вероятностей'},
   {value: 3, label: 'C#'},

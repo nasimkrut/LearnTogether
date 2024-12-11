@@ -9,17 +9,9 @@ import Button from "../components/Button.jsx";
 import {Link} from "react-router-dom";
 import {getPosts, getStoredUserName} from "../services/api.js"
 import {mockPosts} from "../utils/MockPosts.jsx";
-import {mapRatingToValue} from "../utils/Utils.jsx";
+import {mapRatingToValue, subjects} from "../utils/Utils.jsx";
 import CreatePostForm from "../components/CreatePostForm.jsx"
 
-const subjects = [
-  {value: 1, label: 'Математика'},
-  {value: 2, label: 'Теория вероятностей'},
-  {value: 3, label: 'C#'},
-  {value: 4, label: 'Машинное обучение'},
-  {value: 5, label: 'Алгоритмы'},
-  {value: 6, label: 'Структуры данных'},
-]
 
 export default function MainPage() {
   const [showModal, setShowModal] = useState(false);
@@ -38,16 +30,12 @@ export default function MainPage() {
         (!filters.requiredSubject || post.helpSubjects.includes(filters.requiredSubject))
       );
 
-      console.log(`rating: `, posts.filter(post => post.rating))
-
-      console.log(`rating: ${filters.rating}`)
-
       const sorted = [...filtered].sort((a, b) => {
         switch (filters.sortBy) {
           case 'New':
-            return new Date(b.createdAt) - new Date(a.createdAt);
+            return new Date(Date.parse(b.createdAt)) - new Date(Date.parse(a.createdAt));
           case 'Old':
-            return new Date(a.createdAt) - new Date(b.createdAt);
+            return new Date(Date.parse(a.createdAt)) - new Date(Date.parse(b.createdAt));
           case 'RatingMaxToMin':
             return b.rating - a.rating;
           case 'RatingMinToMax':
