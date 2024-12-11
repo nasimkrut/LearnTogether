@@ -1,6 +1,6 @@
 import './PostCard.css'
 import {useNavigate} from "react-router-dom";
-import {getUserById} from "../services/api.js"
+import {getUserByUserName} from "../services/api.js"
 import {useEffect, useState} from "react";
 
 const subjects = [
@@ -19,40 +19,45 @@ const getSubjectLabel = (value) => {
 
 export default function PostCard({post}) {
   const navigate = useNavigate();
-  const [postData, setPostData] = useState({ userName: '', photo: '' });
+  const [postData, setPostData] = useState({ userName: '', photo: '', fullName: '' });
 
   useEffect(() => {
     // Загружаем данные пользователя при монтировании компонента
     const fetchUserData = async () => {
       try {
-        const user = await getUserById(post.userId);
         setPostData({
-          userName: user.userName,
-          photo: user.photo,
-        });
+          userName: post.userName,
+          fullName: post.fullName,
+          photo: post.photo,
+        })
+        // const user = await getUserByUserName(post.userName);
+        // setPostData({
+        //   userName: user.userName,
+        //   fullName: user.fullName,
+        //   photo: user.photo,
+        // });
       } catch (error) {
         console.error('Ошибка при загрузке данных пользователя:', error);
         setPostData({
-          userName: 'Неизвестный пользователь',
+          userName: 'undefined',
+          fullName: 'Неизвестный пользователь',
           photo: '/placeholder.png',
         });
       }
     };
 
     fetchUserData();
-  }, [post.userId]);
+  }, [post.fullName, post.photo, post.userName]);
 
   const handleCardClick = () => {
     console.log('Click on post:', post);
     navigate(`/profile/${postData.userName}`);
   }
 
-  console.log('В PostCard', post.requiredSubject, post.helpSubjects)
-
   return (
     <div className="post-card" onClick={handleCardClick}>
       <div className="post-info">
-        <h3>{postData.userName}</h3>
+        <h3>{postData.fullName}</h3>
         <p>
           Нужна помощь с: <span>{getSubjectLabel(post.requiredSubject)}</span>
         </p>

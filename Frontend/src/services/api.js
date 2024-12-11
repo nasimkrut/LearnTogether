@@ -46,12 +46,12 @@ export const getUserId = async (userName) => {
   }
 }
 
-export const getUserById = async (id) => {
+export const getUserByUserName = async (userName) => {
   try {
-    const response = await api.get(`api/user/getUserById?id=${id.toString()}`);
+    const response = await api.get(`api/user/getUserByUserName?userName=${userName.toString()}`);
     return response.data;
   } catch (error) {
-    console.error(`Ошибка при получении user с id=${id}:`, error.response?.data || error.message);
+    console.error(`Ошибка при получении user с @${userName}:`, error.response?.data || error.message);
     throw error;
   }
 }
@@ -107,9 +107,9 @@ export const getPosts = async (filters) => {
   }
 }
 
-export const getUserProfile = async (userId) => {
+export const getUserProfile = async (userName) => {
   try {
-    const response = await api.get(`/profile/${userId}`);
+    const response = await api.get(`/profile/${userName}`);
     return response.data;
   } catch (error) {
     console.error('Ошибка при получении профиля:', error);

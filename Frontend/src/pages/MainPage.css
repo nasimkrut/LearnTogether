@@ -19,7 +19,7 @@
 
 .user-list {
     position: sticky;
-    max-height: calc(100vh - 320px);
+    max-height: calc(100vh - 520px);
     overflow-y: auto;
     display: flex;
     flex-direction: column;
