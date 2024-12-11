@@ -7,7 +7,7 @@ import EmptyState from '../components/EmptyState';
 import './MainPage.css';
 import Button from "../components/Button.jsx";
 import {Link} from "react-router-dom";
-import {getPosts} from "../services/api.js"
+import {getPosts, getStoredUserName} from "../services/api.js"
 import {mockPosts} from "../utils/MockPosts.jsx";
 import {mapRatingToValue} from "../utils/Utils.jsx";
 import CreatePostForm from "../components/CreatePostForm.jsx"
@@ -100,7 +100,7 @@ export default function MainPage() {
   return (
     <>
       <Header>
-        <Link to="/cabinet">
+        <Link to={`/cabinet/${getStoredUserName()}`}>
           <Button className="cabinet-button">Личный кабинет</Button>
         </Link>
       </Header>

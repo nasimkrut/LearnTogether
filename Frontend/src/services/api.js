@@ -32,7 +32,9 @@ export const createPost = async (data) => {
 export const getStoredUserName = () => {
   const name = sessionStorage.getItem('userName');
   console.log(name);
-  return name;
+  if (name !== undefined)
+    return name;
+  throw new Error(`User undefined. No such key 'userName' in sessionStorage.`)
 };
 
 export const getUserId = async (userName) => {

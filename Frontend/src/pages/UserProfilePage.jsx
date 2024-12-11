@@ -1,10 +1,10 @@
 import {useNavigate, useParams} from "react-router-dom";
-import {mockUsers} from "../utils/MockUsers.jsx";
 import UserProfile from "../components/UserProfile.jsx";
 import {useEffect, useState} from "react";
 import "./UserProfilePage.css"
 import Header from "../components/Header.jsx";
 import {mockPosts} from '../utils/MockPosts.jsx';
+import {getUserByUserName} from "../services/api.js";
 
 export default function UserProfilePage() {
   const {userName} = useParams();
@@ -13,20 +13,21 @@ export default function UserProfilePage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // axios
-    //   .get(`/api/users/${userId}`)
-    //   .then((response) => {
-    //     setUser(response.data);
-    //     setLoading(false);
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error loading user: ", error);
-    //     setLoading(false);
-    //   });
+    const fetchUserData = async () => {
+      try {
+        const response = await getUserByUserName(userName);
+        if (response)
+          setUser(response);
+        else
+          alert('Пользователя не существует.')
+        setLoading(false);
+      } catch (e) {
+        console.error(e);
+        alert('Произошла ошибка при загрузке профиля пользователя.')
+      }
+    }
 
-    const mockPost = mockPosts.find(user => user.userName === userName);
-    setUser(mockPost || null);
-    setLoading(false);
+    fetchUserData();
   }, [userName]);
 
   if (loading) return <p>Загрузка...</p>

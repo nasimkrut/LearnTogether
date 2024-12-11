@@ -22,20 +22,19 @@ export default function PostCard({post}) {
   const [postData, setPostData] = useState({ userName: '', photo: '', fullName: '' });
 
   useEffect(() => {
-    // Загружаем данные пользователя при монтировании компонента
     const fetchUserData = async () => {
       try {
-        setPostData({
-          userName: post.userName,
-          fullName: post.fullName,
-          photo: post.photo,
-        })
-        // const user = await getUserByUserName(post.userName);
         // setPostData({
-        //   userName: user.userName,
-        //   fullName: user.fullName,
-        //   photo: user.photo,
-        // });
+        //   userName: post.userName,
+        //   fullName: post.fullName,
+        //   photo: post.photo,
+        // })
+        const user = await getUserByUserName(post.userName);
+        setPostData({
+          userName: user.userName,
+          fullName: user.fullName,
+          photo: user.photo,
+        });
       } catch (error) {
         console.error('Ошибка при загрузке данных пользователя:', error);
         setPostData({

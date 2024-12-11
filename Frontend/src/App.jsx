@@ -15,7 +15,7 @@ function App() {
         <Route path="/registration" element={<RegistrationPage />} />
         <Route path="/main" element={<MainPage />} />
         <Route path="/profile/:userName" element={<UserProfilePage />} />
-        <Route path="/cabinet" element={<CabinetPage />} />
+        <Route path="/cabinet/:userName" element={<CabinetPage />} />
       </Routes>
     </Router>
   )
