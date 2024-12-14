@@ -80,7 +80,7 @@ export default function CabinetPage() {
             <>
               <h2>{user.fullName}</h2>
               <div className="profile-info">
-                <p>Обо мне: {user.description === "Пользователь еще не рассказал о себе" ? "Заполните информацию о себе, чтобы Вам доверяло больше людей" : user.description}</p>
+                <p>Обо мне: {user.description.toString() === "Пользователь еще не рассказал о себе" ? "Заполните информацию о себе, чтобы Вам доверяло больше людей" : user.description}</p>
 
                 <a
                   href={`https://t.me/${user.userName}`}
