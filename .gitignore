@@ -9,6 +9,11 @@ LearnTogether/.idea
 LearnTogether/.vs
 LearnTogether/.DS_Store
 
+LearnTogether/LearnTogether.API/obj
+LearnTogether/LearnTogether.Application/obj
+LearnTogether/LearnTogether.Core/obj
+LearnTogether/LearnTogether.Infrastructure/obj
+
 # Logs
 Frontend/logs
 Frontend/*.log
