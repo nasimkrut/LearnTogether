@@ -1,7 +1,7 @@
 .git
-.idea
-bin/
-obj/
+/.idea
+bin
+obj
 
 .DS_Store
 
