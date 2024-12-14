@@ -25,7 +25,10 @@ export default function AuthForm({ isLogin, onSubmit }) {
         onSubmit(response);
       } catch (e) {
         console.log(e);
-        alert(`Ошибка авторизации: ${e.response?.data}`)
+        if (e.response?.data === "Invalid credentials")
+          alert(`Ошибка авторизации! Неправильные данные`)
+        else
+          alert('Ошибка аторизации! Попробуйте ещё раз')
       }
     } else {
       try {
