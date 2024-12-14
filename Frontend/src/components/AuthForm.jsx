@@ -24,6 +24,7 @@ export default function AuthForm({ isLogin, onSubmit }) {
         console.log(response)
         onSubmit(response);
       } catch (e) {
+        console.log(e);
         alert(`Ошибка авторизации: ${e.response?.data?.message}`)
       }
     } else {
@@ -38,7 +39,8 @@ export default function AuthForm({ isLogin, onSubmit }) {
         console.log(response)
         onSubmit(response);
       } catch (e) {
-        if (e.response.data.message === "User already exists")
+        console.log(e);
+        if (e.response.data.response === "User already exists")
           alert(`Такой пользователь уже существует! Попробуйте другой логин (ник в Telegram)`)
         else
           alert('Ошибка регистрации! Попробуйте ещё раз')
@@ -76,7 +78,7 @@ export default function AuthForm({ isLogin, onSubmit }) {
           <input
               type="text"
               id="login"
-              placeholder="Логин (ник в telegram)"
+              placeholder="Логин (ник в Telegram)"
               value={login}
               onChange={(e) => setLogin(e.target.value)}
               required
