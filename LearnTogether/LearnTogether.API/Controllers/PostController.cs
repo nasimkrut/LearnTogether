@@ -43,7 +43,7 @@ public class PostController : ControllerBase
         [FromQuery] SortType sortBy)
     {
         var posts = await _postService.GetFilteredPostsAsync(requiredSubject, helpSubjects, minRating, sortBy);
-        return Ok(posts);
+        return posts;
     }
 
     [HttpPost("AddPost")]

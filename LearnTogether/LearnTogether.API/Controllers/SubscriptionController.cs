@@ -15,7 +15,7 @@ public class SubscriptionController : ControllerBase
     }
 
     [HttpPost("subscribe-to-user")]
-    public async Task<IActionResult> SubscribeToUser([FromBody] Guid userId, [FromQuery] string notificationMethod)
+    public async Task<IActionResult> SubscribeToUser([FromBody] Guid userId, string notificationMethod)
     {
         var subscription = new Subscription
         {
@@ -28,7 +28,7 @@ public class SubscriptionController : ControllerBase
     }
 
     [HttpPost("subscribe-to-subject")]
-    public async Task<IActionResult> SubscribeToSubject([FromBody] Guid subjectId, [FromQuery] string notificationMethod)
+    public async Task<IActionResult> SubscribeToSubject([FromBody] Guid subjectId, string notificationMethod)
     {
         var subscription = new Subscription
         {

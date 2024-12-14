@@ -32,8 +32,6 @@ public class UserService : IUserService
     {
         return await _userRepository.GetUserByUserNameAsync(userName);
     }
-    
-    
 
     public async Task<bool> RegisterUserAsync(User user)
     {
