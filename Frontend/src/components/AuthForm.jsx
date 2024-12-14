@@ -24,7 +24,7 @@ export default function AuthForm({ isLogin, onSubmit }) {
         console.log(response)
         onSubmit(response);
       } catch (e) {
-        alert(`Ошибка авторизации: ${e.response?.data?.message || 'ААА'}`)
+        alert(`Ошибка авторизации: ${e.response?.data?.message}`)
       }
     } else {
       try {
@@ -37,9 +37,11 @@ export default function AuthForm({ isLogin, onSubmit }) {
         const response = await registerUser(newUser);
         console.log(response)
         onSubmit(response);
-        // navigate("/login")
       } catch (e) {
-        alert(`Ошибка регистрации: ${e.response?.data?.message || {login, name, surname}}`)
+        if (e.response.data.message === "User already exists")
+          alert(`Такой пользователь уже существует! Попробуйте другой логин (ник в Telegram)`)
+        else
+          alert('Ошибка регистрации! Попробуйте ещё раз')
       }
     }
   };
