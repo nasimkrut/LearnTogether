@@ -25,7 +25,7 @@ export default function AuthForm({ isLogin, onSubmit }) {
         onSubmit(response);
       } catch (e) {
         console.log(e);
-        alert(`Ошибка авторизации: ${e.response?.data?.message}`)
+        alert(`Ошибка авторизации: ${e.response?.data}`)
       }
     } else {
       try {
@@ -41,7 +41,7 @@ export default function AuthForm({ isLogin, onSubmit }) {
         onSubmit(response);
       } catch (e) {
         console.log(e);
-        if (e.message === "User already exists")
+        if (e.data.response === "User already exists")
           alert(`Такой пользователь уже существует! Попробуйте другой логин (ник в Telegram)`)
         else
           alert('Ошибка регистрации! Попробуйте ещё раз')
