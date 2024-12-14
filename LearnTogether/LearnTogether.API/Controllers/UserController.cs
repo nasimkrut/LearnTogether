@@ -53,7 +53,7 @@ public class UserController : ControllerBase
     public async Task<ActionResult<Guid>> UpdateUser(Guid id, [FromBody] User userUpdateDto)
     {
         var user = await _userService.UpdateUserAsync(id, userUpdateDto.UserName, userUpdateDto.FullName,
-            userUpdateDto.PasswordHash, userUpdateDto.Rating);
+            userUpdateDto.PasswordHash, userUpdateDto.Rating, userUpdateDto.Description);
 
         return Ok(user);
     }
