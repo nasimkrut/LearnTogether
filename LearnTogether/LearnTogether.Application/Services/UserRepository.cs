@@ -31,7 +31,7 @@ public class UserRepository : IUserRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task<Guid> UpdateUser(Guid id, string username, string fullName, string password, double rating)
+    public async Task<Guid> UpdateUser(Guid id, string username, string fullName, string password, double rating, string description)
     {
         await _context.Users.
             Where(b => b.Id == id).
@@ -39,7 +39,8 @@ public class UserRepository : IUserRepository
                .SetProperty(b => b.UserName, b => username)
                .SetProperty(b => b.FullName, b => fullName)
                .SetProperty(b => b.PasswordHash, b => password)
-               .SetProperty(b => b.Rating, b => rating));
+               .SetProperty(b => b.Rating, b => rating)
+               .SetProperty(b => b.Description, b => description));
         
         return id;
     }
