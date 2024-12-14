@@ -80,9 +80,7 @@ export default function CabinetPage() {
             <>
               <h2>{user.fullName}</h2>
               <div className="profile-info">
-                <p>Специальность: {user.speciality ?? 'пусто'}</p>
-                {user.group ? <p>Группа: {user.group}</p> : null}
-                <p>Навыки: {user.helpSubjects && user.helpSubjects.length > 0 ? user.helpSubjects.map(getSubjectLabel).join(", ") : 'пусто'}</p>
+                <p>Обо мне: {user.description}</p>
 
                 <a
                   href={`https://t.me/${user.userName}`}
