@@ -30,8 +30,10 @@ export default function CabinetPage() {
       try {
         console.log('Username is', userName);
         const response = await getUserByUserName(userName);
-        if (response)
+        if (response) {
+          console.log(response);
           setUser(response);
+        }
         else
           alert('Пользователя не существует.')
       } catch (e) {
