@@ -33,14 +33,15 @@ export default function AuthForm({ isLogin, onSubmit }) {
         const PasswordHash = password;
         const Rating = 0.0;
         const FullName = name + ' ' + surname;
-        const newUser = {UserName, FullName, PasswordHash, Rating};
+        const Description = "учусь в пятом классе";
+        const newUser = {UserName, FullName, PasswordHash, Rating, Description};
         console.log(UserName, PasswordHash, Rating, FullName)
         const response = await registerUser(newUser);
         console.log(response)
         onSubmit(response);
       } catch (e) {
         console.log(e);
-        if (e.response.data.response === "User already exists")
+        if (e.message === "User already exists")
           alert(`Такой пользователь уже существует! Попробуйте другой логин (ник в Telegram)`)
         else
           alert('Ошибка регистрации! Попробуйте ещё раз')
