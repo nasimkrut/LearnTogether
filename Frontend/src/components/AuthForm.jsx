@@ -41,7 +41,7 @@ export default function AuthForm({ isLogin, onSubmit }) {
         onSubmit(response);
       } catch (e) {
         console.log(e);
-        if (e.data.response === "User already exists")
+        if (e.response?.data === "User already exists")
           alert(`Такой пользователь уже существует! Попробуйте другой логин (ник в Telegram)`)
         else
           alert('Ошибка регистрации! Попробуйте ещё раз')
