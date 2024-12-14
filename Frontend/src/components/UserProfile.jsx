@@ -10,31 +10,29 @@ const UserProfile = ({user, onClose}) => {
     <div className="user-profile">
       <button className="close-button" onClick={onClose} aria-label="Close profile">×</button>
 
-      <div className="profile-content">
-        <img src={user.photo ?? '/placeholder.png'} alt={user.userName} className="user-photo"/>
-        <h2>{user.fullName}</h2>
-        <p>Специальность: {user.speciality ?? 'пусто'}</p>
-        {user.group ? <p>Группа: {user.group}</p> : null}
-        <p>Навыки: {user.helpSubjects && user.helpSubjects.length > 0 ? user.helpSubjects.map(getSubjectLabel).join(", ") : 'пусто'}</p>
-        {showContact ? (
-          (user.userName ?
-              <a
-                href={`https://t.me/${user.userName}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="contact-info"
-                style={{textDecoration: "none"}}
-              >
-                <p>@{user.userName}</p>
-              </a> : <p>Тут пусто</p>
-          )
-        ) : (
-          <Button onClick={() => {
-            console.log(`User asked for contact of user ${user.userName}`)
-            setShowContact(true)
-          }}>Написать в Telegram</Button>
-        )}
-      </div>
+        <div className="profile-content">
+            <img src={user.photo ?? '/placeholder.png'} alt={user.userName} className="user-photo"/>
+            <h2>{user.fullName}</h2>
+            <p>Обо мне: {user.description}</p>
+            {showContact ? (
+                (user.userName ?
+                        <a
+                            href={`https://t.me/${user.userName}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="contact-info"
+                            style={{textDecoration: "none"}}
+                        >
+                            <p>@{user.userName}</p>
+                        </a> : <p>Тут пусто</p>
+                )
+            ) : (
+                <Button onClick={() => {
+                    console.log(`User asked for contact of user ${user.userName}`)
+                    setShowContact(true)
+                }}>Написать в Telegram</Button>
+            )}
+        </div>
     </div>
   )
 }
