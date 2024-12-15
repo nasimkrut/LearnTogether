@@ -21,43 +21,16 @@ export default function MainPage() {
   const [filteredPosts, setFilteredPosts] = useState([]);
 
 
-  const applyFilters = () => {
-    setLoading(true);
-    setTimeout(() => {
-      const filtered = posts.filter(post =>
-        (!filters.rating || mapRatingToValue(post.rating) === filters.rating) &&
-        (filters.helpSubjects.length === 0 || filters.helpSubjects.some(subject => post.requiredSubject === subject)) &&
-        (!filters.requiredSubject || post.helpSubjects.includes(filters.requiredSubject))
-      );
-
-      const sorted = [...filtered].sort((a, b) => {
-        switch (filters.sortBy) {
-          case 'New':
-            return new Date(Date.parse(b.createdAt)) - new Date(Date.parse(a.createdAt));
-          case 'Old':
-            return new Date(Date.parse(a.createdAt)) - new Date(Date.parse(b.createdAt));
-          case 'RatingMaxToMin':
-            return b.rating - a.rating;
-          case 'RatingMinToMax':
-            return a.rating - b.rating;
-          default:
-            return 0;
-        }
-      });
-
-      setFilteredPosts(sorted);
-      setLoading(false);
-    }, 1000);
-
-    // setLoading(true);
-    // try {
-    //   const posts = await getPosts(filters);
-    //   setFilteredPosts(posts);
-    // } catch (error) {
-    //   console.error("Ошибка при применении фильтров:", error);
-    // } finally {
-    //   setLoading(false);
-    // }
+  const applyFilters = async () => {
+      setLoading(true);
+      try {
+        const posts = await getPosts(filters);
+        setFilteredPosts(posts);
+      } catch (error) {
+        console.error("Ошибка при применении фильтров:", error);
+      } finally {
+        setLoading(false);
+      }
   };
 
   const fetchPosts = async () => {
@@ -100,18 +73,20 @@ export default function MainPage() {
         >
           Создать новое предложение
         </Button>
-        <FilterPanel filters={filters} onChange={setFilters} onApply={applyFilters}/>
-        {loading ? (
-          <Loader/>
-        ) : filteredPosts.length === 0 ? (
-          <EmptyState message="Никого нет :(" onReset={resetFilters} actionLabel="Попробовать снова"/>
-        ) : (
+        <div>
+          <FilterPanel filters={filters} onChange={setFilters} onApply={applyFilters}/>
+          {loading ? (
+            <Loader/>
+          ) : filteredPosts.length === 0 ? (
+            <EmptyState message="Никого нет :(" onReset={resetFilters} actionLabel="Попробовать снова"/>
+          ) : (
             <div className="user-list">
               {filteredPosts.map((post, index) => (
                 <PostCard key={post.id || index} post={post} />
               ))}
             </div>
-        )}
+          )}
+        </div>
         {showModal && (
           <CreatePostForm
             subjects={subjects}

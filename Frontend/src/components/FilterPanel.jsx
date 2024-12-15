@@ -10,10 +10,10 @@ const ratingOptions = [
 ]
 
 const sortOptions = [
-  { value: "New", label: "По дате добавления: новые → старые" },
-  { value: "Old", label: "По дате добавления: старые → новые" },
-  { value: "RatingMaxToMin", label: "По рейтингу: высокий → низкий" },
-  { value: "RatingMinToMax", label: "По рейтингу: низкий → высокий" },
+  { value: 1, label: "По дате добавления: новые → старые" },
+  { value: 2, label: "По дате добавления: старые → новые" },
+  { value: 3, label: "По рейтингу: высокий → низкий" },
+  { value: 4, label: "По рейтингу: низкий → высокий" },
 ];
 
 export default function FilterPanel({filters, onChange, onApply}) {
