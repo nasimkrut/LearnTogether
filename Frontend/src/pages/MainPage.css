@@ -7,7 +7,6 @@
     margin-top: 50px;
     gap: 1rem;
     background-color: #fcfaf4;
-    background-image:  radial-gradient(#abcebe 0.75px, transparent 0.75px), radial-gradient(#abcebe 0.75px, #fcfaf4 0.75px);
     background-size: 30px 30px;
     background-position: 0 0,15px 15px;
 }
