@@ -1,5 +1,5 @@
 .filter-panel {
-    position: sticky;
+    position: static;
     top: 65px;
     display: flex;
     flex-direction: column;
