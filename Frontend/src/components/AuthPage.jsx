@@ -11,9 +11,11 @@ export default function AuthPage({isLogin}) {
     console.log(isLogin ? 'Login data submitted:' : 'Registration data submitted:', data);
     if (isLogin && data.token) {
       sessionStorage.setItem('token', data.token);
+      sessionStorage.setItem('isLoggedIn', true);
       navigate("/main")
     }
     else {
+      sessionStorage.removeItem('isLoggedIn');
       navigate("/login")
     }
   };
@@ -33,4 +35,4 @@ export default function AuthPage({isLogin}) {
 
 AuthPage.propTypes = {
   isLogin: PropTypes.bool.isRequired,
-}
+};

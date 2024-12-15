@@ -9,7 +9,7 @@ import Button from "../components/Button.jsx";
 import {Link} from "react-router-dom";
 import {getPosts, getStoredUserName} from "../services/api.js"
 import {mockPosts} from "../utils/MockPosts.jsx";
-import {mapRatingToValue, subjects} from "../utils/Utils.jsx";
+import {subjects} from "../utils/Utils.jsx";
 import CreatePostForm from "../components/CreatePostForm.jsx"
 
 

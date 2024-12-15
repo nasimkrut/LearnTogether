@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import './AuthForm.css';
 import Button from "./Button.jsx";
 import {registerUser, loginUser} from "../services/api.js";
 
 export default function AuthForm({ isLogin, onSubmit }) {
-  const navigate = useNavigate();
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -28,7 +27,7 @@ export default function AuthForm({ isLogin, onSubmit }) {
         if (e.response?.data === "Invalid credentials")
           alert(`Ошибка авторизации! Неправильные данные`)
         else
-          alert('Ошибка аторизации! Попробуйте ещё раз')
+          alert('Ошибка авторизации! Попробуйте ещё раз')
       }
     } else {
       try {
