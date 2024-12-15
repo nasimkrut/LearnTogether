@@ -1,9 +1,8 @@
 import Header from "../components/Header.jsx";
 import './CabinetPage.css'
 import {useEffect, useState} from "react";
-import {getUserByUserName} from "../services/api.js";
+import {getUserByUserName, updateUserProfile} from "../services/api.js";
 import {useNavigate, useParams} from "react-router-dom";
-import {getSubjectLabel} from "../utils/Utils.jsx";
 import Button from "../components/Button.jsx";
 
 export default function CabinetPage() {
@@ -66,9 +65,21 @@ export default function CabinetPage() {
     navigate('/main');
   };
 
-  const handleSave = () => {
-    if (user) {
-      setUser({...user, description});
+  const handleSave = async () => {
+    try {
+      if (user) {
+        const updatedUser = { ...user, description};
+        const response = await updateUserProfile(updatedUser);
+        if (response) {
+          setUser(updatedUser);
+          alert("Изменения успешно сохранены.");
+        } else {
+          alert("Ошибка при сохранении изменений.");
+        }
+      }
+    } catch (error) {
+      console.error("Ошибка при сохранении изменений: ", error);
+      alert("Не удалось сохранить изменения. Попробуйте позже.");
     }
     setIsEditing(false);
   };

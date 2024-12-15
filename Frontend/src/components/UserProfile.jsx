@@ -1,7 +1,6 @@
 import {useState} from "react";
 import "./UserProfile.css"
 import Button from "./Button.jsx";
-import {getSubjectLabel} from "../utils/Utils.jsx";
 
 const UserProfile = ({user, onClose}) => {
   const [showContact, setShowContact] = useState(false);

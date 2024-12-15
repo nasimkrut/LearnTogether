@@ -58,7 +58,7 @@ export const getUserByUserName = async (userName) => {
   }
 }
 
-export const getUserByUserId= async (id) => {
+export const getUserByUserId = async (id) => {
   try {
     const response = await api.get(`api/user/getUserByUserId?userId=${id.toString()}`);
     return response.data;
@@ -90,7 +90,7 @@ export const registerUser = async (data) => {
 
 export const loginUser = async (data) => {
   try {
-    Cookies.set('userName', data.UserName, { expires: 7 });
+    Cookies.set('userName', data.UserName, {expires: 7});
     const response = await api.post('api/user/login', {
       UserName: data.login,
       Password: data.password.toString()
@@ -106,20 +106,19 @@ export const loginUser = async (data) => {
 export const getPosts = async (filters) => {
   try {
     console.log("Отправили фильтры на бэк:", filters);
-    if (filters === undefined){
-      const response= await api.get('/api/post/getAllPosts?');
+    if (filters === undefined) {
+      const response = await api.get('/api/post/getAllPosts?');
       return response.data;
-    }
-    else {
-    const response = await api.get('/api/post/filtered', {
-      params: {
-        requiredSubject: filters.requiredSubject,
-        helpSubjects: filters.helpSubjects,
-        minRating: filters.rating,
-        sortBy: filters.sortBy
-      }
-    });
-    return response.data;
+    } else {
+      const response = await api.get('/api/post/filtered', {
+        params: {
+          requiredSubject: filters.requiredSubject,
+          helpSubjects: filters.helpSubjects,
+          minRating: filters.rating,
+          sortBy: filters.sortBy
+        }
+      });
+      return response.data;
     }
   } catch (error) {
     console.error("Ошибка получения постов:", error.response?.data || error.message);
@@ -127,19 +126,9 @@ export const getPosts = async (filters) => {
   }
 }
 
-export const getUserProfile = async (userName) => {
+export const updateUserProfile = async (user) => {
   try {
-    const response = await api.get(`/profile/${userName}`);
-    return response.data;
-  } catch (error) {
-    console.error('Ошибка при получении профиля:', error);
-    throw error;
-  }
-}
-
-export const updateUserProfile = async (userId, data) => {
-  try {
-    const response = await api.put(`/profile/${userId}`, data);
+    const response = await api.post(`api/user/userUpdate`, user);
     return response.data;
   } catch (error) {
     console.error('Ошибка при обновлении профиля:', error);

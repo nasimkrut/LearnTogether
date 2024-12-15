@@ -5,15 +5,15 @@ export const mapRatingToValue = (rating) => {
 };
 
 export const subjects = [
-  {value: 1, label: 'Математика'},
-  {value: 2, label: 'Теория вероятностей'},
-  {value: 3, label: 'C#'},
-  {value: 4, label: 'Машинное обучение'},
-  {value: 5, label: 'Алгоритмы'},
-  {value: 6, label: 'Структуры данных'},
+  {value: 0, label: 'Математика'},
+  {value: 1, label: 'Теория вероятностей'},
+  {value: 2, label: 'C#'},
+  {value: 3, label: 'Машинное обучение'},
+  {value: 4, label: 'Алгоритмы'},
+  {value: 5, label: 'Структуры данных'},
 ];
 
-export const getSubjectLabel = (value) => {
-  const subject = subjects.find(subject => subject.value === value);
-  return subject ? subject.label : 'Неизвестный предмет';
-};
+// export const getSubjectLabel = (value) => {
+//   const subject = subjects.find(subject => subject.value === value);
+//   return subject ? subject.label : 'Неизвестный предмет';
+// };
