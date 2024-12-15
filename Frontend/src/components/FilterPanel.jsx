@@ -22,7 +22,7 @@ export default function FilterPanel({filters, onChange, onApply}) {
   }
 
   const handleSortChange = (event) => {
-    onChange({ ...filters, sortBy: event.target.value });
+    onChange({ ...filters, sortBy: Number(event.target.value) });
   };
 
   const handleHelpSubjectsChange = (subject) => {
@@ -62,7 +62,7 @@ export default function FilterPanel({filters, onChange, onApply}) {
         <label htmlFor="sort-select">Сортировка:</label>
         <select
           id="sort-select"
-          value={filters.sortBy || ""}
+          value={filters.sortBy || 1}
           onChange={handleSortChange}
         >
           {sortOptions.map((option) => (

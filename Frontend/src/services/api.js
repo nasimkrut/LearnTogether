@@ -105,17 +105,19 @@ export const loginUser = async (data) => {
 
 export const getPosts = async (filters) => {
   try {
-    console.log(filters)
+    console.log("Отправили фильтры на бэк:", filters);
     if (filters === undefined){
       const response= await api.get('/api/post/getAllPosts?');
       return response.data;
     }
     else {
     const response = await api.get('/api/post/filtered', {
-      requiredSubject: filters.requiredSubject,
-      helpSubjects: filters.helpSubjects,
-      minRating: filters.rating,
-      sortBy: filters.sortBy
+      params: {
+        requiredSubject: filters.requiredSubject,
+        helpSubjects: filters.helpSubjects,
+        minRating: filters.rating,
+        sortBy: filters.sortBy
+      }
     });
     return response.data;
     }
