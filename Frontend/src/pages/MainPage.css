@@ -25,7 +25,6 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    width: 800px;
     scrollbar-color: #1f1f1f #d1d7d1;
 }
 

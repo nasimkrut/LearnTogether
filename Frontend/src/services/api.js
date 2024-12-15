@@ -75,6 +75,7 @@ export const registerUser = async (data) => {
       FullName: data.FullName,
       PasswordHash: data.PasswordHash,
       Rating: data.Rating,
+      Description: data.Description,
     });
     const userId = await getUserId(data.UserName);
     sessionStorage.setItem('userId', userId);

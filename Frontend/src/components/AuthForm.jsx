@@ -24,7 +24,11 @@ export default function AuthForm({ isLogin, onSubmit }) {
         console.log(response)
         onSubmit(response);
       } catch (e) {
-        alert(`Ошибка авторизации: ${e.response?.data?.message || 'ААА'}`)
+        console.log(e);
+        if (e.response?.data === "Invalid credentials")
+          alert(`Ошибка авторизации! Неправильные данные`)
+        else
+          alert('Ошибка аторизации! Попробуйте ещё раз')
       }
     } else {
       try {
@@ -32,14 +36,18 @@ export default function AuthForm({ isLogin, onSubmit }) {
         const PasswordHash = password;
         const Rating = 0.0;
         const FullName = name + ' ' + surname;
-        const newUser = {UserName, FullName, PasswordHash, Rating};
+        const Description = "Некое описание которое потом можно будет менять";
+        const newUser = {UserName, FullName, PasswordHash, Rating, Description};
         console.log(UserName, PasswordHash, Rating, FullName)
         const response = await registerUser(newUser);
         console.log(response)
         onSubmit(response);
-        // navigate("/login")
       } catch (e) {
-        alert(`Ошибка регистрации: ${e.response?.data?.message || {login, name, surname}}`)
+        console.log(e);
+        if (e.response?.data === "User already exists")
+          alert(`Такой пользователь уже существует! Попробуйте другой логин (ник в Telegram)`)
+        else
+          alert('Ошибка регистрации! Попробуйте ещё раз')
       }
     }
   };
@@ -74,7 +82,7 @@ export default function AuthForm({ isLogin, onSubmit }) {
           <input
               type="text"
               id="login"
-              placeholder="Логин (ник в telegram)"
+              placeholder="Логин (ник в Telegram)"
               value={login}
               onChange={(e) => setLogin(e.target.value)}
               required

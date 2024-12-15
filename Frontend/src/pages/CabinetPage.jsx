@@ -30,8 +30,10 @@ export default function CabinetPage() {
       try {
         console.log('Username is', userName);
         const response = await getUserByUserName(userName);
-        if (response)
+        if (response) {
+          console.log(response);
           setUser(response);
+        }
         else
           alert('Пользователя не существует.')
       } catch (e) {
@@ -78,9 +80,9 @@ export default function CabinetPage() {
             <>
               <h2>{user.fullName}</h2>
               <div className="profile-info">
-                <p>Специальность: {user.speciality ?? 'пусто'}</p>
-                {user.group ? <p>Группа: {user.group}</p> : null}
-                <p>Навыки: {user.helpSubjects && user.helpSubjects.length > 0 ? user.helpSubjects.map(getSubjectLabel).join(", ") : 'пусто'}</p>
+                <p>Обо мне: {user.description === "Пользователь еще не рассказал о себе" 
+                    ? "Заполните информацию о себе, чтобы Вам доверяло больше людей"
+                    : user.description}</p>
 
                 <a
                   href={`https://t.me/${user.userName}`}
