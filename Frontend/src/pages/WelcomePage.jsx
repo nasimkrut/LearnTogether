@@ -4,7 +4,7 @@ import Button from "../components/Button.jsx";
 
 export default function WelcomePage() {
   return (
-    <div className="main-container">
+    <div className="container">
       <div className="welcome-page">
         <div>
           <h1>LearnTogether</h1>

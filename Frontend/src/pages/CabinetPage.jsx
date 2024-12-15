@@ -11,6 +11,8 @@ export default function CabinetPage() {
   const {userName} = useParams();
   const [user, setUser] = useState(null);
   const [profilePic, setProfilePic] = useState("");
+  const [isEditing, setIsEditing] = useState(false);
+  const [description, setDescription] = useState("");
 
   const handlePicUpdated = (event) => {
     const file = event.target.files[0];
@@ -27,25 +29,28 @@ export default function CabinetPage() {
 
   useEffect(() => {
     const fetchUserData = async () => {
+      const mockUser = {
+        fullName: "Иван Иванов",
+        description: "Пользователь еще не рассказал о себе",
+        userName: "тут пусто",
+      };
       try {
         console.log('Username is', userName);
         const response = await getUserByUserName(userName);
         if (response) {
           console.log(response);
           setUser(response);
+          setDescription(response.description || "");
         }
-        else
+        else {
           alert('Пользователя не существует.')
+          setUser(mockUser);
+          setDescription(mockUser.description);
+        }
       } catch (e) {
         console.error(`Error loading cabinet: ${e}`);
-        const mockUser = {
-          fullName: "Иван Иванов",
-          speciality: "ФИИТ",
-          group: "ФТ-000",
-          helpSubjects: ["JavaScript", "React", "Node.js"],
-          userName: "тут пусто",
-        };
         setUser(mockUser);
+        setDescription(mockUser.description);
       } finally {
         const savedPic = sessionStorage.getItem("profilePic");
         if (savedPic) {
@@ -61,6 +66,18 @@ export default function CabinetPage() {
     navigate('/main');
   };
 
+  const handleSave = () => {
+    if (user) {
+      setUser({...user, description});
+    }
+    setIsEditing(false);
+  };
+
+  const handleCancel = () => {
+    setDescription(user?.description || "");
+    setIsEditing(false);
+  };
+
   return (
     <>
       <Header/>
@@ -68,21 +85,31 @@ export default function CabinetPage() {
         <div className="cabinet-content">
           <div className="profile-image-container">
             <img src={profilePic || "/placeholder.png"} alt="User photo" className="user-photo"/>
-            <label htmlFor="photo-upload" className="photo-upload-label">Загрузить фото</label>
-            <input
-              id="photo-upload"
-              type="file"
-              accept="image/*"
-              onChange={handlePicUpdated}
-            />
+            {isEditing && (
+              <>
+                <label htmlFor="photo-upload" className="photo-upload-label">Загрузить фото</label>
+                <input
+                  id="photo-upload"
+                  type="file"
+                  accept="image/*"
+                  onChange={handlePicUpdated}
+                />
+              </>
+            )}
           </div>
           {user ? (
             <>
               <h2>{user.fullName}</h2>
               <div className="profile-info">
-                <p>Обо мне: {user.description === "Пользователь еще не рассказал о себе" 
-                    ? "Заполните информацию о себе, чтобы Вам доверяло больше людей"
-                    : user.description}</p>
+                {isEditing ? (
+                  <textarea
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    className="description-textarea"
+                  />
+                ) : (
+                  <p>Обо мне: {description || "Заполните информацию о себе, чтобы Вам доверяло больше людей"}</p>
+                )}
 
                 <a
                   href={`https://t.me/${user.userName}`}
@@ -93,6 +120,14 @@ export default function CabinetPage() {
                   Контакт: @{user.userName}
                 </a>
               </div>
+              {isEditing ? (
+                <div className="edit-buttons">
+                  <Button onClick={handleSave} className="save-button">Сохранить</Button>
+                  <Button onClick={handleCancel} className="cancel-button">Отменить</Button>
+                </div>
+              ) : (
+                <Button onClick={() => setIsEditing(true)} className="edit-button">Редактировать</Button>
+              )}
             </>
           ) : (
             <p>Загрузка данных пользователя...</p>

@@ -7,7 +7,7 @@
     --_c:#0000,var(--c1) 1deg 79deg,#0000 81deg;
 }
 
-.main-container {
+.container {
     display: flex;
     height: 100vh;
     overflow: hidden;
