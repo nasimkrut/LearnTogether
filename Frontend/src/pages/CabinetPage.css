@@ -10,6 +10,7 @@
 
 /* Основной контейнер профиля */
 .cabinet-content {
+    position: relative; /* Установить родительский элемент как опорную точку */
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
@@ -26,11 +27,11 @@
 }
 
 .user-photo {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #2d9479;
+    border: 2px solid #2d9479;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -138,17 +139,17 @@ input[type="file"] {
     background-color: #257b65;
 }
 
-/* Кнопка закрытия */
 .close-button {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: #aaa;
-    cursor: pointer;
-    transition: color 0.3s ease;
+    position: absolute; /* Абсолютное позиционирование */
+    top: 15px; /* Отступ сверху */
+    right: 15px; /* Отступ справа */
+    background-color: transparent; /* Прозрачный фон */
+    border: none; /* Убираем границы */
+    font-size: 1.5rem; /* Размер иконки */
+    color: #aaa; /* Светло-серый цвет */
+    cursor: pointer; /* Курсор в виде указателя */
+    transition: color 0.3s ease; /* Плавный переход цвета */
+    z-index: 10; /* Убедимся, что кнопка выше других элементов */
 }
 
 .close-button:hover {

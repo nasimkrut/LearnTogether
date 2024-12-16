@@ -92,10 +92,9 @@ export default function CabinetPage() {
   return (
       <>
         <Header/>
-        <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap"
-              rel="stylesheet"/>
         <div className="cabinet">
           <div className="cabinet-content">
+            <button className="close-button" onClick={handleClosePage} aria-label="Close profile">×</button>
             <div className="profile-image-container">
               <img src={profilePic || "/placeholder.png"} alt="User photo" className="user-photo"/>
               {isEditing && (
@@ -147,7 +146,6 @@ export default function CabinetPage() {
             ) : (
                 <p>Загрузка данных пользователя...</p>
             )}
-            <button className="close-button" onClick={handleClosePage} aria-label="Close profile">×</button>
           </div>
         </div>
       </>
