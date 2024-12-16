@@ -1,54 +1,44 @@
 .user-profile {
-    position: sticky;
-    top: 65px;
-    max-width: 750px;
-    height: 500px;
+    position: relative; /* исправлено для лучшей совместимости */
+    width: 800px;
     margin: 2rem auto;
-    padding: 30px;
-    background-color: rgba(249, 249, 249, 0.89);
-    border-radius: 8px;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
 .profile-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    color: black;
-    margin: 0;
     gap: 1rem;
+    color: #333;
+    width: 100%;
+    max-width: 600px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
 }
 
-.profile-content p {
-    margin: 0;
-    font-size: 1.2rem;
+.profile-image1 {
+    margin-bottom: -2.3rem;
 }
 
 .profile-content h2 {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #1f1f1f;
-    margin: 0 0 1rem;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: #333;
 }
 
-.profile-content a {
-    margin-top: 2rem;
-}
-
-.profile-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-}
-
-.profile-image-container {
-    position: relative;
-}
-
-.profile-image-container input {
-    display: none;
+.profile-info {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: left;
 }
 
 .photo-upload-label {
@@ -67,33 +57,65 @@
 }
 
 .contact-info {
-    margin-top: 0.5rem;
+    font-size: 1.5rem;
     color: rgba(37, 118, 120, 1);
+    font-weight: bold;
     text-decoration: none;
 }
 
-.user-profile .profile-content button {
-    margin-top: 2rem;
+.contact-info:hover {
+    text-decoration: underline;
 }
 
 .close-button {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 15px;
+    right: 15px;
     background-color: transparent;
     border: none;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    color: #aaa;
     cursor: pointer;
-    color: #b2b2b2;
-}
-.close-button:hover {
-    color: darkred;
+    transition: color 0.3s ease;
 }
 
-.profile-info {
+.close-button:hover {
+    color: #555;
+}
+
+.photo-upload-label {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    color: white;
+    background-color: rgba(37, 118, 120, 1);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.photo-upload-label:hover {
+    background-color: rgba(25, 108, 110, 1);
+}
+
+.profile-content h3 {
+    font-family: Lexend, sans-serif;
+    font-size: 1.7rem;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: -5px;
     text-align: left;
 }
 
-.profile-info p {
-    margin: 0.5rem 0;
+/* Текст описания */
+.profile-content p {
+    font-family: Lexend, sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #555;
+    text-align: left;
+    align-items: center;
+    margin: 0;
+    width: 100%;
 }

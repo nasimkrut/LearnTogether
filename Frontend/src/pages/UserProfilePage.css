@@ -1,7 +1,7 @@
 .user-profile-page {
-    flex-direction: column;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    position: relative;
     min-height: 100vh;
     background-color: rgba(232, 237, 242, 1);
 }

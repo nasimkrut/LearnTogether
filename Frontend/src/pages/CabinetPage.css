@@ -10,7 +10,7 @@
 
 /* Основной контейнер профиля */
 .cabinet-content {
-    position: relative; /* Установить родительский элемент как опорную точку */
+    position: relative;
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
@@ -63,13 +63,6 @@ input[type="file"] {
     color: #333;
 }
 
-/* Текст информации "Обо мне" */
-.profile-info p {
-    width: 100%;
-    font-size: 1.1rem;
-    color: black;
-    align-items: center;
-}
 
 .contact-info {
     font-size: 2rem;
@@ -181,4 +174,7 @@ input[type="file"] {
     color: #555;
     text-align: left;
     margin: 0;
+    width: 100%;
+    align-items: center;
 }
+
