@@ -39,10 +39,10 @@ public class PostRepository : IPostRepository
 
         query = sortBy switch
         {
-            SortType.New => query.OrderBy(p => p.DateCreated),
-            SortType.Old => query.OrderByDescending(p => p.DateCreated),
-            SortType.RatingMinToMax => query.OrderByDescending(p => p.Rating),
-            SortType.RatingMaxToMin => query.OrderBy(p => p.Rating),
+            SortType.New => query.OrderByDescending(p => p.DateCreated),
+            SortType.Old => query.OrderBy(p => p.DateCreated),
+            SortType.RatingMinToMax => query.OrderBy(p => p.Rating),
+            SortType.RatingMaxToMin => query.OrderByDescending(p => p.Rating),
             _ => query
         };
 
