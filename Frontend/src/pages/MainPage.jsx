@@ -15,7 +15,7 @@ import CreatePostForm from "../components/CreatePostForm.jsx"
 
 export default function MainPage() {
   const [showModal, setShowModal] = useState(false);
-  const [filters, setFilters] = useState({rating: null, createdAt: null, helpSubjects: [], requiredSubject: null, sortBy: 1});
+  const [filters, setFilters] = useState({rating: 0, createdAt: null, helpSubjects: [], requiredSubject: null, sortBy: 0});
   const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
@@ -53,7 +53,7 @@ export default function MainPage() {
   }, []);
 
   const resetFilters = () => {
-    setFilters({rating: null, createdAt: null, helpSubjects: [], requiredSubject: null, sortBy: 1});
+    setFilters({rating: 0, createdAt: null, helpSubjects: [], requiredSubject: null, sortBy: 0});
     setFilteredPosts(posts);
     applyFilters()
   };

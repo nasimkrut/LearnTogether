@@ -1,6 +1,6 @@
 import './FilterPanel.css'
 import Button from "./Button.jsx";
-import {subjects} from "../utils/Utils.jsx";
+import {subjects, mapRatingToValue, mapValueToRating} from "../utils/Utils.jsx";
 
 const ratingOptions = [
   {value: "", label: "Все"},
@@ -18,7 +18,8 @@ const sortOptions = [
 
 export default function FilterPanel({filters, onChange, onApply}) {
   const handleRatingChange = (event) => {
-    onChange({...filters, rating: event.target.value});
+    console.log(`Rating value: ${event.target.value}, ${mapRatingToValue(event.target.value)}`)
+    onChange({...filters, rating: mapRatingToValue(event.target.value)});
   }
 
   const handleSortChange = (event) => {
@@ -47,7 +48,7 @@ export default function FilterPanel({filters, onChange, onApply}) {
         <label htmlFor="rating-select">Рейтинг:</label>
         <select
           id="rating-select"
-          value={filters.rating || ''}
+          value={mapValueToRating(filters.rating) || ''}
           onChange={handleRatingChange}
         >
           {ratingOptions.map((option) => (
@@ -62,7 +63,7 @@ export default function FilterPanel({filters, onChange, onApply}) {
         <label htmlFor="sort-select">Сортировка:</label>
         <select
           id="sort-select"
-          value={filters.sortBy || 1}
+          value={filters.sortBy || 0}
           onChange={handleSortChange}
         >
           {sortOptions.map((option) => (

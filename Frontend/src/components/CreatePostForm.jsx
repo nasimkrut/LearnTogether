@@ -37,14 +37,13 @@ export default function CreatePostForm({ subjects, onPostCreated, setShowModal }
   const handleSubmit = async () => {
     try {
       const userName = getStoredUserName(); // Получаем UserName из localStorage
-      console.log("stored name:", userName);
+      // console.log("stored name:", userName);
       if (!userName) {
         alert("Не удалось найти имя пользователя. Пожалуйста, войдите снова.");
         return;
       }
 
       const userId = await getUserId(userName); // Ожидаем выполнения функции
-      console.log(`userId: ${userId}`);
 
       const postData = {
         userId: userId, // ID пользователя
@@ -53,7 +52,6 @@ export default function CreatePostForm({ subjects, onPostCreated, setShowModal }
         description: newPost.description, // Строка
         tags: newPost.tags.split(",").map((tag) => tag.trim()).filter((tag) => tag !== ""), // Массив строк
         createdAt: new Date().toLocaleTimeString(),
-        postId: newPost.id,
       };
 
       await createPost(postData); // Отправка данных на сервер

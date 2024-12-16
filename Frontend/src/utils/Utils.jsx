@@ -1,7 +1,15 @@
-export const mapRatingToValue = (rating) => {
-  if (rating < 2) return 'newbie';
-  if (rating < 4) return 'smart';
+export const mapValueToRating = (value) => {
+  if (value === 0) return '';
+  if (value < 2) return 'newbie';
+  if (value < 4) return 'smart';
   return 'genius';
+};
+
+export const mapRatingToValue = (rating) => {
+  if (rating === '') return 0;
+  if (rating ===  'newbie') return 1.9;
+  if (rating === 'smart') return 3.9;
+  if (rating === 'genius') return 5.9;
 };
 
 export const subjects = [
