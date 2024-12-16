@@ -18,7 +18,7 @@
     font-size: 1rem;
     color: black;
     background-color: white;
-    border: 1px solid rgb(30, 121, 118);
+    border: 1px solid rgba(37, 118, 120, 1);
     border-radius: 0.5rem;
     box-sizing: border-box;
 }
@@ -41,7 +41,7 @@
 }
 
 .toggle-form-link {
-    color: rgb(30, 121, 118);
+    color: rgba(37, 118, 120, 1);
     text-decoration: none;
     font-weight: bold;
 }

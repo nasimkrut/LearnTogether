@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #efffde;
+    background-color: rgba(232, 237, 242, 1);
     font-family: Lexend, sans-serif;
 }
 
@@ -31,7 +31,7 @@
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #2d9479;
+    border: 2px solid rgba(37, 118, 120, 1);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -42,14 +42,14 @@
     padding: 8px 12px;
     font-size: 0.9rem;
     color: white;
-    background-color: #2d9479;
+    background-color: rgba(37, 118, 120, 1);
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .photo-upload-label:hover {
-    background-color: #257b65;
+    background-color: rgba(25, 108, 110, 1);
 }
 
 input[type="file"] {
@@ -73,7 +73,7 @@ input[type="file"] {
 
 .contact-info {
     font-size: 2rem;
-    color: #2d9479;
+    color: rgba(37, 118, 120, 1);
     font-weight: bold;
     text-decoration: none;
 }
@@ -99,7 +99,7 @@ input[type="file"] {
 }
 
 .description-textarea:focus {
-    border-color: #2d9479;
+    border-color: rgba(37, 118, 120, 1);
     box-shadow: 0 0 8px rgba(45, 148, 121, 0.3);
 }
 
@@ -116,7 +116,7 @@ input[type="file"] {
 }
 
 .edit-button, .save-button {
-    background-color: #2d9479;
+    background-color: rgba(37, 118, 120, 1);
     color: white;
     border: none;
     border-radius: 6px;
@@ -136,7 +136,7 @@ input[type="file"] {
 }
 
 .save-button:hover, .edit-button:hover {
-    background-color: #257b65;
+    background-color: rgba(25, 108, 110, 1);
 }
 
 .close-button {
@@ -168,7 +168,7 @@ input[type="file"] {
 /* Заголовок "Обо мне" */
 .profile-info h3 {
     font-size: 1.7rem;
-    color: #2d9479;
+    color: rgba(37, 118, 120, 1);
     font-weight: 600;
     margin-bottom: 10px;
     text-align: left;

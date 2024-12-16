@@ -52,7 +52,7 @@
 
 .modal-content input:hover,
 .modal-content .react-select__control:hover {
-    border-color: #2d9479;
+    border-color: rgba(37, 118, 120, 1);
 }
 
 .modal-content .react-select__control {

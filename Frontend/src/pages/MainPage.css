@@ -6,7 +6,7 @@
     min-height: 100vh;
     margin-top: 50px;
     gap: 1rem;
-    background-color: #fcfaf4;
+    background-color: rgba(232, 237, 242, 1);
     background-size: 30px 30px;
     background-position: 0 0,15px 15px;
 }

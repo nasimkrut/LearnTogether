@@ -56,7 +56,7 @@ export default function PostCard({post}) {
           Может помочь с: <span>{post.helpSubjects.map(getSubjectLabel).join(', ')}</span>
         </p>
       </div>
-      <img src={postData.photo} alt={`${postData.userName || 'Пользователь'}`} className="user-photo"/>
+      <img src={postData.photo} alt={`${postData.userName || 'Пользователь'}`} className="user-photo-post"/>
     </div>
   )
 }

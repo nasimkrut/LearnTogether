@@ -29,10 +29,10 @@ public class PostRepository : IPostRepository
         var query = _context.Posts.AsQueryable();
 
         if (requiredSubject.HasValue)
-            query = query.Where(post => post.RequiredSubject == requiredSubject);
+            query = query.Where(post => post.HelpSubjects.Contains(requiredSubject.Value));
 
         if (helpSubjects.Length > 0)
-            query = query.Where(p => p.HelpSubjects.Any(helpSubjects.Contains));
+            query = query.Where(post => helpSubjects.Any(s => post.RequiredSubject == s));
 
         if (minRating.HasValue)
             query = query.Where(post => post.Rating >= minRating.Value);
