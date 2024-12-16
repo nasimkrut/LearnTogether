@@ -1,8 +1,8 @@
 :root {
     --s: 94px; /* control the size*/
     --c1: #ffffff;
-    --c2: #a31e39;
-    --c3: #31570e;
+    --c2: #257678;
+    --c3: #d04f00;
 
     --_c:#0000,var(--c1) 1deg 79deg,#0000 81deg;
 }
@@ -26,7 +26,8 @@
 
 .welcome-page h1 {
     padding-left: 4rem;
-    font-size: 3rem;
+    font-size: 4rem;
+    font-family: Lexend, sans-serif;
 }
 
 .welcome-page p {
@@ -34,13 +35,14 @@
     max-width: 450px;
     font-size: 1.5rem;
     padding-bottom: 2rem;
+    font-family: Lexend, sans-serif;
 }
 
 .welcome-page button {
     padding: 0.75rem;
     font-size: 1.5rem;
     color: white;
-    background-color: #f3a83c;
+    background-color: rgba(37, 118, 120, 1);
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
@@ -51,7 +53,7 @@
 }
 
 .welcome-page button:hover {
-    background-color: #e7942a;
+    background-color: rgba(25, 108, 110, 1);
 }
 
 .image-container {

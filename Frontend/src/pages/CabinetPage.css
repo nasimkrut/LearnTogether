@@ -67,7 +67,7 @@ input[type="file"] {
 .profile-info p {
     width: 100%;
     font-size: 1.1rem;
-    color: #555;
+    color: black;
     align-items: center;
 }
 
@@ -140,16 +140,16 @@ input[type="file"] {
 }
 
 .close-button {
-    position: absolute; /* Абсолютное позиционирование */
-    top: 15px; /* Отступ сверху */
-    right: 15px; /* Отступ справа */
-    background-color: transparent; /* Прозрачный фон */
-    border: none; /* Убираем границы */
-    font-size: 1.5rem; /* Размер иконки */
-    color: #aaa; /* Светло-серый цвет */
-    cursor: pointer; /* Курсор в виде указателя */
-    transition: color 0.3s ease; /* Плавный переход цвета */
-    z-index: 10; /* Убедимся, что кнопка выше других элементов */
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 10;
 }
 
 .close-button:hover {
@@ -168,7 +168,7 @@ input[type="file"] {
 /* Заголовок "Обо мне" */
 .profile-info h3 {
     font-size: 1.7rem;
-    color: rgba(37, 118, 120, 1);
+    color: #333;
     font-weight: 600;
     margin-bottom: 10px;
     text-align: left;

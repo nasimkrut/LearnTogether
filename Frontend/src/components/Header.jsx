@@ -14,12 +14,13 @@ export default function Header({ children }) {
   };
 
   return (
-    <header className="fixed-header">
-      <a href="/" onClick={handleLogoClick}>
-        <img src="/hug.png" alt="Logo" className="logo" />
-        <button className="logo-button">LearnTogether</button>
-      </a>
-      {children && <div className="header-extra">{children}</div>}
-    </header>
+      <header className="fixed-header">
+        <link href='https://fonts.googleapis.com/css?family=Lexend' rel='stylesheet'/>
+        <a href="/" onClick={handleLogoClick}>
+          <img src="/hug.png" alt="Logo" className="logo"/>
+          <button className="logo-button">LearnTogether</button>
+        </a>
+        {children && <div className="header-extra">{children}</div>}
+      </header>
   );
 }

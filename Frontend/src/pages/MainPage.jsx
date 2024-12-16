@@ -67,12 +67,6 @@ export default function MainPage() {
       </Header>
       <div className="main-page">
         <h1>Найди людей, которые помогут тебе</h1>
-        <Button
-          className="new-post-button"
-          onClick={() => setShowModal(true)}
-        >
-          Создать новое предложение
-        </Button>
         <div>
           <FilterPanel filters={filters} onChange={setFilters} onApply={applyFilters}/>
           {loading ? (
@@ -94,6 +88,12 @@ export default function MainPage() {
             setShowModal={setShowModal}
           />
         )}
+        <Button
+            className="new-post-button"
+            onClick={() => setShowModal(true)}
+        >
+          Не нашлось подходящего объявления? Создай его сам!
+        </Button>
       </div>
     </>
   )
