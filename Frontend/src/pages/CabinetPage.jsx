@@ -90,62 +90,66 @@ export default function CabinetPage() {
   };
 
   return (
-    <>
-      <Header/>
-      <div className="cabinet">
-        <div className="cabinet-content">
-          <div className="profile-image-container">
-            <img src={profilePic || "/placeholder.png"} alt="User photo" className="user-photo"/>
-            {isEditing && (
-              <>
-                <label htmlFor="photo-upload" className="photo-upload-label">Загрузить фото</label>
-                <input
-                  id="photo-upload"
-                  type="file"
-                  accept="image/*"
-                  onChange={handlePicUpdated}
-                />
-              </>
-            )}
-          </div>
-          {user ? (
-            <>
-              <h2>{user.fullName}</h2>
-              <div className="profile-info">
-                {isEditing ? (
-                  <textarea
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    className="description-textarea"
-                  />
-                ) : (
-                  <p>Обо мне: {description || "Заполните информацию о себе, чтобы Вам доверяло больше людей"}</p>
-                )}
-
-                <a
-                  href={`https://t.me/${user.userName}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="contact-info"
-                >
-                  Контакт: @{user.userName}
-                </a>
-              </div>
-              {isEditing ? (
-                <div className="edit-buttons">
-                  <Button onClick={handleSave} className="save-button">Сохранить</Button>
-                  <Button onClick={handleCancel} className="cancel-button">Отменить</Button>
-                </div>
-              ) : (
-                <Button onClick={() => setIsEditing(true)} className="edit-button">Редактировать</Button>
+      <>
+        <Header/>
+        <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap"
+              rel="stylesheet"/>
+        <div className="cabinet">
+          <div className="cabinet-content">
+            <div className="profile-image-container">
+              <img src={profilePic || "/placeholder.png"} alt="User photo" className="user-photo"/>
+              {isEditing && (
+                  <>
+                    <label htmlFor="photo-upload" className="photo-upload-label">Загрузить фото</label>
+                    <input
+                        id="photo-upload"
+                        type="file"
+                        accept="image/*"
+                        onChange={handlePicUpdated}
+                    />
+                  </>
               )}
-            </>
-          ) : (
-            <p>Загрузка данных пользователя...</p>
-          )}
-          <button className="close-button" onClick={handleClosePage} aria-label="Close profile">×</button>
+            </div>
+            {user ? (
+                <>
+                  <h2>{user.fullName}</h2>
+                  <div className="profile-info">
+                    <h3>Обо мне</h3>
+                    {isEditing ? (
+                        <textarea
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                            className="description-textarea"
+                            placeholder="Расскажите о себе..."
+                        />
+                    ) : (
+                        <p>{description || "Заполните информацию о себе, чтобы Вам доверяло больше людей"}</p>
+                    )}
+
+                    <a
+                        href={`https://t.me/${user.userName}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="contact-info"
+                    >
+                      Контакт: @{user.userName}
+                    </a>
+                  </div>
+                  {isEditing ? (
+                      <div className="edit-buttons">
+                        <Button onClick={handleSave} className="save-button">Сохранить</Button>
+                        <Button onClick={handleCancel} className="cancel-button">Отменить</Button>
+                      </div>
+                  ) : (
+                      <Button onClick={() => setIsEditing(true)} className="edit-button">Редактировать</Button>
+                  )}
+                </>
+            ) : (
+                <p>Загрузка данных пользователя...</p>
+            )}
+            <button className="close-button" onClick={handleClosePage} aria-label="Close profile">×</button>
+          </div>
         </div>
-      </div>
-    </>
+      </>
   );
 }
