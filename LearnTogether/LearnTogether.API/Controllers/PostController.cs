@@ -29,7 +29,6 @@ public class PostController : ControllerBase
         return post;
     }
 
-    [Authorize]
     [HttpGet("getAllPosts")]
     public async Task<ActionResult<List<Post>>> GetAllPostAsync()
     {
