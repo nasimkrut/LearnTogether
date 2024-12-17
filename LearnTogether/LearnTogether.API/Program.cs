@@ -12,14 +12,15 @@ var builder = WebApplication.CreateBuilder(args);
 // удалить, если вдруг что не так
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
+    options.AddPolicy("AllowSpecificOrigin", policy =>
     {
-        policy.AllowAnyOrigin()
+        policy.WithOrigins("http://learn-together.xyz") // Замените на ваш фронтенд-домен
             .AllowAnyHeader()
-            .AllowAnyMethod() 
-            .AllowCredentials();
+            .AllowAnyMethod()
+            .AllowCredentials(); // Разрешить куки
     });
 });
+
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
