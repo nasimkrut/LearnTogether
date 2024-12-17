@@ -14,11 +14,13 @@ LearnTogether/LearnTogether.Application/obj
 LearnTogether/LearnTogether.Core/obj
 LearnTogether/LearnTogether.Infrastructure/obj
 
-LearnTogether/LearnTogether.API/LearnTogether.API.csproj
-LearnTogether/LearnTogether.Infrastructure/LearnTogether.Infrastructure.csproj
-LearnTogether/LearnTogether.Core/LearnTogether.Core.csproj
-LearnTogether/LearnTogether.Application/LearnTogether.Application.csproj
+/LearnTogether/LearnTogether.API/LearnTogether.API.csproj
+/LearnTogether/LearnTogether.API/LearnTogether.API.csproj.user
+/LearnTogether/LearnTogether.Infrastructure/LearnTogether.Infrastructure.csproj
+/LearnTogether/LearnTogether.Core/LearnTogether.Core.csproj
+/LearnTogether/LearnTogether.Application/LearnTogether.Application.csproj
 
+/LearnTogether/Lea
 # Logs
 Frontend/logs
 Frontend/*.log
