@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using LearnTogether.API.Extaensions;
 using LearnTogether.Application.Services;
 using LearnTogether.Core.Interfaces;
 using LearnTogether.Infrastructure;
 using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +36,12 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPostService, PostService>();
 builder.Services.AddScoped<ISubscriptionService, SubscriptionService>();
 
+builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("JwtOptions"));
+
+builder.Services.AddApiAuthentication(builder.Services.BuildServiceProvider()
+    .GetRequiredService<IOptions<JwtOptions>>());
+
+
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
@@ -55,11 +63,11 @@ using (var scope = app.Services.CreateScope())
 //     Secure = CookieSecurePolicy.Always
 // });
 
-// app.UseHttpsRedirection();
+app.UseHttpsRedirection();
 
-app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseCors("AllowAll");
 app.MapControllers();
 
 app.Run();

@@ -32,38 +32,32 @@ public class UserController(IUserService userService) : ControllerBase
         var token = userService.GenerateJwtToken(user);
         Console.WriteLine($"Generated token for user: {user.UserName}");
 
-        HttpContext.Response.Cookies.Append("LearnTogetherCookies", token, new CookieOptions
-        {
-            HttpOnly = true,
-            Secure = true,
-            SameSite = SameSiteMode.Strict
-        });
+        HttpContext.Response.Cookies.Append("LearnTogetherCookies", token);
 
         return Ok(new { Token = token });
-
     }
 
     
-    [Authorize]
+  // [Authorize]
     [HttpGet("getUserId")]
     public async Task<ActionResult<Guid>> GetUserIdByUserName([FromQuery] string userName) 
         => await userService.GetUserIdByUserNameAsync(userName);
 
-    [Authorize]
+  // [Authorize]
     [HttpGet("getUserByUserName")]
     public async Task<ActionResult<User>> GetUserByUserName([FromQuery] string userName)
     {
         return await userService.GetUserByUserName(userName);
     }
     
-    [Authorize]
+  // [Authorize]
     [HttpGet("getUserByUserId")]
     public async Task<ActionResult<User>> GetUserByUserId([FromQuery] Guid userId)
     {
         return await userService.GetUserByUserId(userId);
     }
     
-    [Authorize]
+  // [Authorize]
     [HttpPost("userUpdate")]
     public async Task<ActionResult<Guid>> UpdateUser([FromBody] User userUpdateDto)
     {
