@@ -65,7 +65,7 @@ using (var scope = app.Services.CreateScope())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseCors("AllowAll");
+app.UseCors("AllowSpecificOrigin");
 
 app.MapControllers();
 
