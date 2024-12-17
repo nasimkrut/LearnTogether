@@ -18,14 +18,14 @@ public class UserController(IUserService userService) : ControllerBase
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> Login(HttpContext context, [FromBody] UserLoginDTO loginDto)
+    public async Task<IActionResult> Login([FromBody] UserLoginDTO loginDto)
     {
         var user = await userService.AuthenticateAsync(loginDto.UserName, loginDto.Password);
         if (user == null)
             return Unauthorized("Invalid credentials");
 
         var token = userService.GenerateJwtToken(user);
-        context.Response.Cookies.Append("LearnTogetherCookies", token);
+        HttpContext.Response.Cookies.Append("LearnTogetherCookies", token);
         return Ok();
     }
     
