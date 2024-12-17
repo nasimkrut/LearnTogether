@@ -1,6 +1,7 @@
 ﻿using LearnTogether.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 using LearnTogether.Core.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LearnTogether.API.Controllers;
 [ApiController]
@@ -14,6 +15,7 @@ public class SubscriptionController : ControllerBase
         _subscriptionRepository = subscriptionRRepository;
     }
 
+    [Authorize]
     [HttpPost("subscribe-to-user")]
     public async Task<IActionResult> SubscribeToUser([FromBody] Guid userId, string notificationMethod)
     {
@@ -27,6 +29,7 @@ public class SubscriptionController : ControllerBase
         return Ok("Successfully subscribed to user.");
     }
 
+    [Authorize]
     [HttpPost("subscribe-to-subject")]
     public async Task<IActionResult> SubscribeToSubject([FromBody] Guid subjectId, string notificationMethod)
     {
@@ -41,6 +44,7 @@ public class SubscriptionController : ControllerBase
     }
 
 
+    [Authorize]
     [HttpDelete("unsubscribe/{id}")]
     public async Task<IActionResult> Unsubscribe(int id)
     {
@@ -48,6 +52,7 @@ public class SubscriptionController : ControllerBase
         return Ok("Success unsubscribed");
     }
     
+    [Authorize]
     [HttpGet("my-subscriptions")]
     public async Task<IActionResult> GetMySubscriptions()
     {

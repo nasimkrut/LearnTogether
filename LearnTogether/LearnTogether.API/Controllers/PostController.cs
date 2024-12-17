@@ -1,5 +1,6 @@
 ﻿using LearnTogether.Core.Entities;
 using LearnTogether.Core.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LearnTogether.API.Controllers;
@@ -15,6 +16,7 @@ public class PostController : ControllerBase
         _postService = postService;
     }
 
+    [Authorize]
     [HttpGet("{id}")]
     public async Task<ActionResult<Post>> GetPostByIdAsync(Guid id)
     {
@@ -27,6 +29,7 @@ public class PostController : ControllerBase
         return post;
     }
 
+    [Authorize]
     [HttpGet("getAllPosts")]
     public async Task<ActionResult<List<Post>>> GetAllPostAsync()
     {
@@ -35,6 +38,7 @@ public class PostController : ControllerBase
     }
 
 
+    [Authorize]
     [HttpGet("filtered")]
     public async Task<ActionResult<List<Post>>> GetFilteredPostsAsync(
         [FromQuery] Subject? requiredSubject,
@@ -46,6 +50,7 @@ public class PostController : ControllerBase
         return posts;
     }
 
+    [Authorize]
     [HttpPost("AddPost")]
     public async Task<ActionResult<Guid>> AddPostAsync([FromBody] PostDto postDto)
     {

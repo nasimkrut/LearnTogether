@@ -4,6 +4,7 @@ using System.Text;
 using LearnTogether.Application.Services;
 using LearnTogether.Core.Interfaces;
 using LearnTogether.Infrastructure;
+using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -32,20 +33,6 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPostService, PostService>();
 builder.Services.AddScoped<ISubscriptionService, SubscriptionService>();
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["Jwt:Issuer"],
-            ValidAudience = builder.Configuration["Jwt:Audience"],
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
-        };
-    });
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
@@ -60,6 +47,12 @@ using (var scope = app.Services.CreateScope())
     var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
     dbContext.Database.Migrate();
 }
+
+app.UseCookiePolicy(new CookiePolicyOptions
+{
+    MinimumSameSitePolicy = SameSiteMode.Strict,
+    Secure = CookieSecurePolicy.Always
+});
 
 app.UseHttpsRedirection();
 app.UseAuthentication();
