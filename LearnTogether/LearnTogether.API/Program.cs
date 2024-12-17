@@ -12,17 +12,17 @@ using Microsoft.Extensions.Options;
 var builder = WebApplication.CreateBuilder(args);
 
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowSpecificOrigin",
-        policy =>
-        {
-            policy.WithOrigins("http://learn-together.xyz/") 
-                .AllowAnyHeader()
-                .AllowAnyMethod()
-                .AllowCredentials();
-        });
-});
+// builder.Services.AddCors(options =>
+// {
+//     options.AddPolicy("AllowSpecificOrigin",
+//         policy =>
+//         {
+//             policy.WithOrigins("http://learn-together.xyz/") 
+//                 .AllowAnyHeader()
+//                 .AllowAnyMethod()
+//                 .AllowCredentials();
+//         });
+// });
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -65,7 +65,7 @@ using (var scope = app.Services.CreateScope())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseCors("AllowSpecificOrigin");
+// app.UseCors("AllowSpecificOrigin"); aaaapt apt aaapt apt aaaapt apt
 
 app.MapControllers();
 
