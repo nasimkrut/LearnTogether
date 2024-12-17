@@ -1,5 +1,6 @@
 import axios from "axios";
 import Cookies from "js-cookie";
+import qs from 'qs';
 
 const api = axios.create({
   baseURL: "http://84.201.167.107/",
@@ -116,7 +117,8 @@ export const getPosts = async (filters) => {
           helpSubjects: filters.helpSubjects,
           minRating: filters.rating,
           sortBy: filters.sortBy
-        }
+        },
+        paramsSerializer: params => qs.stringify(params, { arrayFormat: 'repeat' })
       });
       return response.data;
     }
