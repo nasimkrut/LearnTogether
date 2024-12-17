@@ -32,8 +32,15 @@ public class UserController(IUserService userService) : ControllerBase
         var token = userService.GenerateJwtToken(user);
         Console.WriteLine($"Generated token for user: {user.UserName}");
 
-        HttpContext.Response.Cookies.Append("LearnTogetherCookies", token);
+        HttpContext.Response.Cookies.Append("LearnTogetherCookies", token, new CookieOptions
+        {
+            HttpOnly = true,
+            Secure = true,
+            SameSite = SameSiteMode.Strict
+        });
+
         return Ok(new { Token = token });
+
     }
 
     
