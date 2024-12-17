@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// удалить, если вдруг что не так
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin", policy =>
@@ -58,7 +58,7 @@ using (var scope = app.Services.CreateScope())
 
 // app.UseHttpsRedirection();
 
-app.UseCors("AllowAll");
+app.UseCors("AllowSpecificOrigin");
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
