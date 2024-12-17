@@ -17,21 +17,25 @@ public class UserController : ControllerBase
     }
 
     [HttpPost("register")]
-    public async Task<IActionResult> Register([FromBody] User user)
+    public async Task<ActionResult<Guid>> Register([FromBody] User user)
     {
         var result = await _userService.RegisterUserAsync(user);
-        return result ? Ok("User registered successfully") : BadRequest("User already exists");
+        if (!result)
+            return BadRequest("User already exists");
+        var userId = await _userService.GetUserIdByUserNameAsync(user.UserName);
+        return userId;
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] UserLoginDTO loginDto)
+    public async Task<ActionResult<Guid>> Login([FromBody] UserLoginDTO loginDto)
     {
         var user = await _userService.AuthenticateAsync(loginDto.UserName, loginDto.Password);
         if (user == null)
             return Unauthorized("Invalid credentials");
 
-        var token = _userService.GenerateJwtToken(user);
-        return Ok(new { Token = token });
+        // var token = _userService.GenerateJwtToken(user);
+        var userId = await _userService.GetUserIdByUserNameAsync(user.UserName);
+        return userId ;
     }
 
     [HttpGet("getUserId")]
