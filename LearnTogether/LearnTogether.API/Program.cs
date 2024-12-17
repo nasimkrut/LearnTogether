@@ -54,7 +54,7 @@ using (var scope = app.Services.CreateScope())
 //     Secure = CookieSecurePolicy.Always
 // });
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 
 app.UseCors("AllowAll");
 app.UseAuthentication();
