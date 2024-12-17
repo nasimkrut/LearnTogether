@@ -66,7 +66,7 @@ export default function MainPage() {
         </Link>
       </Header>
       <div className="main-page">
-        <h1>Найди людей, которые помогут тебе</h1>
+        <h1>Найди людей, которые тебе помогут</h1>
         <div>
           <FilterPanel filters={filters} onChange={setFilters} onApply={applyFilters}/>
           {loading ? (
