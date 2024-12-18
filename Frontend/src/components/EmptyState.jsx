@@ -7,7 +7,7 @@ export default function EmptyState({ message, onReset, actionLabel }) {
     <div className="empty-state">
       <p>{message || 'Ничего не найдено.'}</p>
       {onReset && (
-        <Button onClick={onReset} className="orange-button">
+        <Button onClick={onReset} className="button">
           {actionLabel || 'Попробовать снова'}
         </Button>
       )}

@@ -36,15 +36,12 @@ export default function CreatePostForm({ subjects, onPostCreated, setShowModal }
 
   const handleSubmit = async () => {
     try {
-      const userName = getStoredUserName(); // Получаем UserName из localStorage
-      // console.log("stored name:", userName);
+      const userName = getStoredUserName();
       if (!userName) {
         alert("Не удалось найти имя пользователя. Пожалуйста, войдите снова.");
         return;
       }
-
-      const userId = await getUserId(userName); // Ожидаем выполнения функции
-
+      const userId = await getUserId(userName);
       const postData = {
         userId: userId, // ID пользователя
         requiredSubject: newPost.requiredSubject, // Число
@@ -58,7 +55,7 @@ export default function CreatePostForm({ subjects, onPostCreated, setShowModal }
       onPostCreated(); // Обновление списка постов
       setShowModal(false); // Закрытие модального окна
     } catch (error) {
-      console.error("Ошибка при создании поста:", error);
+      alert(`Ошибка при создании поста: ${error.message}`);
     }
   };
 

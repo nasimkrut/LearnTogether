@@ -18,7 +18,6 @@ const sortOptions = [
 
 export default function FilterPanel({filters, onChange, onApply}) {
   const handleRatingChange = (event) => {
-    console.log(`Rating value: ${event.target.value}, ${mapRatingToValue(event.target.value)}`)
     onChange({...filters, rating: mapRatingToValue(event.target.value)});
   }
 
@@ -27,7 +26,6 @@ export default function FilterPanel({filters, onChange, onApply}) {
   };
 
   const handleHelpSubjectsChange = (subject) => {
-    console.log(subject)
     const updatedSubjects = filters.helpSubjects.includes(subject)
       ? filters.helpSubjects.filter((s) => s !== subject)
       : [...filters.helpSubjects, subject];
@@ -35,7 +33,6 @@ export default function FilterPanel({filters, onChange, onApply}) {
   }
 
   const handleRequiredSubjectChange = (subject) => {
-    console.log(subject)
     const updatedSubject = filters.requiredSubject === subject
       ? null
       : subject;

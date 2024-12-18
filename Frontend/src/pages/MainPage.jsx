@@ -27,7 +27,7 @@ export default function MainPage() {
         const posts = await getPosts(filters);
         setFilteredPosts(posts);
       } catch (error) {
-        console.error("Ошибка при применении фильтров:", error);
+        alert(`Ошибка при применении фильтров: ${error.message}`);
       } finally {
         setLoading(false);
       }
@@ -40,17 +40,13 @@ export default function MainPage() {
       setPosts(data);
       setFilteredPosts(data)
     } catch (error) {
-      console.error("Ошибка при загрузке постов:", error);
+      alert(`Ошибка при загрузке постов: ${error.message}`);
     } finally {
       setLoading(false);
     }
   };
 
-  useEffect(() => {
-    // setPosts(mockPosts);
-    // setFilteredPosts(mockPosts);
-    fetchPosts();
-  }, []);
+  useEffect(() => { fetchPosts();}, []);
 
   const resetFilters = () => {
     setFilters({rating: 0, helpSubjects: [], requiredSubject: null, sortBy: 0});

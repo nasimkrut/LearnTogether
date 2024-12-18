@@ -8,7 +8,6 @@ export default function AuthPage({isLogin}) {
   const navigate = useNavigate();
 
   const handleSubmit = (data) => {
-    console.log(isLogin ? 'Login data submitted:' : 'Registration data submitted:', data);
     if (isLogin && data.token) {
       sessionStorage.setItem('token', data.token);
       sessionStorage.setItem('isLoggedIn', true);

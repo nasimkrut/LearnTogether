@@ -11,9 +11,6 @@ const api = axios.create({
 
 export const createPost = async (data) => {
   try {
-    //const userId = await getUserId(userName);
-    //console.log(userId);
-    console.log(data);
     const response = await api.post("api/post/AddPost", {
       UserId: data.userId,
       RequiredSubject: data.requiredSubject, // число
@@ -21,10 +18,8 @@ export const createPost = async (data) => {
       Description: data.description, // строка
       Tags: data.tags || [] // масив строк
     });
-    console.log(response);
     return response.data;
   } catch (error) {
-    console.log(error);
     console.error('Ошибка при создании поста:', error.response?.data || error.message);
     throw error;
   }
@@ -32,7 +27,6 @@ export const createPost = async (data) => {
 
 export const getStoredUserName = () => {
   const name = sessionStorage.getItem('userName');
-  console.log(name);
   if (name !== undefined)
     return name;
   throw new Error(`User undefined. No such key 'userName' in sessionStorage.`)
@@ -40,7 +34,6 @@ export const getStoredUserName = () => {
 
 export const getUserId = async (userName) => {
   try {
-    // const response = await api.get(`api/user/GetUserId`, {params: {userName}});
     const response = await api.get(`api/user/getUserId?userName=${userName.toString()}`);
     return response.data.toString();
   } catch (error) {
@@ -80,7 +73,6 @@ export const registerUser = async (data) => {
     });
     const userId = await getUserId(data.UserName);
     sessionStorage.setItem('userId', userId);
-    console.log(userId)
     sessionStorage.setItem('userName', data.UserName);
     return response.data;
   } catch (e) {
@@ -106,7 +98,6 @@ export const loginUser = async (data) => {
 
 export const getPosts = async (filters) => {
   try {
-    console.log("Отправили фильтры на бэк:", filters);
     if (filters === undefined) {
       const response = await api.get('/api/post/getAllPosts?');
       return response.data;

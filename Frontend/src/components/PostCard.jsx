@@ -16,11 +16,6 @@ export default function PostCard({post}) {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        // setPostData({
-        //   userName: post.userName,
-        //   fullName: post.fullName,
-        //   photo: post.photo,
-        // })
         const user = await getUserByUserId(post.userId);
         setPostData({
           userName: user.userName,
@@ -28,12 +23,12 @@ export default function PostCard({post}) {
           photo: user.photo ?? '/placeholder.png',
         });
       } catch (error) {
-        console.error('Ошибка при загрузке данных пользователя:', error);
         setPostData({
           userName: 'undefined',
           fullName: 'Неизвестный пользователь',
           photo: '/placeholder.png',
         });
+        alert(`Ошибка при загрузке данных пользователя: ${error.message}`);
       }
     };
 
@@ -41,7 +36,6 @@ export default function PostCard({post}) {
   }, [post.userId]);
 
   const handleCardClick = () => {
-    console.log('Click on post:', post);
     navigate(`/profile/${postData.userName}`);
   }
 

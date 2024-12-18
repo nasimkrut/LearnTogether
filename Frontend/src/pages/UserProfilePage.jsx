@@ -22,7 +22,6 @@ export default function UserProfilePage() {
           alert('Пользователя не существует.')
         setLoading(false);
       } catch (e) {
-        console.error(e);
         alert('Произошла ошибка при загрузке профиля пользователя.')
       }
     }

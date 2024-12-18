@@ -29,25 +29,23 @@ export default function CabinetPage() {
   useEffect(() => {
     const fetchUserData = async () => {
       const mockUser = {
-        fullName: "Иван Иванов",
-        description: "Пользователь еще не рассказал о себе",
-        userName: "тут пусто",
+        fullName: "Тут пусто ...",
+        description: "... и тут пусто ...",
+        userName: "... да, здесь тоже пусто",
       };
       try {
-        console.log('Username is', userName);
         const response = await getUserByUserName(userName);
         if (response) {
-          console.log(response);
           setUser(response);
           setDescription(response.description || "");
         }
         else {
-          alert('Пользователя не существует.')
+          alert('Такого пользователя не существует! Попробуйте найти кого-то другого')
           setUser(mockUser);
           setDescription(mockUser.description);
         }
       } catch (e) {
-        console.error(`Error loading cabinet: ${e}`);
+        alert(`Ошибка загрузки личного кабинета: ${e.message}`);
         setUser(mockUser);
         setDescription(mockUser.description);
       } finally {
@@ -72,14 +70,13 @@ export default function CabinetPage() {
         const response = await updateUserProfile(updatedUser);
         if (response) {
           setUser(updatedUser);
-          alert("Изменения успешно сохранены.");
+          alert("Изменения успешно сохранены");
         } else {
-          alert("Ошибка при сохранении изменений.");
+          alert("Ошибка при сохранении изменений");
         }
       }
-    } catch (error) {
-      console.error("Ошибка при сохранении изменений: ", error);
-      alert("Не удалось сохранить изменения. Попробуйте позже.");
+    } catch (e) {
+      alert("Не удалось сохранить изменения. Попробуйте позже");
     }
     setIsEditing(false);
   };
