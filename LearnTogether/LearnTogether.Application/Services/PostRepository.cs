@@ -30,13 +30,13 @@ public class PostRepository : IPostRepository
 
         if (requiredSubject.HasValue)
             query = query.Where(post => post.HelpSubjects.Contains(requiredSubject.Value));
-
+        
         if (helpSubjects.Length > 0)
-            query = query.Where(post => helpSubjects.Any(s => post.RequiredSubject == s));
-
+            query = query.Where(post => helpSubjects.Contains(post.RequiredSubject));
+        
         if (minRating.HasValue)
             query = query.Where(post => post.Rating >= minRating.Value);
-
+        
         query = sortBy switch
         {
             SortType.New => query.OrderByDescending(p => p.DateCreated),
