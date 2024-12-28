@@ -20,3 +20,11 @@
         transform: rotate(360deg);
     }
 }
+
+@media (max-width: 480px) {
+    .spinner {
+        width: 30px;
+        height: 30px;
+        border-width: 3px;
+    }
+}

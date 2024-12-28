@@ -17,3 +17,15 @@ html, body, #root {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@media (max-width: 768px) {
+  html, body, #root {
+    font-size: 14px; /* Уменьшаем размер текста для мобильных устройств */
+  }
+}
+
+@media (max-width: 480px) {
+  html, body, #root {
+    font-size: 12px; /* Еще меньше для маленьких экранов */
+  }
+}

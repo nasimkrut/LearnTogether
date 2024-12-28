@@ -68,3 +68,25 @@
     padding: 0.5rem 1rem;
     width: 100%;
 }
+
+@media (max-width: 768px) {
+    .filter-panel {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .filter-group {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .filter-panel {
+        padding: 8px;
+    }
+
+    .subjects-buttons button {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.6rem;
+    }
+}

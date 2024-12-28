@@ -21,3 +21,26 @@
     width: 750px;
     padding: 0.7rem;
 }
+
+@media (max-width: 768px) {
+    .button {
+        width: 80%;
+        font-size: 0.9rem;
+    }
+
+    .new-post-button {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .button {
+        width: 100%;
+        font-size: 0.8rem;
+    }
+
+    .new-post-button {
+        width: 100%;
+        font-size: 0.8rem;
+    }
+}

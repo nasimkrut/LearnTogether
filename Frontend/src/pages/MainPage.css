@@ -49,3 +49,30 @@
     background-color: #fa9b4b;
     color: white;
 }
+
+@media (max-width: 768px) {
+    .main-page {
+        margin-top: 20px;
+        padding: 0 10px;
+    }
+
+    .user-list {
+        max-width: 100%;
+        padding: 5px;
+    }
+
+    .cabinet-button, .orange-button {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-page h1 {
+        font-size: 1.2rem;
+    }
+
+    .cabinet-button, .orange-button {
+        font-size: 0.6rem;
+        padding: 0.5rem;
+    }
+}

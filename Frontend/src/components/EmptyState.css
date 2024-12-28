@@ -27,3 +27,21 @@
 .empty-state-button:hover {
     background-color: #dc942c;
 }
+
+@media (max-width: 768px) {
+    .empty-state p {
+        font-size: 1rem;
+    }
+
+    .empty-state-button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .empty-state-button {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+}
