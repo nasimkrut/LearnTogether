@@ -9,7 +9,7 @@
 @media (max-width: 768px) {
     .user-profile-page {
         flex-direction: column;
-        padding: 20px;
+        padding: 30px;
     }
 }
 

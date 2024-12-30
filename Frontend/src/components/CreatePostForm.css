@@ -8,6 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .modal h2 {
@@ -58,19 +59,20 @@
 .modal-content .react-select__control {
     display: flex;
     align-items: center;
+    text-align: center;
 }
 
 .modal-content .react-select__menu {
     width: 300px;
     background-color: #b4b4b4;
     border-radius: 2rem;
+    text-align: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .modal-content input::placeholder {
     color: #214237;
     text-align: center;
-    padding-right: 2rem;
     font-size: 15px;
 }
 
@@ -107,28 +109,4 @@
     background-color: #e88e52;
     opacity: 70%;
     color: #fff;
-}
-
-@media (max-width: 768px) {
-    .modal-content {
-        max-width: 90%;
-        padding: 20px;
-    }
-
-    .modal-content input {
-        width: 100%;
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .modal-content {
-        padding: 15px;
-        max-width: 95%;
-    }
-
-    .modal-content input {
-        height: 40px;
-        font-size: 0.8rem;
-    }
 }

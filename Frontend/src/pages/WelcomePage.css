@@ -26,12 +26,14 @@
 
 .welcome-page h1 {
     padding-left: 4rem;
+    padding-right: 4rem;
     font-size: 4rem;
     font-family: Lexend, sans-serif;
 }
 
 .welcome-page p {
     padding-left: 4rem;
+    padding-right: 4rem;
     max-width: 450px;
     font-size: 1.5rem;
     padding-bottom: 2rem;
@@ -81,35 +83,21 @@
 
 @media (max-width: 768px) {
     .welcome-page h1 {
-        font-size: 2.5rem;
+        font-size: 3.4rem;
         padding-left: 2rem;
+        padding-right: 2rem;
     }
 
     .welcome-page p {
-        font-size: 1.2rem;
+        font-size: 1.35rem;
         padding-left: 2rem;
+        padding-right: 2rem;
         max-width: 100%;
     }
 
     .welcome-page button {
-        width: 100%;
-        font-size: 1.2rem;
+        width: 200px;
+        font-size: 1.35rem;
     }
 }
 
-@media (max-width: 480px) {
-    .welcome-page h1 {
-        font-size: 1.8rem;
-        padding-left: 1rem;
-    }
-
-    .welcome-page p {
-        font-size: 1rem;
-        padding-left: 1rem;
-    }
-
-    .welcome-page button {
-        width: 90%;
-        font-size: 1rem;
-    }
-}

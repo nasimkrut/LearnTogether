@@ -72,32 +72,3 @@
     transition: opacity 0.2s;
 }
 
-@media (max-width: 768px) {
-    .auth-form {
-        max-width: 90%;
-        padding: 10px;
-    }
-
-    .auth-form input {
-        font-size: 0.9rem;
-    }
-
-    .toggle-form-text {
-        font-size: 0.8rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .auth-form {
-        max-width: 100%;
-    }
-
-    .auth-form input {
-        padding: 8px;
-        font-size: 0.8rem;
-    }
-
-    .toggle-form-text {
-        font-size: 0.7rem;
-    }
-}
