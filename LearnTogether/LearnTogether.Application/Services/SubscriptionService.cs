@@ -1,4 +1,5 @@
 ﻿using System.Net.Mail;
+using Telegram.Bot;
 
 namespace LearnTogether.Application.Services
 {
@@ -18,11 +19,17 @@ namespace LearnTogether.Application.Services
 
         public async Task SendTelegramNotification(string telegramChatId, string message)
         {
-            const string botToken = "тут будет токен бота";
-            var url = $"тут будет урл";
+            // нужно хранить в User айди чата тг 
+            
+            const string botToken = "7503585232:AAEWXaU4X5xVQuMst_jBQXT_D4JMj4KSbOE";
+            var bot = new TelegramBotClient(botToken);
+            var id = 1162685330;
 
-            using var httpClient = new HttpClient();
-            await httpClient.GetAsync(url);
+            await bot.SendMessage(id, message);
+            // var url = $"тут будет урл";
+            //
+            // using var httpClient = new HttpClient();
+            // await httpClient.GetAsync(url);
         }
     }
 }
