@@ -1,4 +1,8 @@
-﻿using LearnTogether.Core.Data_Transfer_Objects;
+﻿using System;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+using LearnTogether.Core.Data_Transfer_Objects;
 using LearnTogether.Core.Entities;
 using Microsoft.AspNetCore.Mvc;
 using LearnTogether.Core.Interfaces;
@@ -10,6 +14,31 @@ namespace LearnTogether.API.Controllers;
 [Route("api/[controller]")]
 public class UserController(IUserService userService) : ControllerBase
 {
+    [HttpGet("auth")]
+    public IActionResult Authenticate([FromQuery] TelegramAuthModel model)
+    {
+        // Проверяем подпись
+        if (!VerifyTelegramAuth(model))
+        {
+            return Unauthorized(new { status = "error", message = "Invalid signature" });
+        }
+
+        // Проверяем срок действия (опционально)
+        var authTime = DateTimeOffset.FromUnixTimeSeconds(model.AuthDate);
+        if ((DateTime.UtcNow - authTime.UtcDateTime).TotalSeconds > 86400)
+        {
+            return Unauthorized(new { status = "error", message = "Auth time expired" });
+        }
+
+        // Успешная авторизация
+        return Ok(new
+        {
+            status = "success",
+            username = model.Username,
+            chat_id = model.Id
+        });
+    }
+    
     [HttpPost("register")]
     public async Task<IActionResult> Register([FromBody] User user)
     {
@@ -66,4 +95,37 @@ public class UserController(IUserService userService) : ControllerBase
 
         return Ok(user);
     }
+    
+    private bool VerifyTelegramAuth(TelegramAuthModel data)
+    {
+        // Сортируем параметры и формируем строку для проверки
+        var authData = new StringBuilder();
+        if (!string.IsNullOrEmpty(data.FirstName)) authData.Append($"first_name={data.FirstName}\n");
+        if (!string.IsNullOrEmpty(data.LastName)) authData.Append($"last_name={data.LastName}\n");
+        if (!string.IsNullOrEmpty(data.Username)) authData.Append($"username={data.Username}\n");
+        if (!string.IsNullOrEmpty(data.PhotoUrl)) authData.Append($"photo_url={data.PhotoUrl}\n");
+        authData.Append($"auth_date={data.AuthDate}\nid={data.Id}");
+    
+        // Генерируем HMAC-SHA256 для проверки
+        var secretKey = SHA256.HashData(Encoding.UTF8.GetBytes("7503585232:AAEWXaU4X5xVQuMst_jBQXT_D4JMj4KSbOE"));
+        using var hmac = new HMACSHA256(secretKey);
+        var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(authData.ToString()));
+    
+        // Преобразуем hash в строку
+        var computedHashHex = BitConverter.ToString(computedHash).Replace("-", "").ToLower();
+    
+        // Сравниваем с hash, который прислал Telegram
+        return computedHashHex == data.Hash;
+    }
+}
+
+public class TelegramAuthModel
+{
+    public long Id { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string Username { get; set; }
+    public string PhotoUrl { get; set; }
+    public long AuthDate { get; set; }
+    public string Hash { get; set; }
 }
