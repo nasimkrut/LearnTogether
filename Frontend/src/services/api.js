@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 import qs from 'qs';
 
 const api = axios.create({
-  baseURL: "http://84.201.167.107/",
+  baseURL: "https://84.201.167.107/",
   headers: {
     'Content-Type': 'application/json',
   }
