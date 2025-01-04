@@ -107,7 +107,8 @@ public class UserController(IUserService userService) : ControllerBase
         authData.Append($"auth_date={data.AuthDate}\nid={data.Id}");
     
         // Генерируем HMAC-SHA256 для проверки
-        var secretKey = SHA256.HashData(Encoding.UTF8.GetBytes("7503585232:AAEWXaU4X5xVQuMst_jBQXT_D4JMj4KSbOE"));
+        var botKey = "7503585232:AAEWXaU4X5xVQuMst_jBQXT_D4JMj4KSbOE";
+        var secretKey = SHA256.HashData(Encoding.UTF8.GetBytes(botKey));
         using var hmac = new HMACSHA256(secretKey);
         var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(authData.ToString()));
     

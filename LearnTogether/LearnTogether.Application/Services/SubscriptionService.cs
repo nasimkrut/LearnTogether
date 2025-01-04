@@ -26,10 +26,6 @@ namespace LearnTogether.Application.Services
             var id = 1162685330;
 
             await bot.SendMessage(id, message);
-            // var url = $"тут будет урл";
-            //
-            // using var httpClient = new HttpClient();
-            // await httpClient.GetAsync(url);
         }
     }
 }
