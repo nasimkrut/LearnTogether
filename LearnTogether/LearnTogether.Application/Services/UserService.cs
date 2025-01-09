@@ -28,6 +28,12 @@ public class UserService(IUserRepository userRepository, IOptions<JwtOptions> jw
         return await userRepository.GetUserByUserNameAsync(userName);
     }
 
+    public async Task<Guid> UpdateUserAsync(Guid id, string username, string telegramName, Guid telegramChatId, string fullName,
+        string password, double rating, string description)
+    {
+        return await userRepository.UpdateUser(id, username, telegramName, telegramChatId, fullName, password, rating, description);
+    }
+
     public async Task<bool> RegisterUserAsync(User user)
     {
         var existingUser = await userRepository.GetUserByUserNameAsync(user.UserName);
@@ -65,12 +71,6 @@ public class UserService(IUserRepository userRepository, IOptions<JwtOptions> jw
         var token = tokenHandler.CreateToken(tokenDescriptor);
         return tokenHandler.WriteToken(token);
     }
-
-    public async Task<Guid> UpdateUserAsync(Guid id, string username, string fullName, string password, double rating, string description)
-    {
-        return await userRepository.UpdateUser(id, username, fullName, password, rating, description);
-    }
-
 
     public async Task<Guid> DeleteUserAsync(Guid id)
     {

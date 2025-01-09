@@ -31,12 +31,14 @@ public class UserRepository : IUserRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task<Guid> UpdateUser(Guid id, string username, string fullName, string password, double rating, string description)
+    public async Task<Guid> UpdateUser(Guid id, string username, string telegramName, Guid telegramChatId, string fullName, string password, double rating, string description)
     {
         await _context.Users.
             Where(b => b.Id == id).
             ExecuteUpdateAsync(s => s
                .SetProperty(b => b.UserName, b => username)
+               .SetProperty(b => b.TelegramName, b => telegramName)
+               .SetProperty(b => b.TelegramChatId, b => telegramChatId)
                .SetProperty(b => b.FullName, b => fullName)
                .SetProperty(b => b.PasswordHash, b => password)
                .SetProperty(b => b.Rating, b => rating)

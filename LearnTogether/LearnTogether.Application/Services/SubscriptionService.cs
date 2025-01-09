@@ -16,7 +16,7 @@ namespace LearnTogether.Application.Services
             await smtpClient.SendMailAsync(new MailMessage("емаил", email, "предмет", message));
         }
 
-        public async Task SendTelegramNotification(string telegramChatId, string message)
+        public async Task SendTelegramNotification(Guid telegramChatId, string message)
         {
             const string botToken = "тут будет токен бота";
             var url = $"тут будет урл";

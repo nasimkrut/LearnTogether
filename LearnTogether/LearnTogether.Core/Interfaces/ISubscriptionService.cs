@@ -3,5 +3,5 @@
 public interface ISubscriptionService
 {
     Task SendEmailNotification(string email, string message);
-    Task SendTelegramNotification(string telegramChatId, string message);
+    Task SendTelegramNotification(Guid telegramChatId, string message);
 }

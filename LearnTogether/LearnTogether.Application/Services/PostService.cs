@@ -5,6 +5,7 @@ namespace LearnTogether.Application.Services;
 
 public class PostService : IPostService
 {
+    private readonly IUserRepository _userRepository;
     private readonly IPostRepository _postRepository;
     private readonly ISubscriptionRepository _subscriptionRepository;
     private readonly ISubscriptionService _subscriptionService;
@@ -61,13 +62,14 @@ public class PostService : IPostService
 
     private async Task SendNotification(Subscription subscription, string message)
     {
+        var telegramChatId = _userRepository.GetUserByUserIdAsync(subscription.UserId).Result.TelegramChatId;
         switch (subscription.NotificationMethod)
         {
             case "Email":
                 await _subscriptionService.SendEmailNotification(subscription.UserId.ToString(), message);
                 break;
             case "Telegram":
-                await _subscriptionService.SendTelegramNotification(subscription.UserId.ToString(), message);
+                await _subscriptionService.SendTelegramNotification(telegramChatId, message);
                 break;
         }
     }

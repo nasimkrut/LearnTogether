@@ -37,31 +37,32 @@ public class UserController(IUserService userService) : ControllerBase
         return Ok(new { Token = token });
     }
 
-    
-  // [Authorize]
+
+    [Authorize]
     [HttpGet("getUserId")]
-    public async Task<ActionResult<Guid>> GetUserIdByUserName([FromQuery] string userName) 
+    public async Task<ActionResult<Guid>> GetUserIdByUserName([FromQuery] string userName)
         => await userService.GetUserIdByUserNameAsync(userName);
 
-  // [Authorize]
+    [Authorize]
     [HttpGet("getUserByUserName")]
     public async Task<ActionResult<User>> GetUserByUserName([FromQuery] string userName)
     {
         return await userService.GetUserByUserName(userName);
     }
-    
-  // [Authorize]
+
+    [Authorize]
     [HttpGet("getUserByUserId")]
     public async Task<ActionResult<User>> GetUserByUserId([FromQuery] Guid userId)
     {
         return await userService.GetUserByUserId(userId);
     }
-    
-  // [Authorize]
+
+    [Authorize]
     [HttpPost("userUpdate")]
     public async Task<ActionResult<Guid>> UpdateUser([FromBody] User userUpdateDto)
     {
-        var user = await userService.UpdateUserAsync(userUpdateDto.Id, userUpdateDto.UserName, userUpdateDto.FullName,
+        var user = await userService.UpdateUserAsync(userUpdateDto.Id, userUpdateDto.UserName,
+              userUpdateDto.TelegramName, userUpdateDto.TelegramChatId, userUpdateDto.FullName,
             userUpdateDto.PasswordHash, userUpdateDto.Rating, userUpdateDto.Description);
 
         return Ok(user);
