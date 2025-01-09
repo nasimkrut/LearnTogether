@@ -70,7 +70,7 @@ public class UserController(IUserService userService) : ControllerBase
     }
     
     [Authorize]
-    [HttpPost("userTg")]
+    [HttpPost("addTelegramData")]
     public async Task<ActionResult<Guid>> UserTg([FromBody] UserTelegramDto userTelegramDto)
     {
         var userId = userService.GetUserIdByUserNameAsync(userTelegramDto.UserName);
