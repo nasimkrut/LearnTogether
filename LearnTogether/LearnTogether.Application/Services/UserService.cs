@@ -78,8 +78,8 @@ public class UserService(IUserRepository userRepository, IOptions<JwtOptions> jw
         return await userRepository.DeleteUser(id);
     }
 
-    public async Task<Guid> UpdateUserTelegramAsync(Guid userIdId, string telegramName, ChatId telegramChatId)
+    public async Task<Guid> UpdateUserTelegramAsync(Guid userId, string telegramName, ChatId telegramChatId)
     {
-        return await userRepository.UpdateUserTelegram(userIdId, telegramName, telegramChatId);
+        return await userRepository.UpdateUserTelegram(userId, telegramName, telegramChatId);
     }
 }

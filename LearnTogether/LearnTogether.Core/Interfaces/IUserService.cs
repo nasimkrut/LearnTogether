@@ -19,5 +19,5 @@ public interface IUserService
         ChatId telegramChatId, string avatarUrl, string fullName, string password, double rating, string description);
     
     Task<Guid> DeleteUserAsync(Guid id);
-    Task<Guid> UpdateUserTelegramAsync(Guid userIdId, string telegramName, ChatId telegramChatId);
+    Task<Guid> UpdateUserTelegramAsync(Guid userId, string telegramName, ChatId telegramChatId);
 }

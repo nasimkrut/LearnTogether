@@ -73,8 +73,7 @@ public class UserController(IUserService userService) : ControllerBase
     [HttpPost("addTelegramData")]
     public async Task<ActionResult<Guid>> UserTg([FromBody] UserTelegramDto userTelegramDto)
     {
-        var userId = userService.GetUserIdByUserNameAsync(userTelegramDto.UserName);
-        var user = await userService.UpdateUserTelegramAsync(userId.Result, userTelegramDto.TelegramName, userTelegramDto.TelegramChatId);
+        var user = await userService.UpdateUserTelegramAsync(userTelegramDto.UserId, userTelegramDto.TelegramName, userTelegramDto.TelegramChatId);
 
         return Ok(user);
     }

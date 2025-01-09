@@ -59,12 +59,12 @@ public class UserRepository : IUserRepository
         return id;
     }
 
-    public async Task<Guid> UpdateUserTelegram(Guid userIdId, string telegramName, ChatId telegramChatId)
+    public async Task<Guid> UpdateUserTelegram(Guid userId, string telegramName, ChatId telegramChatId)
     {
-        await _context.Users.Where(b => b.Id == userIdId).ExecuteUpdateAsync(s => s
+        await _context.Users.Where(b => b.Id == userId).ExecuteUpdateAsync(s => s
             .SetProperty(b => b.TelegramName, b => telegramName)
             .SetProperty(b => b.TelegramChatId, b => telegramChatId));
         
-        return userIdId;
+        return userId;
     }
 }

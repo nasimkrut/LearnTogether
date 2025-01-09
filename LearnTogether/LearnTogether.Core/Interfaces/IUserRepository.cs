@@ -13,5 +13,5 @@ public interface IUserRepository
         string fullName, string password, double rating, string description);
         
     Task<Guid> DeleteUser(Guid id);
-    Task<Guid> UpdateUserTelegram(Guid userIdId, string telegramName, ChatId telegramChatId);
+    Task<Guid> UpdateUserTelegram(Guid userId, string telegramName, ChatId telegramChatId);
 }
