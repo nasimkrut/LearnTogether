@@ -120,6 +120,7 @@ input[type="file"] {
     display: flex;
     align-items: center;
     gap: 10px;
+    justify-content: flex-start;
 }
 
 .contact-input {
@@ -129,6 +130,8 @@ input[type="file"] {
 .confirm-button {
     background-color: #c5c5c5;
     width: fit-content;
+    flex-grow: 0;
+    margin-right: 0;
 }
 
 .confirm-button:hover{

@@ -14,6 +14,7 @@ export default function CabinetPage() {
   const [isEditing, setIsEditing] = useState(false);
   const [description, setDescription] = useState("");
   const [contact, setContact] = useState("");
+  const [verifiedContact, setVerifiedContact] = useState("")
   const [showModal, setShowModal] = useState(false);
 
   const handlePicUpdated = (event) => {
@@ -37,13 +38,14 @@ export default function CabinetPage() {
       try {
         const response = await getUserByUserName(userName);
         if (response) {
+          console.log('response:', response);
           setUser(response);
           setDescription(response.description || "");
-          if (response.telegramName)
-          {
-            setContact(response.telegramName);
-            sessionStorage.setItem('telegramName', contact)
+          if (response.telegramName) {
+            setVerifiedContact(response.telegramName);
+            sessionStorage.setItem('telegramName', verifiedContact)
           }
+          console.log(contact, verifiedContact)
         } else {
           alert('Такого пользователя не существует! Попробуйте найти кого-то другого')
           // setUser(mockUser);
@@ -54,7 +56,7 @@ export default function CabinetPage() {
         alert(`Ошибка загрузки личного кабинета: ${e.message}`);
         setUser(mockUser);
         setDescription(mockUser.description);
-        setContact(mockUser.telegramName)
+        setVerifiedContact(mockUser.telegramName)
       } finally {
         const savedPic = sessionStorage.getItem("profilePic");
         if (savedPic) {
@@ -137,7 +139,7 @@ export default function CabinetPage() {
               value={contact}
               onChange={(e) => setContact(e.target.value)}
               className="contact-input"
-              placeholder="Введите ваш Telegram username"
+              placeholder="Введите ваш Телеграмм username"
             />) : <div className="contact-edit-container">
               {contact && contact.trim() ? (<a
                 href={`https://t.me/${contact}`}
@@ -146,10 +148,10 @@ export default function CabinetPage() {
                 className="contact-info"
               >
                 @{contact}
-              </a>) : (<>
-                  <p>Тут пусто ...</p>
-                  <Button onClick={handleInstructionOpen} className="confirm-button">Подтвердить</Button>
-                </>)}
+              </a>) : (
+                <p>Тут пусто ...</p>
+              )}
+              {!verifiedContact && (<Button onClick={handleInstructionOpen} className="confirm-button">Подтвердить</Button>)}
             </div>}
           </div>
           {isEditing ? (<div className="edit-buttons">
