@@ -2,11 +2,12 @@
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using LearnTogether.Core.Entities;
 using LearnTogether.Core.Interfaces;
 using LearnTogether.Infrastructure;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Telegram.Bot.Types;
+using User = LearnTogether.Core.Entities.User;
 
 namespace LearnTogether.Application.Services;
 
@@ -26,6 +27,12 @@ public class UserService(IUserRepository userRepository, IOptions<JwtOptions> jw
     public async Task<User> GetUserByUserName(string userName)
     {
         return await userRepository.GetUserByUserNameAsync(userName);
+    }
+
+    public async Task<Guid> UpdateUserAsync(Guid id, string username, string telegramName, ChatId telegramChatId, string avatarUrl,
+        string fullName, string password, double rating, string description)
+    {
+        return await userRepository.UpdateUser(id, username, telegramName, telegramChatId, avatarUrl, fullName, password, rating, description);
     }
 
     public async Task<bool> RegisterUserAsync(User user)
@@ -65,14 +72,13 @@ public class UserService(IUserRepository userRepository, IOptions<JwtOptions> jw
         return tokenHandler.WriteToken(token);
     }
 
-    public async Task<Guid> UpdateUserAsync(Guid id, string username, string fullName, string password, double rating, string description)
-    {
-        return await userRepository.UpdateUser(id, username, fullName, password, rating, description);
-    }
-
-
     public async Task<Guid> DeleteUserAsync(Guid id)
     {
         return await userRepository.DeleteUser(id);
+    }
+
+    public async Task<Guid> UpdateUserTelegramAsync(Guid userIdId, string telegramName, ChatId telegramChatId)
+    {
+        return await userRepository.UpdateUserTelegram(userIdId, telegramName, telegramChatId);
     }
 }
