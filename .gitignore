@@ -20,7 +20,8 @@ LearnTogether/LearnTogether.Infrastructure/obj
 /LearnTogether/LearnTogether.Core/LearnTogether.Core.csproj
 /LearnTogether/LearnTogether.Application/LearnTogether.Application.csproj
 
-/LearnTogether/Lea
+Frontend/node_modules/.package-lock.json
+
 # Logs
 Frontend/logs
 Frontend/*.log

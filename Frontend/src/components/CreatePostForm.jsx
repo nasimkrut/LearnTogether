@@ -1,16 +1,32 @@
 import Select from "react-select";
 import Button from "./Button.jsx";
-import {useState} from "react";
-import {createPost, getStoredUserName, getUserId} from "../services/api.js";
+import {useEffect, useState} from "react";
+import {createPost, isTelegramNameVerified, getStoredUserName, getUserId} from "../services/api.js";
 import "./CreatePostForm.css"
 
-export default function CreatePostForm({ subjects, onPostCreated, setShowModal }) {
+export default function CreatePostForm({subjects, onPostCreated, setShowModal}) {
   const [newPost, setNewPost] = useState({
     requiredSubject: null,
     helpSubjects: [],
     description: "",
     tags: "",
   });
+
+  useEffect(() => {
+    const checkTelegramVerification = async () => {
+      const isVerified = await isTelegramNameVerified();
+      if (!isVerified) {
+        alert(
+          "Вы не подтвердили ваш ник в Телеграмм. Пожалуйста, перейдите в личный кабинет и следуйте инструкции."
+        );
+        setShowModal(false);
+      }
+    };
+
+    checkTelegramVerification().catch((error) => {
+      console.error("Ошибка при проверке Телеграмм ника:", error)
+    });
+  }, [setShowModal]);
 
   const handleSingleSelectChange = (selectedOption) => {
     setNewPost({
@@ -27,7 +43,7 @@ export default function CreatePostForm({ subjects, onPostCreated, setShowModal }
   };
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    const {name, value} = e.target;
     setNewPost({
       ...newPost,
       [name]: value,
@@ -36,12 +52,14 @@ export default function CreatePostForm({ subjects, onPostCreated, setShowModal }
 
   const handleSubmit = async () => {
     try {
-      const userName = getStoredUserName();
+      const userName = getStoredUserName(); // Получаем UserName из sessionStorage
       if (!userName) {
         alert("Не удалось найти имя пользователя. Пожалуйста, войдите снова.");
         return;
       }
-      const userId = await getUserId(userName);
+
+      const userId = await getUserId(userName); // Ожидаем выполнения функции
+
       const postData = {
         userId: userId, // ID пользователя
         requiredSubject: newPost.requiredSubject, // Число

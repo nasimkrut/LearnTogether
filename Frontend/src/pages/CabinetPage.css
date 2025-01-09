@@ -96,6 +96,48 @@ input[type="file"] {
     box-shadow: 0 0 8px rgba(45, 148, 121, 0.3);
 }
 
+.contact-input {
+    width: 96.5%;
+    margin: 0 auto;
+    padding: 12px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #f9f9f9;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    outline: none;
+    resize: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-input:focus {
+    border-color: rgba(37, 118, 120, 1);
+    box-shadow: 0 0 8px rgba(45, 148, 121, 0.3);
+}
+
+.contact-edit-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-start;
+}
+
+.contact-input {
+    flex-grow: 1;
+}
+
+.confirm-button {
+    background-color: #c5c5c5;
+    width: fit-content;
+    flex-grow: 0;
+    margin-right: 0;
+}
+
+.confirm-button:hover{
+    background-color: #c27735;
+}
+
 /* Кнопки редактирования */
 .edit-button {
     margin-top: 1rem;

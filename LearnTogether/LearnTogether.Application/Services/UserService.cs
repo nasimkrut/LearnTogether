@@ -60,8 +60,7 @@ public class UserService(IUserRepository userRepository, IOptions<JwtOptions> jw
         var tokenHandler = new JwtSecurityTokenHandler();
         var tokenDescriptor = new SecurityTokenDescriptor
         {
-            Subject = new ClaimsIdentity(new[]
-            {
+            Subject = new ClaimsIdentity([
                 new Claim(ClaimTypes.Name, user.UserName),
             }),
             Expires = DateTime.UtcNow.AddHours(jwtOptions.Value.ExpiresHours),
