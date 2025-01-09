@@ -2,11 +2,12 @@
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using LearnTogether.Core.Entities;
 using LearnTogether.Core.Interfaces;
 using LearnTogether.Infrastructure;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Telegram.Bot.Types;
+using User = LearnTogether.Core.Entities.User;
 
 namespace LearnTogether.Application.Services;
 
@@ -28,7 +29,7 @@ public class UserService(IUserRepository userRepository, IOptions<JwtOptions> jw
         return await userRepository.GetUserByUserNameAsync(userName);
     }
 
-    public async Task<Guid> UpdateUserAsync(Guid id, string username, string telegramName, Guid telegramChatId, string fullName,
+    public async Task<Guid> UpdateUserAsync(Guid id, string username, string telegramName, ChatId telegramChatId, string fullName,
         string password, double rating, string description)
     {
         return await userRepository.UpdateUser(id, username, telegramName, telegramChatId, fullName, password, rating, description);

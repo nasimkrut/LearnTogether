@@ -1,7 +1,8 @@
-﻿using LearnTogether.Core.Entities;
-using LearnTogether.Core.Interfaces;
+﻿using LearnTogether.Core.Interfaces;
 using LearnTogether.Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using Telegram.Bot.Types;
+using User = LearnTogether.Core.Entities.User;
 
 namespace LearnTogether.Application.Services;
 
@@ -31,7 +32,7 @@ public class UserRepository : IUserRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task<Guid> UpdateUser(Guid id, string username, string telegramName, Guid telegramChatId, string fullName, string password, double rating, string description)
+    public async Task<Guid> UpdateUser(Guid id, string username, string telegramName, ChatId telegramChatId, string fullName, string password, double rating, string description)
     {
         await _context.Users.
             Where(b => b.Id == id).

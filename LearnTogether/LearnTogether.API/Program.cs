@@ -8,6 +8,7 @@ using LearnTogether.Infrastructure;
 using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Telegram.Bot;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +26,10 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddSingleton<ITelegramBotClient>(_ =>
+    new TelegramBotClient(builder.Configuration["Telegram:BotToken"]));
+
 
 builder.Services.AddControllers();
 

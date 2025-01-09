@@ -1,4 +1,5 @@
-﻿using LearnTogether.Core.Entities;
+﻿using Telegram.Bot.Types;
+using User = LearnTogether.Core.Entities.User;
 
 namespace LearnTogether.Core.Interfaces;
 
@@ -15,7 +16,7 @@ public interface IUserService
     Task<User> GetUserByUserName(string userName);
     
     Task<Guid> UpdateUserAsync(Guid id, string username, string telegramName, 
-        Guid telegramChatId, string fullName, string password, double rating, string description);
+        ChatId telegramChatId, string fullName, string password, double rating, string description);
     
     Task<Guid> DeleteUserAsync(Guid id);
 }
