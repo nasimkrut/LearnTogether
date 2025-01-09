@@ -8,6 +8,7 @@ public class User
     public string UserName { get; set; }
     public string TelegramName { get; set; }
     public ChatId TelegramChatId { get; set; }
+    public string AvatarUrl { get; set; }
     public string FullName { get; set; }
     public string PasswordHash { get; set; }
     public double Rating { get; set; }

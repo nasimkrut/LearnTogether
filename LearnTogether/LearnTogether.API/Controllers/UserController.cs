@@ -1,8 +1,9 @@
 ﻿using LearnTogether.Core.Data_Transfer_Objects;
-using LearnTogether.Core.Entities;
 using Microsoft.AspNetCore.Mvc;
 using LearnTogether.Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
+using Telegram.Bot.Types;
+using User = LearnTogether.Core.Entities.User;
 
 namespace LearnTogether.API.Controllers;
 
@@ -62,9 +63,22 @@ public class UserController(IUserService userService) : ControllerBase
     public async Task<ActionResult<Guid>> UpdateUser([FromBody] User userUpdateDto)
     {
         var user = await userService.UpdateUserAsync(userUpdateDto.Id, userUpdateDto.UserName,
-              userUpdateDto.TelegramName, userUpdateDto.TelegramChatId, userUpdateDto.FullName,
+              userUpdateDto.TelegramName, userUpdateDto.TelegramChatId, userUpdateDto.AvatarUrl, userUpdateDto.FullName,
             userUpdateDto.PasswordHash, userUpdateDto.Rating, userUpdateDto.Description);
 
         return Ok(user);
     }
+    
+    [Authorize]
+    [HttpPost("userTg")]
+    public async Task<ActionResult<Guid>> UserTg([FromBody] UserTelegramDto userTelegramDto)
+    {
+        var userId = userService.GetUserIdByUserNameAsync(userTelegramDto.UserName);
+        var user = await userService.UpdateUserTelegramAsync(userId.Result, userTelegramDto.TelegramName, userTelegramDto.TelegramChatId);
+
+        return Ok(user);
+    }
+    
+    
+    
 }
