@@ -38,7 +38,7 @@ export default function AuthForm({ isLogin, onSubmit }) {
         onSubmit(response);
       } catch (e) {
         if (e.response?.data === "User already exists")
-          alert(`Такой пользователь уже существует! Попробуйте другой логин (ник в Telegram)`)
+          alert(`Такой пользователь уже существует! Попробуйте другой логин`)
         else
           alert('Ошибка регистрации! Попробуйте ещё раз')
       }
@@ -75,7 +75,7 @@ export default function AuthForm({ isLogin, onSubmit }) {
           <input
               type="text"
               id="login"
-              placeholder="Логин (ник в Telegram)"
+              placeholder="Логин"
               value={login}
               onChange={(e) => setLogin(e.target.value)}
               required

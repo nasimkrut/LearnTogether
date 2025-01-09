@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 import qs from 'qs';
 
 const api = axios.create({
-  baseURL: "https://learn-together.xyz/",
+  baseURL: "http://84.201.167.107/",
   headers: {
     'Content-Type': 'application/json',
   }
@@ -27,10 +27,16 @@ export const createPost = async (data) => {
 
 export const getStoredUserName = () => {
   const name = sessionStorage.getItem('userName');
+  console.log(name);
   if (name !== undefined)
     return name;
   throw new Error(`User undefined. No such key 'userName' in sessionStorage.`)
 };
+
+export const isTelegramNameVerified = async () => {
+  const telegramName = sessionStorage.getItem('telegramName')
+  return telegramName !== undefined && telegramName !== null;
+}
 
 export const getUserId = async (userName) => {
   try {
@@ -70,9 +76,12 @@ export const registerUser = async (data) => {
       PasswordHash: data.PasswordHash,
       Rating: data.Rating,
       Description: data.Description,
+      TelegramName: null,
+      TelegramChatId: null,
     });
     const userId = await getUserId(data.UserName);
     sessionStorage.setItem('userId', userId);
+    console.log(userId)
     sessionStorage.setItem('userName', data.UserName);
     return response.data;
   } catch (e) {
@@ -98,6 +107,7 @@ export const loginUser = async (data) => {
 
 export const getPosts = async (filters) => {
   try {
+    console.log("Отправили фильтры на бэк:", filters);
     if (filters === undefined) {
       const response = await api.get('/api/post/getAllPosts?');
       return response.data;

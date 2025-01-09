@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import {getUserByUserName, updateUserProfile} from "../services/api.js";
 import {useNavigate, useParams} from "react-router-dom";
 import Button from "../components/Button.jsx";
+import VerificationInstruction from "../components/VerificationInstruction.jsx";
 
 export default function CabinetPage() {
   const navigate = useNavigate();
@@ -12,6 +13,8 @@ export default function CabinetPage() {
   const [profilePic, setProfilePic] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [description, setDescription] = useState("");
+  const [contact, setContact] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   const handlePicUpdated = (event) => {
     const file = event.target.files[0];
@@ -29,25 +32,29 @@ export default function CabinetPage() {
   useEffect(() => {
     const fetchUserData = async () => {
       const mockUser = {
-        fullName: "Тут пусто ...",
-        description: "... и тут пусто ...",
-        userName: "... да, здесь тоже пусто",
+        fullName: "Тут пусто ...", description: "... и тут пусто ...", telegramName: "",
       };
       try {
         const response = await getUserByUserName(userName);
         if (response) {
           setUser(response);
           setDescription(response.description || "");
-        }
-        else {
+          if (response.telegramName)
+          {
+            setContact(response.telegramName);
+            sessionStorage.setItem('telegramName', contact)
+          }
+        } else {
           alert('Такого пользователя не существует! Попробуйте найти кого-то другого')
-          setUser(mockUser);
-          setDescription(mockUser.description);
+          // setUser(mockUser);
+          // setDescription(mockUser.description);
+          // setContact(mockUser.userName)
         }
       } catch (e) {
         alert(`Ошибка загрузки личного кабинета: ${e.message}`);
         setUser(mockUser);
         setDescription(mockUser.description);
+        setContact(mockUser.telegramName)
       } finally {
         const savedPic = sessionStorage.getItem("profilePic");
         if (savedPic) {
@@ -66,7 +73,7 @@ export default function CabinetPage() {
   const handleSave = async () => {
     try {
       if (user) {
-        const updatedUser = { ...user, description};
+        const updatedUser = {...user, description, telegramName: contact};
         const response = await updateUserProfile(updatedUser);
         if (response) {
           setUser(updatedUser);
@@ -77,74 +84,82 @@ export default function CabinetPage() {
       }
     } catch (e) {
       alert("Не удалось сохранить изменения. Попробуйте позже");
+      console.error(e);
+      setContact("");
     }
     setIsEditing(false);
   };
 
   const handleCancel = () => {
     setDescription(user?.description || "");
+    setContact(user.telegramName || "")
     setIsEditing(false);
   };
 
-  return (
-      <>
-        <Header/>
-        <div className="cabinet">
-          <div className="cabinet-content">
-            <button className="close-button" onClick={handleClosePage} aria-label="Close profile">×</button>
-            <div className="profile-image-container">
-              <img src={profilePic || "/placeholder.png"} alt="User photo" className="user-photo"/>
-              {isEditing && (
-                  <>
-                    <label htmlFor="photo-upload" className="photo-upload-label">Загрузить фото</label>
-                    <input
-                        id="photo-upload"
-                        type="file"
-                        accept="image/*"
-                        onChange={handlePicUpdated}
-                    />
-                  </>
-              )}
-            </div>
-            {user ? (
-                <>
-                  <h2>{user.fullName}</h2>
-                  <div className="profile-info">
-                    <h3>Обо мне</h3>
-                    {isEditing ? (
-                        <textarea
-                            value={description}
-                            onChange={(e) => setDescription(e.target.value)}
-                            className="description-textarea"
-                            placeholder="Расскажите о себе..."
-                        />
-                    ) : (
-                        <p>{description || "Заполните информацию о себе, чтобы Вам доверяло больше людей"}</p>
-                    )}
+  const handleInstructionOpen = () => {
+    setShowModal(true);
+  }
+  const handleInstructionClose = () => {
+    setShowModal(false);
+  }
 
-                    <a
-                        href={`https://t.me/${user.userName}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="contact-info"
-                    >
-                      Контакт: @{user.userName}
-                    </a>
-                  </div>
-                  {isEditing ? (
-                      <div className="edit-buttons">
-                        <Button onClick={handleSave} className="save-button">Сохранить</Button>
-                        <Button onClick={handleCancel} className="cancel-button">Отменить</Button>
-                      </div>
-                  ) : (
-                      <Button onClick={() => setIsEditing(true)} className="edit-button">Редактировать</Button>
-                  )}
-                </>
-            ) : (
-                <p>Загрузка данных пользователя...</p>
-            )}
-          </div>
+  return (<>
+    <Header/>
+    <div className="cabinet">
+      <div className="cabinet-content">
+        <button className="close-button" onClick={handleClosePage} aria-label="Close profile">×</button>
+        <div className="profile-image-container">
+          <img src={profilePic || "/placeholder.png"} alt="User photo" className="user-photo"/>
+          {isEditing && (<>
+            <label htmlFor="photo-upload" className="photo-upload-label">Загрузить фото</label>
+            <input
+              id="photo-upload"
+              type="file"
+              accept="image/*"
+              onChange={handlePicUpdated}
+            />
+          </>)}
         </div>
-      </>
-  );
+        {user ? (<>
+          <h2>{user.fullName}</h2>
+          <div className="profile-info">
+            <h3>Обо мне</h3>
+            {isEditing ? (<textarea
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              className="description-textarea"
+              placeholder="Расскажите о себе..."
+            />) : (<p>{description || "Заполните информацию о себе, чтобы Вам доверяло больше людей"}</p>)}
+
+            <h3>Контакт</h3>
+            {isEditing ? (<input
+              type="text"
+              value={contact}
+              onChange={(e) => setContact(e.target.value)}
+              className="contact-input"
+              placeholder="Введите ваш Telegram username"
+            />) : <div className="contact-edit-container">
+              {contact && contact.trim() ? (<a
+                href={`https://t.me/${contact}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-info"
+              >
+                @{contact}
+              </a>) : (<>
+                  <p>Тут пусто ...</p>
+                  <Button onClick={handleInstructionOpen} className="confirm-button">Подтвердить</Button>
+                </>)}
+            </div>}
+          </div>
+          {isEditing ? (<div className="edit-buttons">
+            <Button onClick={handleSave} className="save-button">Сохранить</Button>
+            <Button onClick={handleCancel} className="cancel-button">Отменить</Button>
+          </div>) : (<Button onClick={() => setIsEditing(true)} className="edit-button">Редактировать</Button>)}
+        </>) : (<p>Загрузка данных пользователя...</p>)}
+      </div>
+    </div>
+
+    {showModal && <VerificationInstruction onClose={handleInstructionClose} userName={userName}/>}
+  </>);
 }

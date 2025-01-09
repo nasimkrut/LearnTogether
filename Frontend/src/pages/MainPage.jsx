@@ -38,7 +38,7 @@ export default function MainPage() {
     try {
       const data = await getPosts();
       setPosts(data);
-      setFilteredPosts(data)
+      setFilteredPosts(data);
     } catch (error) {
       alert(`Ошибка при загрузке постов: ${error.message}`);
     } finally {
@@ -63,7 +63,7 @@ export default function MainPage() {
       </Header>
       <div className="main-page">
         <h1>Найди людей, которые тебе помогут</h1>
-        <div>
+        <>
           <FilterPanel filters={filters} onChange={setFilters} onApply={applyFilters}/>
           {loading ? (
             <Loader/>
@@ -76,7 +76,7 @@ export default function MainPage() {
               ))}
             </div>
           )}
-        </div>
+        </>
         {showModal && (
           <CreatePostForm
             subjects={subjects}
