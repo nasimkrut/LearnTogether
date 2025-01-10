@@ -7,7 +7,7 @@ namespace LearnTogether.Application.Services
 {
     public class SubscriptionService(ITelegramBotClient botClient) : ISubscriptionService
     {
-        public async Task SendTelegramNotification(ChatId telegramChatId, string message)
+        public async Task SendTelegramNotification(int telegramChatId, string message)
         {
             await botClient.SendTextMessageAsync(telegramChatId, message);
         }

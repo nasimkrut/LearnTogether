@@ -5,5 +5,5 @@ namespace LearnTogether.Application.Services;
 public interface ISubscriptionService
 {
     Task SendEmailNotification(string email, string message);
-    Task SendTelegramNotification(ChatId telegramChatId, string message);
+    Task SendTelegramNotification(int telegramChatId, string message);
 }

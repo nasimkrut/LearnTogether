@@ -6,5 +6,5 @@ public class UserTelegramDto
 {
     public Guid UserId { get; set; }
     public string TelegramName { get; set; }
-    public ChatId TelegramChatId { get; set; }
+    public int TelegramChatId { get; set; }
 }

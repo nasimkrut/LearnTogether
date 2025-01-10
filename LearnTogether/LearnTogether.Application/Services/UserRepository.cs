@@ -32,7 +32,7 @@ public class UserRepository : IUserRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task<Guid> UpdateUser(Guid id, string username, string telegramName, ChatId telegramChatId, string avatarUrl,
+    public async Task<Guid> UpdateUser(Guid id, string username, string telegramName, int telegramChatId, string avatarUrl,
         string fullName, string password, double rating, string description)
     {
         await _context.Users.
@@ -59,7 +59,7 @@ public class UserRepository : IUserRepository
         return id;
     }
 
-    public async Task<Guid> UpdateUserTelegram(Guid userId, string telegramName, ChatId telegramChatId)
+    public async Task<Guid> UpdateUserTelegram(Guid userId, string telegramName, int telegramChatId)
     {
         await _context.Users.Where(b => b.Id == userId).ExecuteUpdateAsync(s => s
             .SetProperty(b => b.TelegramName, b => telegramName)

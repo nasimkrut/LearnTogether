@@ -9,9 +9,9 @@ public interface IUserRepository
     Task<User> GetUserByUserIdAsync(Guid userId);
     Task AddUserAsync(User user);
         
-    Task<Guid> UpdateUser(Guid id, string username, string telegramName, ChatId telegramChatId, string avatarUrl,
+    Task<Guid> UpdateUser(Guid id, string username, string telegramName, int telegramChatId, string avatarUrl,
         string fullName, string password, double rating, string description);
         
     Task<Guid> DeleteUser(Guid id);
-    Task<Guid> UpdateUserTelegram(Guid userId, string telegramName, ChatId telegramChatId);
+    Task<Guid> UpdateUserTelegram(Guid userId, string telegramName, int telegramChatId);
 }

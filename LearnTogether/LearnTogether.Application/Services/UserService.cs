@@ -29,7 +29,7 @@ public class UserService(IUserRepository userRepository, IOptions<JwtOptions> jw
         return await userRepository.GetUserByUserNameAsync(userName);
     }
 
-    public async Task<Guid> UpdateUserAsync(Guid id, string username, string telegramName, ChatId telegramChatId, string avatarUrl,
+    public async Task<Guid> UpdateUserAsync(Guid id, string username, string telegramName, int telegramChatId, string avatarUrl,
         string fullName, string password, double rating, string description)
     {
         return await userRepository.UpdateUser(id, username, telegramName, telegramChatId, avatarUrl, fullName, password, rating, description);
@@ -77,7 +77,7 @@ public class UserService(IUserRepository userRepository, IOptions<JwtOptions> jw
         return await userRepository.DeleteUser(id);
     }
 
-    public async Task<Guid> UpdateUserTelegramAsync(Guid userId, string telegramName, ChatId telegramChatId)
+    public async Task<Guid> UpdateUserTelegramAsync(Guid userId, string telegramName, int telegramChatId)
     {
         return await userRepository.UpdateUserTelegram(userId, telegramName, telegramChatId);
     }
