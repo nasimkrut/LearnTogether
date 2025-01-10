@@ -21,7 +21,7 @@
     margin: 20px auto;
 }
 
-.profile-image1 {
+.profile-image {
     margin-bottom: -2.3rem;
 }
 
@@ -80,22 +80,6 @@
 
 .close-button:hover {
     color: #555;
-}
-
-.photo-upload-label {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 12px;
-    font-size: 0.9rem;
-    color: white;
-    background-color: rgba(37, 118, 120, 1);
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.photo-upload-label:hover {
-    background-color: rgba(25, 108, 110, 1);
 }
 
 .profile-content h3 {

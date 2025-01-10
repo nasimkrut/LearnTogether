@@ -5,6 +5,7 @@ import {getUserByUserName, updateUserProfile} from "../services/api.js";
 import {useNavigate, useParams} from "react-router-dom";
 import Button from "../components/Button.jsx";
 import VerificationInstruction from "../components/VerificationInstruction.jsx";
+import AvatarMenu from "../components/AvatarMenu.jsx";
 
 export default function CabinetPage() {
   const navigate = useNavigate();
@@ -15,19 +16,13 @@ export default function CabinetPage() {
   const [description, setDescription] = useState("");
   const [contact, setContact] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [showAvatarMenu, setShowAvatarMenu] = useState(false);
 
-  const handlePicUpdated = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const baseImage = e.target.result;
-        setProfilePic(baseImage);
-        sessionStorage.setItem("profilePic", baseImage);
-      };
-      reader.readAsDataURL(file);
-    }
-  }
+  const handleAvatarSelect = (avatar) => {
+    setProfilePic(avatar);
+    sessionStorage.setItem("profilePic", avatar);
+    setShowAvatarMenu(false);
+  };
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -37,30 +32,21 @@ export default function CabinetPage() {
       try {
         const response = await getUserByUserName(userName);
         if (response) {
-          console.log('response:', response);
           setUser(response);
           setDescription(response.description || "");
+          setProfilePic(response.AvatarUrl || "");
           if (response.telegramName) {
             setContact(response.telegramName);
             sessionStorage.setItem('telegramName', contact)
           }
-          console.log(contact)
         } else {
           alert('Такого пользователя не существует! Попробуйте найти кого-то другого')
-          // setUser(mockUser);
-          // setDescription(mockUser.description);
-          // setContact(mockUser.userName)
         }
       } catch (e) {
         alert(`Ошибка загрузки личного кабинета: ${e.message}`);
         setUser(mockUser);
         setDescription(mockUser.description);
         setContact(mockUser.telegramName)
-      } finally {
-        const savedPic = sessionStorage.getItem("profilePic");
-        if (savedPic) {
-          setProfilePic(savedPic);
-        }
       }
     };
 
@@ -74,7 +60,7 @@ export default function CabinetPage() {
   const handleSave = async () => {
     try {
       if (user) {
-        const updatedUser = {...user, description, telegramName: contact};
+        const updatedUser = {...user, description, telegramName: contact, avatarUrl: profilePic};
         const response = await updateUserProfile(updatedUser);
         if (response) {
           setUser(updatedUser);
@@ -110,15 +96,9 @@ export default function CabinetPage() {
       <div className="cabinet-content">
         <button className="close-button" onClick={handleClosePage} aria-label="Close profile">×</button>
         <div className="profile-image-container">
-          <img src={profilePic || "/placeholder.png"} alt="User photo" className="user-photo"/>
+          <img src={profilePic || "/avatars/avatar1.png"} alt="User photo" className="user-photo"/>
           {isEditing && (<>
-            <label htmlFor="photo-upload" className="photo-upload-label">Загрузить фото</label>
-            <input
-              id="photo-upload"
-              type="file"
-              accept="image/*"
-              onChange={handlePicUpdated}
-            />
+            <Button onClick={() => setShowAvatarMenu(true)} className="avatar-button">Выбрать аватарку</Button>
           </>)}
         </div>
         {user ? (<>
@@ -156,5 +136,10 @@ export default function CabinetPage() {
     </div>
 
     {showModal && <VerificationInstruction onClose={handleInstructionClose} userId={user.id}/>}
+
+    {showAvatarMenu && (
+      <AvatarMenu
+        onClose={() => setShowAvatarMenu(false)}
+        onAvatarSelect={handleAvatarSelect}/>)}
   </>);
 }

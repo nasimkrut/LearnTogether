@@ -23,7 +23,10 @@
 /* Фото профиля */
 .profile-image-container {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .user-photo {
@@ -35,34 +38,12 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Кнопка загрузки фото */
-.photo-upload-label {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 12px;
-    font-size: 0.9rem;
-    color: white;
-    background-color: rgba(37, 118, 120, 1);
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.photo-upload-label:hover {
-    background-color: rgba(25, 108, 110, 1);
-}
-
-input[type="file"] {
-    display: none;
-}
-
 /* Заголовок пользователя */
 .cabinet-content h2 {
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
     color: #333;
 }
-
 
 .contact-info {
     font-size: 2rem;
@@ -127,6 +108,16 @@ input[type="file"] {
     flex-grow: 1;
 }
 
+.avatar-button {
+    background-color: #c5c5c5;
+    width: fit-content;
+    flex-grow: 0;
+}
+
+.avatar-button:hover{
+    background-color: #c27735;
+}
+
 .confirm-button {
     background-color: #c5c5c5;
     width: fit-content;
@@ -137,6 +128,7 @@ input[type="file"] {
 .confirm-button:hover{
     background-color: #c27735;
 }
+
 
 /* Кнопки редактирования */
 .edit-button {

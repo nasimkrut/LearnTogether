@@ -21,6 +21,11 @@ export const subjects = [
   {value: 5, label: 'Структуры данных'},
 ];
 
+export const avatarOptions = [
+  "/avatars/avatar1.png",
+  "/avatars/avatar2.jpg",
+];
+
 // export const getSubjectLabel = (value) => {
 //   const subject = subjects.find(subject => subject.value === value);
 //   return subject ? subject.label : 'Неизвестный предмет';

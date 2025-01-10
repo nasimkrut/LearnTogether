@@ -1,6 +1,6 @@
 import './PostCard.css'
 import {useNavigate} from "react-router-dom";
-import {getUserByUserId, getUserByUserName} from "../services/api.js"
+import {getUserByUserId} from "../services/api.js"
 import {useEffect, useState} from "react";
 import {subjects} from "../utils/Utils.jsx";
 
@@ -20,13 +20,13 @@ export default function PostCard({post}) {
         setPostData({
           userName: user.userName,
           fullName: user.fullName,
-          photo: user.photo ?? '/placeholder.png',
+          photo: user.photo ?? '/avatars/avatar1.png',
         });
       } catch (error) {
         setPostData({
           userName: 'undefined',
           fullName: 'Неизвестный пользователь',
-          photo: '/placeholder.png',
+          photo: "/avatars/avatar1.png",
         });
         alert(`Ошибка при загрузке данных пользователя: ${error.message}`);
       }
