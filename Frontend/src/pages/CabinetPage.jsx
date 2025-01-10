@@ -34,7 +34,7 @@ export default function CabinetPage() {
         if (response) {
           setUser(response);
           setDescription(response.description || "");
-          setProfilePic(response.AvatarUrl || "");
+          setProfilePic(response.avatarUrl || "");
           if (response.telegramName) {
             setContact(response.telegramName);
             sessionStorage.setItem('telegramName', contact)
@@ -73,6 +73,9 @@ export default function CabinetPage() {
       alert("Не удалось сохранить изменения. Попробуйте позже");
       console.error(e);
       setContact("");
+    } finally {
+      const savedPic = sessionStorage.getItem('profilePic');
+      setProfilePic(savedPic);
     }
     setIsEditing(false);
   };

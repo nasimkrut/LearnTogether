@@ -9,7 +9,7 @@ const UserProfile = ({user, onClose}) => {
       <div className="user-profile">
           <button className="close-button" onClick={onClose} aria-label="Close profile">×</button>
           <div className="profile-image">
-              <img src={user.photo ?? '/avatars/avatar1.png'} alt={user.userName} className="user-photo"/>
+              <img src={user.avatarUrl ?? '/avatars/avatar1.png'} alt={user.userName} className="user-photo"/>
           </div>
           <div className="profile-content">
               <h2>{user.fullName}</h2>

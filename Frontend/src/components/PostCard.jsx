@@ -20,7 +20,7 @@ export default function PostCard({post}) {
         setPostData({
           userName: user.userName,
           fullName: user.fullName,
-          photo: user.photo ?? '/avatars/avatar1.png',
+          photo: user.avatarUrl ?? '/avatars/avatar1.png',
         });
       } catch (error) {
         setPostData({

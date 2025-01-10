@@ -22,8 +22,8 @@ export const subjects = [
 ];
 
 export const avatarOptions = [
-  "/avatars/avatar1.png",
-  "/avatars/avatar2.jpg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9UdkG68P9AHESMfKJ-2Ybi9pfnqX1tqx3wQ&s",
+  "https://as1.ftcdn.net/v2/jpg/01/14/20/46/1000_F_114204617_Whl3arafx4We0f13jcqYRCfVQlD1ezP0.jpg",
 ];
 
 // export const getSubjectLabel = (value) => {
