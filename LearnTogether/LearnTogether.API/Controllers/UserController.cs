@@ -39,27 +39,24 @@ public class UserController(IUserService userService) : ControllerBase
     }
 
 
-    [Authorize]
+    // [Authorize]//
     [HttpGet("getUserId")]
     public async Task<ActionResult<Guid>> GetUserIdByUserName([FromQuery] string userName)
         => await userService.GetUserIdByUserNameAsync(userName);
 
-    [Authorize]
-    [HttpGet("getUserByUserName")]
+    // [Authorize]//    [HttpGet("getUserByUserName")]
     public async Task<ActionResult<User>> GetUserByUserName([FromQuery] string userName)
     {
         return await userService.GetUserByUserName(userName);
     }
 
-    [Authorize]
-    [HttpGet("getUserByUserId")]
+    // [Authorize]//    [HttpGet("getUserByUserId")]
     public async Task<ActionResult<User>> GetUserByUserId([FromQuery] Guid userId)
     {
         return await userService.GetUserByUserId(userId);
     }
 
-    [Authorize]
-    [HttpPost("userUpdate")]
+    // [Authorize]//    [HttpPost("userUpdate")]
     public async Task<ActionResult<Guid>> UpdateUser([FromBody] User userUpdateDto)
     {
         var user = await userService.UpdateUserAsync(userUpdateDto.Id, userUpdateDto.UserName,
@@ -69,8 +66,7 @@ public class UserController(IUserService userService) : ControllerBase
         return Ok(user);
     }
     
-    [Authorize]
-    [HttpPost("addTelegramData")]
+    // [Authorize]//    [HttpPost("addTelegramData")]
     public async Task<ActionResult<Guid>> UserTg([FromBody] UserTelegramDto userTelegramDto)
     {
         var user = await userService.UpdateUserTelegramAsync(userTelegramDto.UserId,
