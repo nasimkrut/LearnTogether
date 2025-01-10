@@ -37,7 +37,7 @@ public class PostController : ControllerBase
     }
 
 
-    // [Authorize]//
+    [Authorize]
     [HttpGet("filtered")]
     public async Task<ActionResult<List<Post>>> GetFilteredPostsAsync(
         [FromQuery] Subject? requiredSubject,
@@ -49,7 +49,7 @@ public class PostController : ControllerBase
         return posts;
     }
 
-    // [Authorize]//
+    [Authorize]
     [HttpPost("AddPost")]
     public async Task<ActionResult<Guid>> AddPostAsync([FromBody] PostDto postDto)
     {
