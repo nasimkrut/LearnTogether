@@ -116,7 +116,7 @@ input[type="file"] {
     box-shadow: 0 0 8px rgba(45, 148, 121, 0.3);
 }
 
-.contact-edit-container {
+.contact-container {
     display: flex;
     align-items: center;
     gap: 10px;
