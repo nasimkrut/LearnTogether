@@ -49,6 +49,9 @@ export default function PostCard({post}) {
         <p>
           Может помочь с: <span>{post.helpSubjects.map(getSubjectLabel).join(', ')}</span>
         </p>
+        <p>
+          Описание: <span>{post.description}</span>
+        </p>
       </div>
       <img src={postData.photo} alt={`${postData.userName || 'Пользователь'}`} className="user-photo-post"/>
     </div>

@@ -12,8 +12,6 @@ const ratingOptions = [
 const sortOptions = [
   { value: 0, label: "По дате добавления: новые → старые" },
   { value: 1, label: "По дате добавления: старые → новые" },
-  { value: 2, label: "По рейтингу: высокий → низкий" },
-  { value: 3, label: "По рейтингу: низкий → высокий" },
 ];
 
 export default function FilterPanel({filters, onChange, onApply}) {
@@ -41,21 +39,6 @@ export default function FilterPanel({filters, onChange, onApply}) {
 
   return (
     <div className="filter-panel">
-      <div className="filter-group">
-        <label htmlFor="rating-select">Рейтинг:</label>
-        <select
-          id="rating-select"
-          value={mapValueToRating(filters.rating) || ''}
-          onChange={handleRatingChange}
-        >
-          {ratingOptions.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-      </div>
-
       <div className="filter-group">
         <label htmlFor="sort-select">Сортировка:</label>
         <select

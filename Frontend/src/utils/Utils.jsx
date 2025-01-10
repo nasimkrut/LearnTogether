@@ -22,8 +22,13 @@ export const subjects = [
 ];
 
 export const avatarOptions = [
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9UdkG68P9AHESMfKJ-2Ybi9pfnqX1tqx3wQ&s",
-  "https://as1.ftcdn.net/v2/jpg/01/14/20/46/1000_F_114204617_Whl3arafx4We0f13jcqYRCfVQlD1ezP0.jpg",
+ // "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9UdkG68P9AHESMfKJ-2Ybi9pfnqX1tqx3wQ&s",
+  //"https://as1.ftcdn.net/v2/jpg/01/14/20/46/1000_F_114204617_Whl3arafx4We0f13jcqYRCfVQlD1ezP0.jpg",
+  "https://cdn.prod.website-files.com/5e51c674258ffe10d286d30a/5e5359b47371bb97b7a01b27_peep-69.svg",
+  "https://cdn.prod.website-files.com/5e51c674258ffe10d286d30a/5e535c03c6b24912b82c061d_peep-89.svg",
+  //"https://cdn.prod.website-files.com/5e51c674258ffe10d286d30a/5e5358707371bb635d9f3338_peep-58.svg",
+    "https://cdn.prod.website-files.com/5e51c674258ffe10d286d30a/5e535cf47488c27eb04a70d1_peep-97.svg",
+    "https://cdn.prod.website-files.com/5e51c674258ffe10d286d30a/5e5354c88e249320e005285e_peep-32.svg"
 ];
 
 // export const getSubjectLabel = (value) => {
