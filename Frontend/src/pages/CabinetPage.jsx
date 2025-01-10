@@ -162,6 +162,6 @@ export default function CabinetPage() {
       </div>
     </div>
 
-    {showModal && <VerificationInstruction onClose={handleInstructionClose} userName={userName}/>}
+    {showModal && <VerificationInstruction onClose={handleInstructionClose} userId={user.id}/>}
   </>);
 }
