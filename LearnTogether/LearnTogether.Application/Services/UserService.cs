@@ -62,7 +62,7 @@ public class UserService(IUserRepository userRepository, IOptions<JwtOptions> jw
         {
             Subject = new ClaimsIdentity([
                 new Claim(ClaimTypes.Name, user.UserName),
-            }),
+            ]),
             Expires = DateTime.UtcNow.AddHours(jwtOptions.Value.ExpiresHours),
             SigningCredentials = new SigningCredentials(
                 new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.Value.SecretKey)),
