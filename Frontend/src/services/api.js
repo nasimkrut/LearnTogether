@@ -78,7 +78,7 @@ export const registerUser = async (data) => {
       Description: data.Description,
       TelegramName:  "",
       TelegramChatId: 0,
-      AvatarUrl: ""
+      AvatarUrl: "https://cdn.prod.website-files.com/5e51c674258ffe10d286d30a/5e5356be67293a8a335c71b0_peep-44.svg"
     });
     const userId = await getUserId(data.UserName);
     sessionStorage.setItem('userId', userId);

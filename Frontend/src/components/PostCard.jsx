@@ -20,13 +20,13 @@ export default function PostCard({post}) {
         setPostData({
           userName: user.userName,
           fullName: user.fullName,
-          photo: user.avatarUrl ?? '/avatars/avatar1.png',
+          photo: user.avatarUrl ?? 'https://cdn.prod.website-files.com/5e51c674258ffe10d286d30a/5e5356be67293a8a335c71b0_peep-44.svg',
         });
       } catch (error) {
         setPostData({
           userName: 'undefined',
           fullName: 'Неизвестный пользователь',
-          photo: "/avatars/avatar1.png",
+          photo: "https://cdn.prod.website-files.com/5e51c674258ffe10d286d30a/5e5356be67293a8a335c71b0_peep-44.svg",
         });
         alert(`Ошибка при загрузке данных пользователя: ${error.message}`);
       }
@@ -47,7 +47,7 @@ export default function PostCard({post}) {
           Нужна помощь с: <span>{getSubjectLabel(post.requiredSubject)}</span>
         </p>
         <p>
-          Может помочь с: <span>{post.helpSubjects.map(getSubjectLabel).join(', ')}</span>
+          Поможет с: <span>{post.helpSubjects.map(getSubjectLabel).join(', ')}</span>
         </p>
         <p>
           Описание: <span>{post.description}</span>

@@ -4,8 +4,8 @@ import './AvatarMenu.css'
 
 export default function AvatarMenu({onClose, onAvatarSelect}) {
   return (
-    <div className="modal">
-      <div className="modal-content">
+    <div className="box">
+      <div className="avatars">
         <div className="avatar-options">
           {avatarOptions.map((avatar, index) => (
             <img

@@ -28,7 +28,9 @@ export default function AuthForm({ isLogin, onSubmit }) {
       }
     } else {
       try {
-        const UserName = login;
+        let UserName = login;
+        if (login[0] === "@")
+          UserName = login.substring(1);
         const PasswordHash = password;
         const Rating = 0.0;
         const FullName = name + ' ' + surname;
