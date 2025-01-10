@@ -76,9 +76,9 @@ export const registerUser = async (data) => {
       PasswordHash: data.PasswordHash,
       Rating: data.Rating,
       Description: data.Description,
-      TelegramName:  "-",
+      TelegramName:  "",
       TelegramChatId: 0,
-      AvatarUrl: "-"
+      AvatarUrl: ""
     });
     const userId = await getUserId(data.UserName);
     sessionStorage.setItem('userId', userId);
